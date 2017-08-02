@@ -1,0 +1,13 @@
+header {
+  background: transparent;
+}
+
+.icon {
+  font-size: 250%;
+  padding: 0 5%;
+  color: black;
+}
+
+.ion-ios-cart {
+  float:right;
+}
