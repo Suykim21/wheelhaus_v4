@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { EventsComponent } from './events/events.component';
+import { AboutComponent } from './about/about.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
@@ -14,6 +17,8 @@ import { FeaturedItemsComponent } from './src/app/featured-items/featured-items.
 @NgModule({
   declarations: [
     AppComponent,
+    EventsComponent,
+    AboutComponent,
     BikeStoreComponent,
     LandComponent,
     NavbarComponent,
@@ -22,6 +27,7 @@ import { FeaturedItemsComponent } from './src/app/featured-items/featured-items.
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FlexLayoutModule,
     CommonModule,
   ],
   providers: [PaymentService],
