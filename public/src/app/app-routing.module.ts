@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LandComponent } from './land/land.component';
+import { NavbarComponent } from "./navbar/navbar.component"
 
 const routes: Routes = [
   {
-    path: '',
+    path: '', component: LandComponent,
     children: []
   }
 ];
