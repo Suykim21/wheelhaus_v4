@@ -4,15 +4,15 @@ var path = require('path');
 var bodyParser = require('body-parser');
 let session = require('express-session');
 var sessionInfomation = {
- secret:'theMostSecureSecretKeyEver', 
- resave:false, 
- saveUninitialized: true, 
- name:'myCookie', 
- cookie: {
+  secret:'theMostSecureSecretKeyEver', 
+  resave:false, 
+  saveUninitialized: true, 
+  name:'myCookie', 
+  cookie: {
   secure: false, 
   httpOnly:false, 
   maxAge: 36000000
- }
+  }
 }
 app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended:true}));
