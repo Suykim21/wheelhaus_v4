@@ -1,8 +1,20 @@
 /* ------------------------------------------ */
 /* Intro  */
 /* ------------------------------------------ */
+.container {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* height: 100vh;
+  width: 100vw; */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: -1; 
+}
 
-header {
+.beginning {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./../../assets/img-about/one.jpg');
   background-size: cover;
   background-position: center;
@@ -11,7 +23,7 @@ header {
 }
 
 .intro {
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 50%;
   left: 50%;
@@ -20,6 +32,7 @@ header {
   -webkit-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  /* z-index: 1; */
 }
 
 .intro p {
@@ -34,6 +47,7 @@ header {
   color: #e74c3c;
   font-size: 3em;
 }
+
 
 
 /* ------------------------------------------ */
