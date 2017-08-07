@@ -8,6 +8,7 @@ import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { PaymentService } from './payments/payment.service';
+import { FeaturedItemsComponent } from './src/app/featured-items/featured-items.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { PaymentService } from './payments/payment.service';
     BikeStoreComponent,
     LandComponent,
     NavbarComponent,
+    FeaturedItemsComponent,
   ],
   imports: [
     BrowserModule,
