@@ -1,22 +1,116 @@
+/* ------------------------------------------ */
+/* Land Image  */
+/* ------------------------------------------ */
 .container {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../images/land_background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 
-.container h1 {
-  font-family: 'Source Sans Pro', sans-serif;
-  padding-top: 40%;
+.beginning {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../images/land_background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.intro {
+  position: relative;
+  width: 100%;
+  top: 36%;
+  left: 50%;
+  text-transform: uppercase;
   text-align: center;
-  font-weight: bold;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.intro h1 {
+  width: 100vw;
+  margin: 0;
+  /*font-family: 'Pacifico', cursive;*/
+  color: white;
+  font-size: 3em;
+}
+
+.intro .icon {
   font-size: 300%;
   color: white;
+  position: fixed;
+  padding-top: 50vh;
+}
+
+/* ------------------------------------------ */
+/* Section - Featured Items */
+/* ------------------------------------------ */
+
+.featured-items {
+  padding: 1%;
+  background: #00004d;
+  border-color: #00004d;
+}
+
+.bikes {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 95%;
+  margin: auto;
+  text-align: justify;
+  color: white;
+}
+
+.bikes img  {
+  display: block;
+  margin: auto;
+  width: 90%;
+  padding: 5% 0;
+}
+
+.bikes hr {
+  width: 80%;
+}
+
+.bikes h3 {
+  color: black;
+  text-align: center;
+  margin: 0.3em;
+  -webkit-margin-before:0em;
+  -webkit-margin-after:0em;
+}
+
+.bikes h4 {
+  color: darkgray;
+  text-align: center;
+  margin: 0;
+}
+
+/* ------------------------------------------ */
+/* Section - Footer */
+/* ------------------------------------------ */
+
+.footer {
+  background: #00004d;
+  border-color: #00004d;
+  color: white;
+  text-transform: uppercase;
+  padding: 2%;
+}
+
+.footer h5, h6 {
+  text-align: center;
+  margin: 0;
+}
+
+
+.container {
+  border-color: #00004d;
+  font-family: 'Poppins', sans-serif;
 }

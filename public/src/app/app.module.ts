@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+// import { FlexLayoutModule } from '@angular/flex-layout';
 import { EventsComponent } from './events/events.component';
 import { AboutComponent } from './about/about.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { PaymentService } from './payments/payment.service';
+import { FeaturedItemsComponent } from './featured-items/featured-items.component';
 
 
 @NgModule({
@@ -21,11 +22,12 @@ import { PaymentService } from './payments/payment.service';
     BikeStoreComponent,
     LandComponent,
     NavbarComponent,
+    FeaturedItemsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     CommonModule,
   ],
   providers: [PaymentService],
