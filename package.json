@@ -11,13 +11,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^4.3.3",
+=======
+    "@angular/flex-layout": "^2.0.0-beta.8",
+>>>>>>> d29aa69ad0845fe46bd3f67b14a8fcc1a46c4fed
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-session": "^1.15.4",
     "firebase": "^4.2.0",
     "mongoose": "^4.11.5",
     "passport-jwt": "^2.2.1",
-    "stripe": "^4.23.2"
+    "stripe": "^4.23.2",
+    "waypoints": "^4.0.1"
   }
 }
