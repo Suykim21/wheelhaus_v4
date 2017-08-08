@@ -11,11 +11,8 @@ import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { PaymentService } from './payments/payment.service';
-<<<<<<< HEAD
 import { DetailsComponent } from './events/details/details.component';
-=======
 import { FeaturedItemsComponent } from './featured-items/featured-items.component';
->>>>>>> d29aa69ad0845fe46bd3f67b14a8fcc1a46c4fed
 
 
 @NgModule({
@@ -26,11 +23,8 @@ import { FeaturedItemsComponent } from './featured-items/featured-items.componen
     BikeStoreComponent,
     LandComponent,
     NavbarComponent,
-<<<<<<< HEAD
     DetailsComponent,
-=======
     FeaturedItemsComponent,
->>>>>>> d29aa69ad0845fe46bd3f67b14a8fcc1a46c4fed
   ],
   imports: [
     BrowserModule,
