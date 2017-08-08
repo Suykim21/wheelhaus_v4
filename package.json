@@ -18,6 +18,7 @@
     "firebase": "^4.2.0",
     "mongoose": "^4.11.5",
     "passport-jwt": "^2.2.1",
-    "stripe": "^4.23.2"
+    "stripe": "^4.23.2",
+    "waypoints": "^4.0.1"
   }
 }

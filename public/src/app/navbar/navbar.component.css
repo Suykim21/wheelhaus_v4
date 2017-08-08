@@ -1,3 +1,4 @@
+/* main navi */
 
 .icon {
   font-size: 300%;
@@ -9,6 +10,30 @@
 }
 
 .ion-ios-cart {
+  float: right;
+  padding: 0 5% 0 0;
+}
+
+/* sticky navi */
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,0.98);
+  box-shadow: 0 2px 2px #efefef;
+}
+
+.sticky .icon {
+  font-size: 300%;
+  color: #00004d;
+}
+
+.sticky .ion-navicon {
+  padding: 3% 0 0 5%;
+}
+
+.sticky .ion-ios-cart {
   float: right;
   padding: 0 5% 0 0;
 }

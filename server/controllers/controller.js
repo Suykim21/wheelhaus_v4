@@ -1,7 +1,9 @@
-let mongoose = require('mongoose');
+// let mongoose = require('mongoose');
 // var User = mongoose.model('User');
 // var Product = mongoose.model('Product');
 // var Order = mongoose.model('Order');
+var MongoClient = require('mongodb').MongoClient;
+
 
 module.exports = {
   // newCustomer: (req,res)=>{
