@@ -1,17 +1,18 @@
-/* ------------------------------------------ */
+/* ----------------------------------------- */
 /* Intro  */
-/* ------------------------------------------ */
+/* ----------------------------------------- */
+
 .container {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   /* height: 100vh;
-  width: 100vw; */
-  position: absolute; 
+     width: 100vw; */
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .beginning {
@@ -49,10 +50,10 @@
 }
 
 
-
-/* ------------------------------------------ */
+/* ----------------------------------------- */
 /* Section - About Us */
-/* ------------------------------------------ */
+/* ----------------------------------------- */
+
 .icon {
   font-size: 200%;
   width: 30%;
@@ -82,12 +83,13 @@
   padding: 20px 10px;
   text-align: justify;
   font-family: 'Roboto', sans-serif;
-  color: white; 
+  color: white;
 }
-.story-one h1{
+
+.story-one h1 {
   margin: 0 0 5px 0;
   text-transform: uppercase;
-  font-size: 25px; 
+  font-size: 25px;
 }
 
 .story-one p {
@@ -100,7 +102,7 @@
   padding: 0;
   height: auto;
   margin: 0 10px;
-  margin-bottom: 10%; 
+  margin-bottom: 10%;
 }
 
 .story-image img {
@@ -108,9 +110,10 @@
   max-width: 100%;
 }
 
-/* ------------------------------------------ */
+
+/* ----------------------------------------- */
 /* Section - About Us_2 */
-/* ------------------------------------------ */
+/* ----------------------------------------- */
 
 .section-story_two {
   padding: 40px, 10px;
@@ -134,12 +137,14 @@
   padding: 20px 10px;
   text-align: justify;
   font-family: 'Roboto', sans-serif;
-  color: white; 
+  color: white;
 }
-.story-two h1, h2{
+
+.story-two h1,
+h2 {
   margin: 0 0 5px 0;
   text-transform: uppercase;
-  font-size: 25px; 
+  font-size: 25px;
 }
 
 .story-two h2 {
@@ -156,7 +161,7 @@
   padding: 0;
   height: auto;
   margin: 0 10px;
-  margin-bottom: 10%; 
+  margin-bottom: 10%;
 }
 
 .story-image_two img {
@@ -164,9 +169,10 @@
   max-width: 100%;
 }
 
-/* ------------------------------------------ */
+
+/* ----------------------------------------- */
 /* Section - About Us_3 */
-/* ------------------------------------------ */
+/* ----------------------------------------- */
 
 .section-story_three {
   padding: 40px, 10px;
@@ -190,12 +196,15 @@
   padding: 20px 10px;
   text-align: justify;
   font-family: 'Roboto', sans-serif;
-  color: white; 
+  color: white;
 }
-.story-three h1, h2, ul{
+
+.story-three h1,
+h2,
+ul {
   margin: 0 0 5px 0;
   text-transform: uppercase;
-  font-size: 25px; 
+  font-size: 25px;
 }
 
 .story-list li {
@@ -203,6 +212,7 @@
   font-size: small;
   margin-bottom: 15px;
 }
+
 .story-three h2 {
   font-size: large;
 }
@@ -216,7 +226,7 @@
   width: 95%;
   padding: 0;
   height: auto;
-  margin: 0 10px; 
+  margin: 0 10px;
 }
 
 .story-image_three img {
@@ -235,7 +245,7 @@
   padding: 20px 10px;
   text-align: justify;
   font-family: 'Roboto', sans-serif;
-  color: white; 
+  color: white;
 }
 
 .story-image_four {
@@ -244,10 +254,36 @@
   padding: 0;
   height: auto;
   margin: 0 10px;
-  margin-bottom: 10%; 
+  margin-bottom: 10%;
 }
 
 .story-image_four img {
   height: auto;
   max-width: 100%;
+}
+
+
+/* Small/big tablet to 1200px  */
+
+@media only screen and (min-width: 800px) {
+  .container {
+    background: linear-gradient(to bottom,#ed4264, #ec6ead)
+  }
+
+  .section-story,
+  .section-story_two,
+  .section-story_three {
+    display: inline-block;
+    vertical-align: top; 
+    width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+  } 
+
+  .story-one h1,
+  .story-two h1,
+  .story-three h1,
+  .story-four h1 {
+    font-size: 20px;
+  }
 }

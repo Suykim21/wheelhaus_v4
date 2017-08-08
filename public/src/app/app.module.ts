@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -11,6 +11,7 @@ import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { PaymentService } from './payments/payment.service';
+import { DetailsComponent } from './events/details/details.component';
 
 
 @NgModule({
@@ -21,9 +22,11 @@ import { PaymentService } from './payments/payment.service';
     BikeStoreComponent,
     LandComponent,
     NavbarComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
     CommonModule,
