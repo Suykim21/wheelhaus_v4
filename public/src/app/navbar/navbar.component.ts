@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { PaymentService } from '../payments/payment.service';
 import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-navbar',
