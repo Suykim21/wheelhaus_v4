@@ -7,7 +7,4 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
 
-  color: string;
-
-
 }
