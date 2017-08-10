@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { LandComponent } from './land/land.component';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { AccessoriesComponent } from './accessories/accessories.component';
 
 const routes: Routes = [
   {path: 'events', component: EventsComponent}, 
@@ -15,7 +16,8 @@ const routes: Routes = [
     children: [
 
     ]
-  }
+  },
+  {path: 'accessories', component: AccessoriesComponent}
 ];
 
 @NgModule({
