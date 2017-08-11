@@ -47,6 +47,7 @@
         defaultExtension: 'js'
       }
       /** Configuration for ng2-file-upload */
+
     }
   });
 })(this);
