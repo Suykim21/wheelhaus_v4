@@ -13,7 +13,9 @@ import { LandComponent } from './land/land.component';
 import { PaymentService } from './payments/payment.service';
 import { DetailsComponent } from './events/details/details.component';
 import { FeaturedItemsComponent } from './featured-items/featured-items.component';
+import { AccessoriesComponent } from './accessories/accessories.component';
 
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { FeaturedItemsComponent } from './featured-items/featured-items.componen
     NavbarComponent,
     DetailsComponent,
     FeaturedItemsComponent,
+    AccessoriesComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
