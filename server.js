@@ -18,8 +18,7 @@ app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
-// changed from mongoose.js
-require('./server/config/mongodb.js');
+require('./server/config/mongoose.js');
 
 // FOR CORSS-ORIGIN IMAGE UPLOAD
 // app.use(function(req, res, next) { //allow cross origin requests
