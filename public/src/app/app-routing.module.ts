@@ -9,7 +9,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 
 const routes: Routes = [
   {path: 'events', component: EventsComponent}, 
-  {path: 'events/:id', component: DetailsComponent},
+  {path: 'events/details', component: DetailsComponent},
   {path: 'about', component: AboutComponent},
   {path: '', component: LandComponent,
     children: [

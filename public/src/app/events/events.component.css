@@ -112,10 +112,6 @@ img {
     .event-title {
         font-size: 2rem;
     }
-    /* .event-item img {
-        width: 375px;
-        height: 250px;
-    } */
 }
  
  @media (min-width: 592px) {
