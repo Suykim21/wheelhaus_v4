@@ -10,10 +10,10 @@ import { AboutComponent } from './about/about.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
-import { PaymentService } from './payments/payment.service';
 import { DetailsComponent } from './events/details/details.component';
-import { FeaturedItemsComponent } from './featured-items/featured-items.component';
+import { AccessoriesComponent } from './accessories/accessories.component';
 
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { FeaturedItemsComponent } from './featured-items/featured-items.componen
     LandComponent,
     NavbarComponent,
     DetailsComponent,
-    FeaturedItemsComponent,
+    AccessoriesComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,7 @@ import { FeaturedItemsComponent } from './featured-items/featured-items.componen
     // FlexLayoutModule,
     CommonModule,
   ],
-  providers: [PaymentService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

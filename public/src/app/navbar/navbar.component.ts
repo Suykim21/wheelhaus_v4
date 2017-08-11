@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { PaymentService } from '../payments/payment.service';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+// import { PaymentService } from '../payments/payment.service';
 import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,9 @@ export class NavbarComponent implements OnInit {
   handler: any;
   amount: 500;
 
-  constructor(private paymentSvc: PaymentService) { }
+  // In constructor
+  // "private paymentSvc: PaymentService"
+  constructor() { }
 
   ngOnInit() {
 	  this.handler = StripeCheckout.configure({
@@ -20,7 +23,7 @@ export class NavbarComponent implements OnInit {
 		  image: "https://stripe.com/img/documentation/checkout/marketplace.png",
 		  locale: "auto",
       token: token => {
-        this.paymentSvc.processPayment(token, this.amount)
+        // this.paymentSvc.processPayment(token, this.amount)
       }
 	  });
   }

@@ -4,122 +4,32 @@
 // var Order = mongoose.model('Order');
 var MongoClient = require('mongodb').MongoClient;
 
+// FOR FILE UPLOADS
+var fs = require('fs');
+var multer = require("multer");
+var storage = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        cb(null, './public/images/product_images');
+    },
+    filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+    }
+});
+
+var upload = multer({ //multer settings
+                storage: storage
+            }).single('file');
 
 module.exports = {
-  // newCustomer: (req,res)=>{
-  //   let newUser = new User({name:req.body.name});
-  //   newUser.save((err,savedUser)=>{
-  //     if(err){
-  //       console.log("Error saving user")
-  //     } else {
-  //       req.session.user = savedUser;
-  //       res.json(savedUser);
-  //     }
-  //   })
-  // },
-
-  // getUsers:(req,res)=>{
-  //   User.find({},(err,users)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(users);
-  //     }
-  //   })
-  // },
-
-  // addProduct:(req,res)=>{
-  //   let newProd = new Product(req.body);
-  //   newProd.save((err,savedProd)=>{
-  //     if(err){
-  //       console.log("Error saving product");
-  //     } else {
-  //       res.json(savedProd);
-  //     }
-  //   })
-  // },
-
-  // getProds:(req,res)=>{
-  //   Product.find({},(err,products)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(products);
-  //     }
-  //   })
-  // },
-
-  // placeOrder:(req,res)=>{
-  //   User.findOne({name:req.body.name},(err,user)=>{
-  //     if(err){
-  //       console.log(err)
-  //     } else {
-  //       let customer_id = user._id;
-  //       Product.findOne({name:req.body.product},(err,product)=>{
-  //         if(err){
-  //           console.log(err);
-  //         } else {
-  //           let product_id = product._id;
-  //           if(product.quantity>req.body.quantity){
-  //             product.quantity = product.quantity-req.body.quantity;
-  //             product.save((err,updatedProduct)=>{
-  //               console.log(updatedProduct)
-  //               let newOrder = new Order({_user:customer_id, _product:product_id, quantity:req.body.quantity});
-  //               newOrder.save((err,savedOrder)=>{
-  //                 if(err){
-  //                   console.log(err);
-  //                 } else {
-  //                   res.json(savedOrder)
-  //                 }
-  //               })
-  //             })
-  //           } else {
-  //             res.json("Not enough product")
-  //           }            
-  //         }
-  //       })
-  //     }
-  //   })
-  // },
-
-  // getOrders:(req,res)=>{
-  //   Order.find({}).populate('_user','name').populate('_product','name').exec((err,orders)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     }else{
-  //       res.json(orders);
-  //     }
-  //   })
-  // },
-
-  // removeUser:(req,res)=>{  
-  //   User.remove({_id:req.params.id},(err,data)=>{
-  //     if(err){
-  //       res.sendStatus(400);
-  //     } else {
-  //       return res.json(data)
-  //     }
-  //   })
-  // },
-
-  // getRecentOrders:(req,res)=>{
-  //   Order.find({}).populate('_user','name').populate('_product','name').sort('-createdAt').limit(3).exec((err,orders)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(orders)
-  //     }
-  //   })
-  // },
-
-  // getrecentUsers:(req,res)=>{
-  //   User.find({}).sort('-createdAt').limit(3).exec((err,users)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(users);
-  //     }
-  //   })
-  // },
-
-} 
+  uploadPic: (req, res) => {
+        upload(req,res,function(err){
+            console.log(req.file);
+            if(err){
+                res.json({error_code:1,err_desc:err});
+                return;
+            }
+            res.json({error_code:0,err_desc:null});
+        });
+    }
+}
