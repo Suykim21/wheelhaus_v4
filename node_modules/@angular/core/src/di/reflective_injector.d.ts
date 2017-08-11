@@ -102,7 +102,7 @@ export declare abstract class ReflectiveInjector implements Injector {
      *
      * This function is slower than the corresponding `fromResolvedProviders`
      * because it needs to resolve the passed-in providers first.
-     * See {@link ReflectiveInjector#resolve} and {@link ReflectiveInjector#fromResolvedProviders}.
+     * See {@link Injector#resolve} and {@link Injector#fromResolvedProviders}.
      */
     static resolveAndCreate(providers: Provider[], parent?: Injector): ReflectiveInjector;
     /**
@@ -143,7 +143,7 @@ export declare abstract class ReflectiveInjector implements Injector {
      * expect(child.parent).toBe(parent);
      * ```
      */
-    readonly abstract parent: Injector | null;
+    parent: Injector;
     /**
      * Resolves an array of providers and creates a child injector from those providers.
      *
@@ -169,7 +169,7 @@ export declare abstract class ReflectiveInjector implements Injector {
      *
      * This function is slower than the corresponding `createChildFromResolved`
      * because it needs to resolve the passed-in providers first.
-     * See {@link ReflectiveInjector#resolve} and {@link ReflectiveInjector#createChildFromResolved}.
+     * See {@link Injector#resolve} and {@link Injector#createChildFromResolved}.
      */
     abstract resolveAndCreateChild(providers: Provider[]): ReflectiveInjector;
     /**
@@ -258,7 +258,7 @@ export declare class ReflectiveInjector_ implements ReflectiveInjector {
      */
     constructor(_providers: ResolvedReflectiveProvider[], _parent?: Injector);
     get(token: any, notFoundValue?: any): any;
-    readonly parent: Injector | null;
+    parent: Injector;
     resolveAndCreateChild(providers: Provider[]): ReflectiveInjector;
     createChildFromResolved(providers: ResolvedReflectiveProvider[]): ReflectiveInjector;
     resolveAndInstantiate(provider: Provider): any;
@@ -270,6 +270,6 @@ export declare class ReflectiveInjector_ implements ReflectiveInjector {
     private _getByReflectiveDependency(dep);
     private _getByKey(key, visibility, notFoundValue);
     private _getObjByKeyId(keyId);
-    readonly displayName: string;
+    displayName: string;
     toString(): string;
 }
