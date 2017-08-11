@@ -1,12 +1,18 @@
 /* ------------------------------------- */
 /* Intro  */
 /* ------------------------------------- */
+* {
+    margin: 0;
+}
 
 .container {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   margin: 0;
   font-family: 'Raleway', sans-serif;
