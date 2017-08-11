@@ -3,6 +3,7 @@
 /* ------------------------------------- */
 
 * {
+    margin: 0;
     box-sizing: border-box;
     transition: all ease-in-out 250ms;
 }
@@ -17,6 +18,9 @@ img {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   margin: 0;
   font-family: 'Raleway', sans-serif;
@@ -112,10 +116,6 @@ img {
     .event-title {
         font-size: 2rem;
     }
-    /* .event-item img {
-        width: 375px;
-        height: 250px;
-    } */
 }
  
  @media (min-width: 592px) {
