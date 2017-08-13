@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { LandComponent } from './land/land.component';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { ApparelComponent } from "./apparel/apparel.component";
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'events/details', component: DetailsComponent},
   {path: 'about', component: AboutComponent},
   {path: '', component: LandComponent},
+  {path: 'apparel', component: ApparelComponent},
   {path: 'bikes', component: BikeStoreComponent},
   {path: 'accessories', component: AccessoriesComponent}
 ];

@@ -14,6 +14,7 @@ import { DetailsComponent } from './events/details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { ApparelComponent } from './apparel/apparel.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
     NavbarComponent,
     DetailsComponent,
     AccessoriesComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    ApparelComponent
   ],
   imports: [
     BrowserModule,
