@@ -6,7 +6,9 @@ import {BrowserModule} from '@angular/platform-browser';
 @Component({
   selector: 'app-land',
   templateUrl: './land.component.html',
-  styleUrls: ['./land.component.css'],
+  styleUrls: ['./land.component.mobile.css',
+              './land.component.tablet.css',
+              './land.component.desktop.css'],
   // animations: [
   //   trigger('dataState', [
   //     state('inactive', style({
