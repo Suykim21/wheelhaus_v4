@@ -152,6 +152,7 @@ img {
     background-position: center;
     background-attachment: fixed;
     height: 70vh;
+    width: 100vw;
 }
 
 /* ------------------------------------ */

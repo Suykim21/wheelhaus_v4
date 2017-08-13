@@ -62,6 +62,7 @@ img {
 }
 .events h1 {
     font-weight: 300;
+    margin: 1em 0;
 }
 
 .event-item {
@@ -133,7 +134,7 @@ img {
 @media (min-width: 37rem) {
     .event-item {
         width: 50%;
-         float: left; 
+        float: left; 
     }
 } 
 
