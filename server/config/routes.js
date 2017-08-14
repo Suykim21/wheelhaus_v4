@@ -1,7 +1,9 @@
 var controllers = require('./../controllers/controller.js');
 
 module.exports=(app)=>{
-  app.post("/upload", controllers.uploadPic);
+  app.post("/accessoryupload", controllers.addAccessoryImage);
+  app.post("/api/addAccessory", controllers.addAccessory);
+  app.get("/api/getAllAccessories", controllers.getAllAccessories);
   // app.post('/api/newcust', controllers.newCustomer);
   // app.get('/api/getusers', controllers.getUsers);
   // app.get('/api/getrecentusers', controllers.getrecentUsers);

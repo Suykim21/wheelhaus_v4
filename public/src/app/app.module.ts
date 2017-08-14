@@ -15,7 +15,10 @@ import { DetailsComponent } from './events/details/details.component';
 import { FeaturedItemsComponent } from './featured-items/featured-items.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 
+import { AccessoriesService } from './accessories/accessories.service';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,11 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
     AppRoutingModule,
     // FlexLayoutModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [PaymentService],
+  providers: [PaymentService, AccessoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
