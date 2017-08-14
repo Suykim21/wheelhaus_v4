@@ -40,7 +40,7 @@ img {
 }
 
 .about-hero {
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('./../../assets/img-about/eleven.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('./../../assets/img-events/twenty.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -101,7 +101,7 @@ img {
 }
 
 .about-one {
-    background: url('./../../assets/img-about/ten.jpg');
+    background: url('./../../assets/img-about/eleven.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
