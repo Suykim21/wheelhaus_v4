@@ -12,9 +12,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { DetailsComponent } from './events/details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
+import { ApparelComponent } from './apparel/apparel.component';
+import { AccessComponent } from './access/access.component';
 
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
-import { ApparelComponent } from './apparel/apparel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ApparelComponent } from './apparel/apparel.component';
     DetailsComponent,
     AccessoriesComponent,
     FileSelectDirective,
-    ApparelComponent
+    ApparelComponent,
+    AccessComponent
   ],
   imports: [
     BrowserModule,
