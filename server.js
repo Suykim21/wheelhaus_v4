@@ -18,8 +18,7 @@ app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
-// changed from mongoose.js
-require('./server/config/mongodb.js');
+require('./server/config/mongoose.js');
 
 // FOR CORSS-ORIGIN IMAGE UPLOAD
 // app.use(function(req, res, next) { //allow cross origin requests
@@ -42,4 +41,4 @@ var route = require('./server/config/routes.js')(app)
 app.get('*', (req,res)=>{
   res.sendFile(path.resolve('public/dist/index.html'))
 })
-app.listen(3001,()=>console.log("Listening on port 3001"));
+app.listen(3002,()=>console.log("Listening on port 3002"));

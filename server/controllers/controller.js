@@ -27,22 +27,16 @@ module.exports = {
     if(err){
       res.json({error_code:1,err_desc:err});
       return;
+    }else{
+      res.json(req.file.filename);
     }
-    res.json(req.file.filename);
-    });
-
-
-
-  },
+  })
+},
 
   addAccessory: (req, res) => {
-    console.log("controller @ addAccessory*************************");
-    console.log(req.body);
     var accessory = new Accessory(req.body);
     accessory.save((err, accessory) => {
       if(err){
-        console.log(err);
-        console.log("******^^^^^^^^^^^ ERR IN CONTROLLER @ addAccessory");
       }else{
         return;
       }
@@ -53,10 +47,7 @@ module.exports = {
     Accessory.find({}, (err, accessories) => {
       if(err){
         console.log(err);
-        console.log("**^^^^^^^^^^^^^ ERR IN CONTROLLER @ getAllAccessories")
       }else{
-        // console.log(accessories);
-        // console.log("****^^^^^^^^^ get all accessories in controller")
         return res.json(accessories);
       }
     })

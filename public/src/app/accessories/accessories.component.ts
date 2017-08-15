@@ -9,7 +9,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
   styleUrls: ['./accessories.component.css']
 })
 export class AccessoriesComponent implements OnInit {
-    public uploader:FileUploader = new FileUploader({url:'http://localhost:3001/accessoryupload'});
+    public uploader:FileUploader = new FileUploader({url:'http://localhost:3002/accessoryupload'});
     public file_name:any;
     public accessory:any;
     public all_accessories:Array<any>;

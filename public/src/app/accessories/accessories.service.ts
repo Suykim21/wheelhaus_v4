@@ -12,6 +12,7 @@ export class AccessoriesService {
   addAccessory(accessory, path){
     path = path.substr(1).slice(0, -1);
     accessory["path"] = path;
+    console.log(path);
     return this._http.post('/api/addAccessory', accessory)
     .map(data => data.json())
     .toPromise();

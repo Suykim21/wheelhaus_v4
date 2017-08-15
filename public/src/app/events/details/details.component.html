@@ -1,6 +1,104 @@
-<h1>asdfl;kajsdf;kljasldk</h1>
-<h1>asdfl;kajsdf;kljasldk</h1>
-<h1>asdfl;kajsdf;kljasldk</h1>
-<h1>asdfl;kajsdf;kljasldk</h1><h1>asdfl;kajsdf;kljasldk</h1>
-<h1>asdfl;kajsdf;kljasldk</h1>
-<h1>asdfl;kajsdf;kljasldk</h1><h1>asdfl;kajsdf;kljasldk</h1>
+<div class="container">
+  <section class="details-hero">
+    <!-- Need Event Title -->
+    <p class="details-title">Events: Title </p>
+  </section>
+
+   <section class="details-main"> 
+    <!-- Need Description -->
+    <p>Sunt anim <strong>sunt id ullamco</strong> nulla commodo elit.Excepteur incididunt et amet pariatur enim proident fugiat nisi.</p>
+
+    <br>
+
+    <p>Excepteur laboris esse deserunt irure incididunt eu consectetur velit ut aliqua ea exercitation commodo in. Reprehenderit occaecat dolore proident officia eu irure occaecat consectetur pariatur ea do veniam commodo adipisicing. Ad ex laborum velit irure mollit nisi mollit incididunt. Voluptate exercitation dolor deserunt qui nisi irure amet nostrud culpa deserunt. Sit dolore sit nulla aliquip pariatur velit mollit ullamco deserunt veniam anim tempor. Magna occaecat do pariatur nisi minim pariatur incididunt irure consectetur dolore consequat elit. Tempor nulla quis dolore irure dolor nulla ea sint sint voluptate ipsum qui et non.</p>
+
+    <br>
+
+    <p>Nisi dolor ipsum non mollit sunt. Velit magna consequat velit labore et ullamco eiusmod reprehenderit. In elit laborum minim quis reprehenderit. Lorem veniam ex non duis duis Lorem occaecat aliqua ipsum.</p>
+
+    <br>
+
+    <p>Velit eu eiusmod sint deserunt ad. Magna minim aute et proident ipsum magna ad duis et quis est eiusmod. Ullamco eiusmod elit incididunt nisi sunt aute velit adipisicing ea laboris labore veniam in ipsum. Consequat incididunt eiusmod cillum deserunt magna exercitation ullamco eiusmod commodo. Eu et quis ad incididunt. Veniam ut eu magna aliqua duis ipsum incididunt proident eu irure non irure. Velit excepteur pariatur eiusmod eiusmod.</p>
+
+    <br>
+    <!-- Need Date string interpolation -->
+    <p>Saturday, July 29, 2017</p>
+    <p>7am - 12:30pm</p>
+
+    <br>
+
+    <!-- Need host company, location, address  -->
+    <p>Venice Bike Co.</p>
+    <p>1234 West 15th Street</p>
+    <!-- linking to google maps api -->
+    <p>Venice, California 90024</p>
+
+    <br>
+
+    <!-- facebook, twitter, google+ apis?  -->
+    <div class="social-icons">
+      <a href=""><img src="assets/icons/facebook.png" alt="facebook"></a>
+      <a href=""><img src="assets/icons/twitter.png" alt="twitter"></a>
+      <a href=""><img src="assets/icons/google.png" alt="google"></a>
+    </div>
+
+    <br>
+
+    <!-- Modal pop-up thanking user for rsvping  -->
+    <!-- might need to do ngIf to change button to 'unjoin' event -->
+    <a [routerLink]="['/events/details']" class="button button-small">rsvp</a>
+
+    <!-- <div class="pictures">
+      <div class="pic-one">
+        <img src="assets/img-events/fifteen.jpg" alt="one">
+      </div>
+      <div class="pic-two">
+          <img src="assets/img-events/nine.jpg" alt="two">
+      </div>
+      <div class="pic-three">
+        <img src="assets/img-events/thirteen.jpg" alt="three">
+      </div>
+    </div> -->
+
+  </section> 
+  
+  <section class="popular-events">
+    <h1>Popular Events</h1>
+
+    <!-- <div class="popular-details"> -->
+
+      <div class="popular">
+        <img src="assets/img-events/two_event.jpg" alt="one">
+        <p class="popular-date">Date</p>
+        <h1>Event: Title</h1>
+        <p>Laboris duis ullamco amet dolore enim adipisicing cillum non ipsum sint magna proident veniam nisi. Velit aliquip excepteur aliqua commodo ex labore dolor. Voluptate reprehenderit sint id mollit veniam deserunt minim fugiat qui dolor Lorem sunt ut ea. Eu et esse amet laborum amet cupidatat ut minim aliquip...</p>
+        <a href="" class="button button-small">details</a>
+      </div>
+
+      <hr>
+
+      <div class="popular">
+        <img src="assets/img-events/three_event.jpg" alt="two">
+        <p class="popular-date">Date</p>
+        <h1>Event: Title</h1>
+        <p>Laboris duis ullamco amet dolore enim adipisicing cillum non ipsum sint magna proident veniam nisi. Velit aliquip excepteur aliqua commodo ex labore dolor. Voluptate reprehenderit sint id mollit veniam deserunt minim fugiat qui dolor Lorem sunt ut ea. Eu et esse amet laborum amet cupidatat ut minim aliquip...</p>
+        <a href="" class="button button-small">details</a>
+      </div>
+
+      <hr>
+
+      <div class="popular">
+        <img src="assets/img-events/four_event.jpg" alt="three">
+        <p class="popular-date">Date</p>
+        <h1>Event: Title</h1>
+        <p>Laboris duis ullamco amet dolore enim adipisicing cillum non ipsum sint magna proident veniam nisi. Velit aliquip excepteur aliqua commodo ex labore dolor. Voluptate reprehenderit sint id mollit veniam deserunt minim fugiat qui dolor Lorem sunt ut ea. Eu et esse amet laborum amet cupidatat ut minim aliquip...</p>
+        <a href="" class="button button-small">details</a>
+      </div>
+
+      <hr>
+
+    <!-- </div> -->
+
+    <a [routerLink]="['/events/']" class="button button-small button-large">all events</a>
+  </section>
+</div>
