@@ -1,96 +1,37 @@
-<h1>lksdafljlaljlkas</h1>
+<h1>LKJFDSKJFLSJFLKJS</h1>
+<form (submit)="holdAccessoryDetails(formData)" #formData="ngForm">
+    <p>Name: <input type="text" name="name" ngModel></p>
+    <p>Description:</p>
+    <textarea name="description" cols="30" rows="10" ngModel></textarea>
+      <p>Quantity: <input type="number" name="qty" ngModel></p>
+      <p>Price: <input type="number" name="cost" ngModel></p>
+    Limited?
+    <input type="checkbox" name="limited" ngModel>
+      <p>File: <input type="file" class="form-control" name="image" ng2FileSelect [uploader]="uploader"/></p>
+      <p *ngFor="let file of uploader.queue">
+        <button (click)="file.upload()">Add</button>
+      </p>
+</form>
 
-<nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                            <li><a>File Upload</a></li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                </nav>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <form>
-                                <div class="form-group">
-                                    <label for="multiple">Multiple</label>
-                                    <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
-                                </div>
-                                <div class="form-group">
-                                    <label for="single">single</label>
-                                    <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-8">
-                            <h3>File Upload with Angular 2 and Node</h3>
-                            Queue length: {{ uploader?.queue?.length }}
-
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th width="50%">Name</th>
-                                    <th>Size</th>
-                                    <th>Progress</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr *ngFor="let item of uploader.queue">
-                                    <td><strong>{{ item.file.name }}</strong></td>
-                                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
-                                    <td>
-                                        <div class="progress" style="margin-bottom: 0;">
-                                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                    </td>
-                                    <td nowrap>
-                                        <button type="button" class="btn btn-success btn-xs"
-                                                (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-                                            <span class="glyphicon glyphicon-upload"></span> Upload
-                                        </button>
-                                        <button type="button" class="btn btn-warning btn-xs"
-                                                (click)="item.cancel()" [disabled]="!item.isUploading">
-                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-xs"
-                                                (click)="item.remove()">
-                                            <span class="glyphicon glyphicon-trash"></span> Remove
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-                            <div>
-                                <div>
-                                    Queue progress:
-                                    <div class="progress" style="">
-                                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-success btn-s"
-                                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
-                                    <span class="glyphicon glyphicon-upload"></span> Upload all
-                                </button>
-                                <button type="button" class="btn btn-warning btn-s"
-                                        (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
-                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
-                                </button>
-                                <button type="button" class="btn btn-danger btn-s"
-                                        (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
-                                    <span class="glyphicon glyphicon-trash"></span> Remove all
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Cost</th>
+    <th>Qty</th>
+    <th>Bought</th>
+    <th>Path</th>
+    <th>Limited</th>
+  </tr>
+  <tr *ngFor="let accessory of all_accessories">
+    <td>{{ accessory.name }}</td>
+    <td>{{ accessory.description }}</td>
+    <td>{{ accessory.cost }}</td>
+    <td>{{ accessory.qty }}</td>
+    <td>{{ accessory.bought }}</td>
+    <td>
+      <img src="assets/accessories_images/{{ accessory.path }}" alt="">
+    </td>
+    <td>{{ accessory.limited }}</td>
+  </tr>
+</table>
