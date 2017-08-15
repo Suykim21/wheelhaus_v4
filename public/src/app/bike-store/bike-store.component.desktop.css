@@ -17,7 +17,7 @@
   }
 
   .beginning {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../images/bike-store-land.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../assets/backgrounds/bike-store-land.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -39,9 +39,12 @@
   .intro h1 {
     width: 100vw;
     margin: 0;
-    /*font-family: 'Pacifico', cursive;*/
     color: white;
     font-size: 3em;
+  }
+
+  .intro h2 {
+    color: white;
   }
 
   .intro .icon {
@@ -57,8 +60,8 @@
 
   .wrapper {
     padding: 1%;
-    background: #00004d;
-    border-color: #00004d;
+    background: #1B1D1E;
+    border-color: #1B1D1E;
   }
 
   .bikes {
@@ -104,62 +107,14 @@
     margin: 0;
   }
 
-  /*Circles for desktop on hover effect*/
-
-  /*.bike-one img {
-    margin-top: -65%;
-  }
-
-  .bike-two img {
-    margin-top: -80%;
-  }
-
-  .bike-three img {
-    margin-top: -65%;
-  }
-
-  .circle-one {
-    display: block;
-    margin: auto;
-    border-radius: 50%;
-    width: 60%;
-    height: auto;
-    padding-top: 60%;
-    background-color: #EE82EE;
-  }
-
-  .fill {
-    height: 50px;
-    width: 30px;
-  }
-
-  .circle-two {
-    display: block;
-    margin: auto;
-    border-radius: 50%;
-    width: 60%;
-    height: auto;
-    padding-top: 60%;
-    background-color: #FF7F50;
-  }
-
-  .circle-three {
-    display: block;
-    margin: auto;
-    border-radius: 50%;
-    width: 60%;
-    height: auto;
-    padding-top: 60%;
-    background-color: #6affcb;
-  }*/
 
   /* ------------------------------------------ */
   /* Section - Footer */
   /* ------------------------------------------ */
 
   .footer {
-    background: #00004d;
-    border-color: #00004d;
+    background: #1B1D1E;
+    border-color: #1B1D1E;
     color: white;
     text-transform: uppercase;
     padding: 2%;
@@ -170,10 +125,9 @@
     margin: 0;
   }
 
-
   .container {
-    border-color: #00004d;
-    font-family: 'Poppins', sans-serif;
+    border-color: #1B1D1E;
+    font-family: 'Raleway', sans-serif;
   }
 
 }

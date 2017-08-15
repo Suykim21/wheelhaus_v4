@@ -36,6 +36,14 @@ export class NavbarComponent implements OnInit {
 	  });
   }
 
+  openSideMenu() {
+    document.getElementById('side-menu').style.width = '250px'
+  }
+
+  closeSideMenu() {
+    document.getElementById('side-menu').style.width = '0'
+  }
+
   @HostListener('window:popstate')
     onPopstate(){
       this.handler.close()
