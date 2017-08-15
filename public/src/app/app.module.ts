@@ -13,10 +13,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { DetailsComponent } from './events/details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ApparelComponent } from './apparel/apparel.component';
+import { HttpModule } from '@angular/http';
+import { AgmCoreModule } from '@agm/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AccessComponent } from './access/access.component';
 
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,13 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
     AppRoutingModule,
     FlexLayoutModule,
     CommonModule,
+    AgmCoreModule.forRoot({
+      libraries: ["places"],
+      apiKey: 'AIzaSyD1ZzI7wCgzlk1_fe68Zp5w6kJ2ELedqMA'
+    }),
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
