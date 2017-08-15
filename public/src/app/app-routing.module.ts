@@ -9,15 +9,18 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { ApparelComponent } from "./apparel/apparel.component";
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
+import { AccessComponent } from './access/access.component';
+
 
 const routes: Routes = [
-  {path: 'events', component: EventsComponent}, 
+  {path: 'events', component: EventsComponent},
   {path: 'events/details', component: DetailsComponent},
   {path: 'about', component: AboutComponent},
   {path: '', component: LandComponent},
   {path: 'apparel', component: ApparelComponent},
   {path: 'bikes', component: BikeStoreComponent},
-  {path: 'accessories', component: AccessoriesComponent}
+  {path: 'accessories', component: AccessoriesComponent},
+  {path: 'access', component: AccessComponent}
 ];
 
 @NgModule({

@@ -9,12 +9,12 @@
     top: 0;
     left: 0;
     z-index: -1;
-    border-color: #00004d;
-    font-family: 'Poppins', sans-serif;
+    border-color: #1B1D1E;
+    font-family: 'Raleway', sans-serif;
   }
 
   .beginning {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../images/land-desktop.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../assets/backgrounds/land-back.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -36,7 +36,6 @@
   .intro h1 {
     width: 100vw;
     margin: 0;
-    /*font-family: 'Pacifico', cursive;*/
     color: white;
     font-size: 3em;
   }
@@ -54,8 +53,8 @@
 
   .wrapper {
     padding: 1%;
-    background: #00004d;
-    border-color: #00004d;
+    background: #1B1D1E;
+    border-color: #1B1D1E;
   }
 
   .featured-items {
@@ -160,8 +159,8 @@
   /* ------------------------------------------ */
 
   .footer {
-    background: #00004d;
-    border-color: #00004d;
+    background: #1B1D1E;
+    border-color: #1B1D1E;
     color: white;
     text-transform: uppercase;
     padding: 2%;

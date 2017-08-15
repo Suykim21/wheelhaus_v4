@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -16,8 +17,11 @@ import { AccessoriesComponent } from './accessories/accessories.component';
 import { AccessoriesService } from './accessories/accessories.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
-import { HttpModule } from '@angular/http';
 import { ApparelComponent } from './apparel/apparel.component';
+import { HttpModule } from '@angular/http';
+import { AgmCoreModule } from '@agm/core';
+import { AccessComponent } from './access/access.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { ApparelComponent } from './apparel/apparel.component';
     DetailsComponent,
     AccessoriesComponent,
     FileSelectDirective,
-    ApparelComponent
+    ApparelComponent,
+    AccessComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,13 @@ import { ApparelComponent } from './apparel/apparel.component';
     AppRoutingModule,
     FlexLayoutModule,
     CommonModule,
+    AgmCoreModule.forRoot({
+      libraries: ["places"],
+      apiKey: 'AIzaSyD1ZzI7wCgzlk1_fe68Zp5w6kJ2ELedqMA'
+    }),
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
   ],
   providers: [AccessoriesService],
   bootstrap: [AppComponent]

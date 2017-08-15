@@ -60,10 +60,46 @@ img {
 .events {
     margin: 0;
 }
+
 .events h1 {
     font-weight: 300;
     margin: 1em 0;
 }
+
+.navbar {
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    list-style-type: none;
+    color: black;
+}
+
+.navbar > li {
+    list-style-type: none;
+    position: relative;
+}
+
+.events-navbar-icon {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    font-size: 300%;
+    display: inline-block;
+}
+
+.events-navbar-icon:after {
+    content: "";
+    position: absolute;
+    display: block;
+
+}
+
+.submenu {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
 
 .event-item {
     margin: 0;
@@ -155,11 +191,22 @@ img {
         overflow: hidden;
     }
 
+    .event-item:hover img {
+        filter: brightness(70%);
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+
     .event-desc {
-        transform: translateY(150%);
+        -webkit-transform: translatey(-100%);
+        transform: translateY(-100%);
+        background: transparent;
+        opacity: 0;
     }
 
     .event-item:hover .event-desc {
-        transform: translateY(0%);
+        opacity: 1;
     }
 }
