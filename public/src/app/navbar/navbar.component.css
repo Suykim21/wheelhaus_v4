@@ -38,3 +38,39 @@
   float: right;
   padding: 0 5% 0 0;
 }
+
+.side-nav {
+  height: 250px;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  opacity: 0.9;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+  border-radius: 0 15px 15px 15px;
+}
+
+.side-nav a {
+  padding: 10px 10px 10px 30px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #ccc;
+  display: block;
+  transition: 0.3;
+}
+
+.side-nav a:hover {
+  color: #fff;
+}
+
+.side-nav .btn-close {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  font-size: 36;
+  margin-left: 50px;
+}
