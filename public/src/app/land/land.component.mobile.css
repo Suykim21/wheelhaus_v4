@@ -72,6 +72,12 @@
     padding-top: 5%;
   }
 
+  .featured-items h2 {
+    color: black;
+    text-align: center;
+    padding-bottom: 0;
+  }
+
   .featured-items img  {
     display: block;
     margin: auto;
