@@ -3,14 +3,14 @@ let mongoose = require('mongoose');
 // var Product = mongoose.model('Product');
 var Accessory = mongoose.model('Accessory');
 // var Order = mongoose.model('Order');
-var MongoClient = require('mongodb').MongoClient;
+// var MongoClient = require('mongodb').MongoClient;
 
 // FOR FILE UPLOADS
 var fs = require('fs');
 var multer = require("multer");
 var storage = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
-        cb(null, './public/images/product_images');
+        cb(null, './public/src/assets/accessories_images');
     },
     filename: function (req, file, cb) {
         var datetimestamp = Date.now();
@@ -33,7 +33,7 @@ module.exports = {
     }
   })
 },
-    
+
   addAccessory: (req, res) => {
     var accessory = new Accessory(req.body);
     accessory.save((err, accessory) => {

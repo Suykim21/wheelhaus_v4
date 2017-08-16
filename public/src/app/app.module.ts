@@ -13,12 +13,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { DetailsComponent } from './events/details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
+
+import { AccessoriesService } from './accessories/accessories.service';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ApparelComponent } from './apparel/apparel.component';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AccessComponent } from './access/access.component';
 
 
@@ -50,7 +51,7 @@ import { AccessComponent } from './access/access.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AccessoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
