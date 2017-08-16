@@ -36,6 +36,12 @@
     transform: translateX(-50%) translateY(-50%);
   }
 
+  .intro img {
+    display: block;
+    margin: auto;
+    height: 60px;
+  }
+
   .intro h1 {
     width: 100vw;
     margin: 0;
@@ -51,7 +57,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 50vh;
+    padding-top: 40vh;
   }
 
   /* ------------------------------------------ */

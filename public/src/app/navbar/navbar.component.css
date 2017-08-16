@@ -1,15 +1,17 @@
 /* main navi */
 
 .icon {
-  font-size: 300%;
   color: white;
+  display: inline-block;
 }
 
 .ion-navicon {
-  padding: 3% 0 0 5%;
+  font-size: 300%;
+  padding: 0 0 0 5%;
 }
 
 .ion-ios-cart {
+  font-size: 280%;
   float: right;
   padding: 0 5% 0 0;
 }

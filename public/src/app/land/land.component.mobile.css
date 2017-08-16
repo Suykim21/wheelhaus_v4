@@ -44,11 +44,17 @@
     font-size: 3em;
   }
 
+  .intro img {
+    display: block;
+    margin: auto;
+    height: 60px;
+  }
+
   .intro .icon {
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 50vh;
+    padding-top: 45vh;
   }
 
   /* ------------------------------------------ */
@@ -70,6 +76,12 @@
     text-align: justify;
     color: white;
     padding-top: 5%;
+  }
+
+  .featured-items h2 {
+    color: black;
+    text-align: center;
+    padding-bottom: 0;
   }
 
   .featured-items img  {
