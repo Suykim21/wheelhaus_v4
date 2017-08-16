@@ -3,7 +3,13 @@
 /* ------------------------------------------ */
 
 @media only screen and (min-width: 481px) {
+  * {
+    font-family: 'Raleway', sans-serif;
+  }
 
+  hr {
+    display: none;
+  }
 
   .container {
     -webkit-background-size: cover;
@@ -29,7 +35,8 @@
     width: 100%;
     top: 36%;
     left: 50%;
-    text-transform: uppercase;
+    font-size: 1.5em;
+    /* text-transform: uppercase; */
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
@@ -51,7 +58,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 50vh;
+    padding-top: 45vh;
   }
 
   /* ------------------------------------------ */
@@ -59,9 +66,9 @@
   /* ------------------------------------------ */
 
   .wrapper {
-    padding: 1%;
+    padding: 5%;
     background: #1B1D1E;
-    border-color: #1B1D1E;
+    /* border-color: #1B1D1E; */
   }
 
   .bikes {
@@ -72,12 +79,24 @@
     margin: auto;
     text-align: justify;
     color: white;
-    padding-top: 5%;
+    padding: 5% 0;
+  }
+
+  .button {
+    text-align: center;
+    /* display: inline-block; */
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #00ffff;
+    margin: 0 1em;
   }
 
   .item {
     position: relative;
     display: inline-block;
+    margin: 2em 0;
     width: 45%;
   }
 
@@ -88,10 +107,10 @@
     padding: 5% 0;
   }
 
-  .item hr {
+  /* .item hr {
     width: 80%;
     color: black;
-  }
+  } */
 
   .item h3 {
     color: black;
@@ -104,30 +123,11 @@
   .item h4 {
     color: darkgray;
     text-align: center;
-    margin: 0;
+    margin: 1em 0;
   }
 
-
-  /* ------------------------------------------ */
-  /* Section - Footer */
-  /* ------------------------------------------ */
-
-  .footer {
-    background: #1B1D1E;
-    border-color: #1B1D1E;
-    color: white;
-    text-transform: uppercase;
-    padding: 2%;
+  .item-two {
+    position: absolute;
+    right: -.2em;
   }
-
-  .footer h5, h6 {
-    text-align: center;
-    margin: 0;
-  }
-
-  .container {
-    border-color: #1B1D1E;
-    font-family: 'Raleway', sans-serif;
-  }
-
 }
