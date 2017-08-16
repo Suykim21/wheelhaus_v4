@@ -2,8 +2,26 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
+@media (min-width: 1px) {
+  a {
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 480px) {
 
+  * {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  hr {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
 
   .container {
     -webkit-background-size: cover;
@@ -27,13 +45,25 @@
   .intro {
     position: relative;
     width: 100%;
-    top: 36%;
+    top: 35%;
     left: 50%;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+  }
+
+  .arrow {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .intro img {
+    width: 30%;
+    height: auto !important;
   }
 
   .intro img {
@@ -57,7 +87,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 40vh;
+    padding-top: 35vh;
   }
 
   /* ------------------------------------------ */
@@ -67,7 +97,7 @@
   .wrapper {
     padding: 1%;
     background: #1B1D1E;
-    border-color: #1B1D1E;
+    /* border-color: #1B1D1E; */
   }
 
   .bikes {
@@ -78,7 +108,7 @@
     margin: auto;
     text-align: justify;
     color: white;
-    padding-top: 5%;
+    padding: 5% 0;
   }
 
   .bikes img  {
@@ -88,10 +118,10 @@
     padding: 5% 0;
   }
 
-  .bikes hr {
+  /* .bikes hr {
     width: 80%;
     color: black;
-  }
+  } */
 
   .bikes h3 {
     color: black;
@@ -102,9 +132,19 @@
   }
 
   .bikes h4 {
-    color: darkgray;
     text-align: center;
-    margin: 0;
+    color: darkgrey;
+  }
+
+  .button {
+    text-align: center;
+    /* display: inline-block; */
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #00ffff;
+    margin: 0 1em;
   }
 
   /* ------------------------------------------ */
