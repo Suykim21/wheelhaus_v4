@@ -12,9 +12,9 @@
     display: none;
   }
 
-  .icon {
+  /* .icon {
     display: none;
-  }
+  } */
 
   .container {
     -webkit-background-size: cover;
@@ -48,6 +48,11 @@
     transform: translateX(-50%) translateY(-50%);
   }
 
+  .intro img {
+    width: 30%;
+    height: auto;
+  }
+
   .intro h1 {
     width: 100vw;
     margin: 0;
@@ -63,7 +68,14 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 43vh;
+    padding-top: 33vh;
+  }
+
+  .arrow {
+    left: 50;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   /* ------------------------------------------ */
@@ -119,7 +131,7 @@
   }
 
   .item-2 {
-    position: absolute;
+    /* position: absolute; */
     left: 4em;
   }
 }

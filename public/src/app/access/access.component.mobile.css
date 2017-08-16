@@ -43,7 +43,7 @@
   .intro {
     position: relative;
     width: 100%;
-    top: 36%;
+    top: 35%;
     left: 50%;
     /* text-transform: uppercase; */
     text-align: center;
@@ -51,6 +51,17 @@
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
   }
+
+  .intro img {
+    width: 30%;
+    height: auto;
+  }
+
+  /* .intro img {
+    display: block;
+    margin: auto;
+    height: 60px;
+  } */
 
   .intro h1 {
     width: 100vw;
@@ -67,7 +78,14 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 45vh;
+    padding-top: 35vh;
+  }
+
+  .arrow {
+    left: 50;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   /* ------------------------------------------ */

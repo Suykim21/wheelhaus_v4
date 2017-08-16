@@ -26,9 +26,17 @@ import {BrowserModule} from '@angular/platform-browser';
 })
 export class LandComponent implements OnInit {
 
+  scrollCount: number;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+@HostListener('window:scroll', ['$event']) onScrollEvent($event){
+  console.log("scrolling, babyyy!")
+}
+
+
 
 }

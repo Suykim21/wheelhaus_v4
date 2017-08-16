@@ -2,6 +2,12 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
+@media (min-width: 1025px) {
+  .icon {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 960px) {
   hr {
     display: none;
@@ -29,14 +35,19 @@
   .intro {
     position: relative;
     width: 100%;
-    top: 36%;
+    top: 50%;
     left: 50%;
-    font-size: 2em;
+    font-size: 2.5em;
     /* text-transform: uppercase; */
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+  }
+
+  .intro img {
+    width: 20%;
+    height: auto !important;
   }
 
   .intro h1 {
@@ -54,8 +65,15 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 50vh;
+    padding-top: 20vh;
   }
+
+  /* .arrow {
+    left: 50;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  } */
 
   /* ------------------------------------------ */
   /* Section - Featured Items */

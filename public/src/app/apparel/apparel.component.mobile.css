@@ -55,8 +55,21 @@
   }
 
   .arrow {
-    position: relative;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .intro img {
+    width: 30%;
+    height: auto !important;
+  }
+
+  .intro img {
+    display: block;
+    margin: auto;
+    height: 60px;
   }
 
   .intro h1 {
@@ -74,7 +87,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 45vh;
+    padding-top: 35vh;
   }
 
   /* ------------------------------------------ */
