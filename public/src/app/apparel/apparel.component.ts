@@ -1,3 +1,4 @@
+import { ApparelService } from './apparel.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
               './apparel.component.desktop.css']
 })
 export class ApparelComponent implements OnInit {
+  apparels: Array<any>
 
-  constructor() { }
+  constructor(
+    public _apparelService: ApparelService
+  ) { }
 
   ngOnInit() {
+    this.getAllApparel();
+  }
+
+  getAllApparel(){
+    this._apparelService.getAllApparel()
+    .then(all_apparel => { this.apparels = all_apparel;})
+    .catch()
   }
 
 }

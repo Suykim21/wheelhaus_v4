@@ -4,6 +4,10 @@ module.exports=(app)=>{
   app.post("/accessoryupload", controllers.addAccessoryImage);
   app.post("/api/addAccessory", controllers.addAccessory);
   app.get("/api/getAllAccessories", controllers.getAllAccessories);
+  app.post('/api/apparelupload', controllers.addApparelImg);
+  app.post('/api/addapparel', controllers.addApparel);
+  app.get('/api/allapparel', controllers.getAllApparel);
+  app.get('/api/apparel/show/:id', controllers.getApparel);
   // app.post('/api/newcust', controllers.newCustomer);
   // app.get('/api/getusers', controllers.getUsers);
   // app.get('/api/getrecentusers', controllers.getrecentUsers);

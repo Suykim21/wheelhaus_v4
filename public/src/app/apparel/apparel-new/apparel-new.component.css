@@ -2,7 +2,7 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 481px) {
 
 
   .container {
@@ -17,7 +17,7 @@
   }
 
   .beginning {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../assets/backgrounds/apparel-back.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../assets/backgrounds/apparel-back.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -71,15 +71,16 @@
     height: 95%;
     margin: auto;
     text-align: justify;
-    color: white;
-    padding-top: 5%;
-    display: inline-block;
+    /* color: white; */
+    /* padding-top: 5%; */
+    color: black;
+    padding: 5%;
   }
 
   .item {
     position: relative;
     display: inline-block;
-    width: 30%;
+    width: 45%;
   }
 
   .item img  {
@@ -124,7 +125,6 @@
     text-align: center;
     margin: 0;
   }
-
 
   .container {
     border-color: #1B1D1E;

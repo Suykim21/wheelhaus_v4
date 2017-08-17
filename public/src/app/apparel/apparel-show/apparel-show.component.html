@@ -1,0 +1,24 @@
+<div class="container">
+    <section class="beginning">
+      <div class="intro">
+        <h1>Wheelhaus</h1>
+        <h2>Apparel</h2>
+        <i class="icon ion-arrow-down-b"></i>
+      </div>
+    </section>
+  
+    <section class="wrapper">
+      <div class="bikes">
+        <h1>{{ apparel.name }}</h1>
+        <img src="{{ apparel.image }}" alt="Product">
+        <h2>{{ apparel.description }}</h2>
+        <h2>Price: ${{ apparel.price | number : '1.2-2' }}</h2>
+      </div>
+    </section> 
+  
+    <section class="footer">
+      <h5>Legendary Media Production</h5>
+      <h6>&copy;2017</h6>
+    </section>
+</div>
+  

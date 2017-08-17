@@ -18,6 +18,7 @@ app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
+app.use(express.static(path.join(__dirname, 'public', "dist", "assets", "apparel")));
 require('./server/config/mongoose.js');
 
 // FOR CORSS-ORIGIN IMAGE UPLOAD
