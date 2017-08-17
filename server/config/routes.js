@@ -1,9 +1,14 @@
 var controllers = require('./../controllers/controller.js');
 
 module.exports=(app)=>{
+  // ACCESSORY 1) adds image 2) adds Accessory in DB 3) gets all images
   app.post("/accessoryupload", controllers.addAccessoryImage);
   app.post("/api/addAccessory", controllers.addAccessory);
   app.get("/api/getAllAccessories", controllers.getAllAccessories);
+  app.post("/eventupload", controllers.addEventImage);
+  app.post("/api/addEvent", controllers.addEvent);
+  app.get("/api/getAllEvents", controllers.getAllEvents);
+  app.get("/api/getEvent/:id", controllers.getEvent);
   // app.post('/api/newcust', controllers.newCustomer);
   // app.get('/api/getusers', controllers.getUsers);
   // app.get('/api/getrecentusers', controllers.getrecentUsers);

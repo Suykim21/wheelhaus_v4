@@ -1,49 +1,24 @@
-<div class="container">
+<div class="container" *ngIf="other_events">
   <section class="details-hero">
-    <!-- Need Event Title -->
-    <p class="details-title">Events: Title </p>
+
+    <!--  Event Title -->
+    <p class="details-title">{{ event.title }} </p>
   </section>
 
   <section class="details-main">
-    <!-- Need Description -->
+    <!-- Details -->
     <div class="event-text">
-      <p>Sunt anim <strong>sunt id ullamco</strong> nulla commodo elit.Excepteur incididunt et amet pariatur enim proident fugiat
-        nisi.
-      </p>
+      <h2>Details</h2>
 
       <br>
 
-      <p>Excepteur laboris esse deserunt irure incididunt eu consectetur velit ut aliqua ea exercitation commodo in. Reprehenderit
-        occaecat dolore proident officia eu irure occaecat consectetur pariatur ea do veniam commodo adipisicing. Ad ex laborum
-        velit irure mollit nisi mollit incididunt. Voluptate exercitation dolor deserunt qui nisi irure amet nostrud culpa
-        deserunt. Sit dolore sit nulla aliquip pariatur velit mollit ullamco deserunt veniam anim tempor. Magna occaecat
-        do pariatur nisi minim pariatur incididunt irure consectetur dolore consequat elit. Tempor nulla quis dolore irure
-        dolor nulla ea sint sint voluptate ipsum qui et non.</p>
+      <p>{{ event.description }}</p>
 
       <br>
-
-      <p>Nisi dolor ipsum non mollit sunt. Velit magna consequat velit labore et ullamco eiusmod reprehenderit. In elit laborum
-        minim quis reprehenderit. Lorem veniam ex non duis duis Lorem occaecat aliqua ipsum.</p>
-
-      <br>
-
-      <p>Velit eu eiusmod sint deserunt ad. Magna minim aute et proident ipsum magna ad duis et quis est eiusmod. Ullamco eiusmod
-        elit incididunt nisi sunt aute velit adipisicing ea laboris labore veniam in ipsum. Consequat incididunt eiusmod
-        cillum deserunt magna exercitation ullamco eiusmod commodo. Eu et quis ad incididunt. Veniam ut eu magna aliqua duis
-        ipsum incididunt proident eu irure non irure. Velit excepteur pariatur eiusmod eiusmod.</p>
-
-      <br>
-      <!-- Need Date string interpolation -->
-      <p>Saturday, July 29, 2017</p>
-      <p>7am - 12:30pm</p>
-
-      <br>
-
-      <!-- Need host company, location, address  -->
-      <p>Venice Bike Co.</p>
-      <a href="http://maps.google.com/?q=Los Angeles" target="_blank">1234 Venice Blvd, Venice CA 90024</a>
+      <!-- location, address  -->
+      <a href="http://maps.google.com/?q=Los Angeles" target="_blank" >{{ event.address.street }}</a>
       <!-- linking to google maps api -->
-      <p>Venice, California 90024</p>
+      <p >{{ event.address.city }}, {{ event.address.state }} {{ event.address.zipcode }}</p>
 
       <br>
 
@@ -59,7 +34,7 @@
       <!-- Modal pop-up thanking user for rsvping  -->
       <!-- might need to do ngIf to change button to 'unjoin' event -->
       <a [routerLink]="['/events/details']" class="button button-small">rsvp</a>
-      <div class="form-control">
+      <!-- <div class="form-control">
         <h1>Location:</h1>
         <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
           #search [formControl]="searchControl">
@@ -67,59 +42,59 @@
 
       <agm-map [latitude]="lat" [longitude]="lng">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map> -->
+    </div>
+
+    <div class="pic-one" >
+      <img src="{{ event.path }}" alt="one">
+      <div class="form-control">
+        <h1>Location:</h1>
+        <!-- <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+        #search [formControl]="searchControl"> -->
+      </div>
+
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
       </agm-map>
     </div>
-
-    <div class="pic-one">
-      <img src="assets/img-about/five.jpg" alt="one">
-    </div>
-
-
 
   </section>
 
   <section class="popular-events">
-    <h1>Popular Events</h1>
+    <h1>Other Events</h1>
 
     <!-- <div class="popular-details"> -->
 
-    <div class="popular">
-      <img src="assets/img-events/two_event.jpg" alt="one">
+    <div class="popular" >
+      <img src="{{ other_events[0].path }}">
       <p class="popular-date">Date</p>
-      <h1>Event: Title</h1>
-      <p>Laboris duis ullamco amet dolore enim adipisicing cillum non ipsum sint magna proident veniam nisi. Velit aliquip excepteur
-        aliqua commodo ex labore dolor. Voluptate reprehenderit sint id mollit veniam deserunt minim fugiat qui dolor Lorem
-        sunt ut ea. Eu et esse amet laborum amet cupidatat ut minim aliquip...</p>
-      <a href="" class="button button-small">details</a>
+      <h1>{{ other_events[0].title }}</h1>
+      <!-- <p class="cut-text">{{ other_events[0].description }}</p> -->
+      <a href="/events/{{ other_events[0]._id }}" class="button button-small">details</a>
     </div>
 
     <hr>
 
-    <div class="popular">
-      <img src="assets/img-events/three_event.jpg" alt="two">
+    <div class="popular" >
+      <img src="{{ other_events[1].path }}">
       <p class="popular-date">Date</p>
-      <h1>Event: Title</h1>
-      <p>Laboris duis ullamco amet dolore enim adipisicing cillum non ipsum sint magna proident veniam nisi. Velit aliquip excepteur
-        aliqua commodo ex labore dolor. Voluptate reprehenderit sint id mollit veniam deserunt minim fugiat qui dolor Lorem
-        sunt ut ea. Eu et esse amet laborum amet cupidatat ut minim aliquip...</p>
-      <a href="" class="button button-small">details</a>
+      <h1>{{ other_events[1].title }}</h1>
+      <!-- <p class="cut-text">{{ other_events[1].description }}</p> -->
+      <a href="/events/{{ other_events[1]._id }}" class="button button-small">details</a>
     </div>
 
     <hr>
 
-    <div class="popular">
-      <img src="assets/img-events/four_event.jpg" alt="three">
+    <div class="popular" >
+      <img src="{{ other_events[2].path }}">
       <p class="popular-date">Date</p>
-      <h1>Event: Title</h1>
-      <p>Laboris duis ullamco amet dolore enim adipisicing cillum non ipsum sint magna proident veniam nisi. Velit aliquip excepteur
-        aliqua commodo ex labore dolor. Voluptate reprehenderit sint id mollit veniam deserunt minim fugiat qui dolor Lorem
-        sunt ut ea. Eu et esse amet laborum amet cupidatat ut minim aliquip...</p>
-      <a href="" class="button button-small">details</a>
+      <h1>{{ other_events[2].title }}</h1>
+      <!-- <p class="cut-text">{{ other_events[2].description }}</p> -->
+      <a href="/events/{{ other_events[2]._id }}" class="button button-small">details</a>
     </div>
 
     <hr>
-
-    <a [routerLink]="['/events/']" class="button button-small button-large">all events</a>
+    <a href="/events" class="button button-small button-large">all events</a>
   </section>
 
   <!-- <agm-map [latitude]="lat" [longitude]="lng">

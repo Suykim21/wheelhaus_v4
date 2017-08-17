@@ -170,7 +170,7 @@ img {
 @media (min-width: 37rem) {
     .event-item {
         width: 50%;
-        float: left; 
+        float: left;
     }
 }
 

@@ -13,7 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { DetailsComponent } from './events/details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
-
+import { EventsService } from './events/events.service';
+import { DetailsService } from './events/details/details.service';
 import { AccessoriesService } from './accessories/accessories.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
@@ -51,7 +52,7 @@ import { AccessComponent } from './access/access.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AccessoriesService],
+  providers: [AccessoriesService, EventsService, DetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

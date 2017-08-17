@@ -14,7 +14,7 @@ import { AccessComponent } from './access/access.component';
 
 const routes: Routes = [
   {path: 'events', component: EventsComponent},
-  {path: 'events/details', component: DetailsComponent},
+  {path: 'events/:id', component: DetailsComponent},
   {path: 'about', component: AboutComponent},
   {path: '', component: LandComponent},
   {path: 'apparel', component: ApparelComponent},

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {  FileUploader } from 'ng2-file-upload';
 import { AccessoriesService } from './accessories.service';
 import { RouterModule, Routes, Router } from '@angular/router';
@@ -6,7 +6,9 @@ import { RouterModule, Routes, Router } from '@angular/router';
 @Component({
   selector: 'app-accessories',
   templateUrl: './accessories.component.html',
-  styleUrls: ['./accessories.component.css']
+  styleUrls: ['./accessories.component.mobile.css',
+              './accessories.component.tablet.css',
+              './accessories.component.desktop.css']
 })
 export class AccessoriesComponent implements OnInit {
     public uploader:FileUploader = new FileUploader({url:'http://localhost:3002/accessoryupload'});

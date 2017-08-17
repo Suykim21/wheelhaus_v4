@@ -1,4 +1,5 @@
-<h1>LKJFDSKJFLSJFLKJS</h1>
+<!-- USED TO ADD NEW PRODUCTS IN -->
+<!-- <h1>LKJFDSKJFLSJFLKJS</h1>
 <form (submit)="holdAccessoryDetails(formData)" #formData="ngForm">
     <p>Name: <input type="text" name="name" ngModel></p>
     <p>Description:</p>
@@ -11,9 +12,9 @@
       <p *ngFor="let file of uploader.queue">
         <button (click)="file.upload()">Add</button>
       </p>
-</form>
+</form> -->
 
-<table>
+<!-- <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -34,4 +35,31 @@
     </td>
     <td>{{ accessory.limited }}</td>
   </tr>
-</table>
+</table> -->
+<!-- DO NOT DELETE ~ THIS WILL ADD PRODUCTS -->
+
+<div class="container">
+  <section class="beginning">
+    <div class="intro">
+      <h1>Wheelhaus</h1>
+      <h2>Accessories</h2>
+      <i class="icon ion-arrow-down-b"></i>
+    </div>
+  </section>
+
+  <section class="wrapper">
+    <div class="bikes" *ngFor="let accessory of all_accessories">
+      <div class="item">
+        <img src="{{ accessory.path }}">
+        <h3>{{ accessory.name }}</h3>
+        <h4>${{ accessory.cost }}</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <h5>Legendary Media Production</h5>
+    <h6>&copy;2017</h6>
+  </section>
+
+</div>

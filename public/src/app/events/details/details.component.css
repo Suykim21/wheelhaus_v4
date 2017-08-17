@@ -26,7 +26,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 65vh; 
+    height: 65vh;
     color: #fff;
 }
 
@@ -62,7 +62,7 @@
     text-decoration: none;
     transition: all .2s ease-in-out;
     margin-bottom: 1em;
-    
+
 }
 
 .social-icons img {
@@ -73,11 +73,11 @@
 }
 
 .social-icons a img:hover,
-.social-icons a img:active { 
-    position: relative; 
+.social-icons a img:active {
+    position: relative;
     top: -5px;
     /* transition: all .2s ease-in-out; */
-    
+
 }
 
 .button {
@@ -197,11 +197,15 @@ hr {
         float: left;
         margin: 0;
         clear: both;
-    } 
+    }
 
     .popular {
         width: 33.3333334%;
         float: left;
+    }
+
+    .popular img {
+      width: 100%;
     }
 
     .button-large {
@@ -219,7 +223,7 @@ hr {
         margin: 0;
         height: auto;
         /* clear: both; */
-       
+
     }
 
     .pic-one img {
@@ -233,8 +237,4 @@ hr {
         margin: 0;
         height: 300px;
     }
-
-    
-
-    
 }
