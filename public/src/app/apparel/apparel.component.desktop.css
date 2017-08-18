@@ -1,16 +1,9 @@
 /* ------------------------------------------ */
 /* Land Image  */
 /* ------------------------------------------ */
-@media (min-width: 1025px) {
-  .icon {
-    display: none;
-  }
-}
 
 @media only screen and (min-width: 960px) {
-  hr {
-    display: none;
-  }
+
 
   .container {
     -webkit-background-size: cover;
@@ -31,29 +24,29 @@
     background-attachment: fixed;
   }
 
-  .intro img {
-    width: 20%;
-    height: auto !important;
-  }
-
   .intro {
     position: relative;
     width: 100%;
-    top: 50%;
+    top: 36%;
     left: 50%;
-    /* text-transform: uppercase; */
-    font-size: 2.5em;
+    text-transform: uppercase;
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
   }
 
+  .intro img {
+    display: block;
+    margin: auto;
+    height: 90px;
+  }
+
   .intro h1 {
     width: 100vw;
     margin: 0;
     color: white;
-    font-size: 2.5em;
+    font-size: 5em;
   }
 
   .intro h2 {
@@ -64,7 +57,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 20vh;
+    padding-top: 40vh;
   }
 
   /* ------------------------------------------ */
@@ -72,35 +65,20 @@
   /* ------------------------------------------ */
 
   .wrapper {
-    padding: 5%;
+    padding: 1%;
     background: #1B1D1E;
+    border-color: #1B1D1E;
   }
 
   .bikes {
     background-color: white;
     position: relative;
     width: 100%;
-    height: auto;
+    height: 95%;
     margin: auto;
     text-align: justify;
     color: white;
-  }
-
-  .button {
-    opacity: 0;
-    text-align: center;
-    /* display: inline-block; */
-    text-align: center;
-    font-size: 1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #00ffff;
-    margin: 0 1em;
-  }
-
-  .item:hover .button {
-    opacity: 1;
-    transition: all ease-in-out .5s;
+    padding-top: 5%;
   }
 
   .item {
@@ -116,10 +94,10 @@
     padding: 5% 0;
   }
 
-  /* .item hr {
+  .item hr {
     width: 80%;
     color: black;
-  } */
+  }
 
   .item h3 {
     color: black;
@@ -132,36 +110,30 @@
   .item h4 {
     color: darkgray;
     text-align: center;
-    margin: 1em 0;
+    margin: 0;
   }
 
-  .item-two {
-    position: absolute;
-    right: -.2em;
+  /* ------------------------------------------ */
+  /* Section - Footer */
+  /* ------------------------------------------ */
+
+  .footer {
+    background: #1B1D1E;
+    border-color: #1B1D1E;
+    color: white;
+    text-transform: uppercase;
+    padding: 2%;
   }
 
-  .item-three {
-    position: absolute;
-    left: 20em;
-  }
-  @media (min-width: 1150px) {
-    .item-three {
-      left: 23em;
-    }
-  }
-
-  @media (min-width: 1500px) {
-    .item-three {
-      left: 30em;
-    }
+  .footer h5, h6 {
+    text-align: center;
+    margin: 0;
   }
 
 
-  @media (min-width: 1800px) {
-    .item-three {
-      left: 38em;
-    }
+  .container {
+    border-color: #1B1D1E;
+    font-family: 'Raleway', sans-serif;
   }
-  
+
 }
-
