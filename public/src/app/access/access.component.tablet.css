@@ -4,17 +4,6 @@
 
 @media only screen and (min-width: 481px) {
 
-  * {
-    font-family: 'Raleway', sans-serif;
-  }
-  
-  hr {
-    display: none;
-  }
-
-  /* .icon {
-    display: none;
-  } */
 
   .container {
     -webkit-background-size: cover;
@@ -40,8 +29,7 @@
     width: 100%;
     top: 36%;
     left: 50%;
-    /* text-transform: uppercase; */
-    font-size: 1.5em;
+    text-transform: uppercase;
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
@@ -49,15 +37,16 @@
   }
 
   .intro img {
-    width: 30%;
-    height: auto;
+    display: block;
+    margin: auto;
+    height: 90px;
   }
 
   .intro h1 {
     width: 100vw;
     margin: 0;
     color: white;
-    font-size: 3em;
+    font-size: 4em;
   }
 
   .intro h2 {
@@ -68,14 +57,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 33vh;
-  }
-
-  .arrow {
-    left: 50;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    padding-top: 35vh;
   }
 
   /* ------------------------------------------ */
@@ -83,8 +65,9 @@
   /* ------------------------------------------ */
 
   .wrapper {
-    padding: 5%;
+    padding: 1%;
     background: #1B1D1E;
+    border-color: #1B1D1E;
   }
 
   .bikes {
@@ -95,7 +78,7 @@
     margin: auto;
     text-align: justify;
     color: white;
-    padding: 5% 0;
+    padding-top: 5%;
   }
 
   .item {
@@ -127,11 +110,29 @@
   .item h4 {
     color: darkgray;
     text-align: center;
-    margin: 1em 0;
+    margin: 0;
   }
 
-  .item-2 {
-    /* position: absolute; */
-    left: 4em;
+  /* ------------------------------------------ */
+  /* Section - Footer */
+  /* ------------------------------------------ */
+
+  .footer {
+    background: #1B1D1E;
+    border-color: #1B1D1E;
+    color: white;
+    text-transform: uppercase;
+    padding: 2%;
   }
+
+  .footer h5, h6 {
+    text-align: center;
+    margin: 0;
+  }
+
+  .container {
+    border-color: #1B1D1E;
+    font-family: 'Raleway', sans-serif;
+  }
+
 }
