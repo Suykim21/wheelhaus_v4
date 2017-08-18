@@ -109,5 +109,40 @@ module.exports = {
         return res.json(event);
       }
     })
+  },
+
+  getCart: (req, res) => {
+    if(!req.session.cart){
+      req.session.cart = [
+        {
+          '_id' : 1,
+          'name':'BurgerWallet',
+          'cost': 100,
+          'qty': 1,
+          'path': 'file-1502839909463.jpg',
+        },
+        {
+          '_id': 2,
+          'name':'TacoWallet',
+          'cost': 500,
+          'qty': 3,
+          'path': 'file-1502839909463.jpg',
+        }
+      ];
+      console.log(req.session.cart);
+      console.log("CART INITIALIZED ~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    }
+    return res.json(req.session.cart);
+  },
+
+  removeItem: (req, res) => {
+    console.log(req.session.cart[req.params.id]);
+    console.log('remove button clicked ~~~~~~~~~~~~~~~~~~~~~~')
+    for(var i = 0; i < req.session.cart; i++){
+      if(req.session.cart[i]._id == req.params.id){
+        cart.splice(i, 1);
+      }
+    }
+    return;
   }
 }

@@ -10,6 +10,7 @@ import { ApparelComponent } from "./apparel/apparel.component";
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { AccessComponent } from './access/access.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'apparel', component: ApparelComponent},
   {path: 'bikes', component: BikeStoreComponent},
   {path: 'accessories', component: AccessoriesComponent},
-  {path: 'access', component: AccessComponent}
+  {path: 'access', component: AccessComponent},
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

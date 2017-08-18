@@ -22,6 +22,8 @@ import { ApparelComponent } from './apparel/apparel.component';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
 import { AccessComponent } from './access/access.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { AccessComponent } from './access/access.component';
     AccessoriesComponent,
     FileSelectDirective,
     ApparelComponent,
-    AccessComponent
+    AccessComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import { AccessComponent } from './access/access.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AccessoriesService, EventsService, DetailsService],
+  providers: [AccessoriesService, EventsService, DetailsService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

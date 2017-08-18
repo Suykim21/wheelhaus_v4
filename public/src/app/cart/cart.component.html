@@ -1,0 +1,43 @@
+<div *ngIf='shoppingCart'>
+  <h3>My Bag: {{shoppingCart.length}} item(s)</h3>
+  <table>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Cost</th>
+      <th></th>
+    </tr>
+    <tr *ngFor='let item of shoppingCart'>
+      <td><img src="{{ item.path }}"></td>
+      <td>{{ item.name }}</td>
+      <td>
+          <input type="text" name="qty" placeholder="{{ item.qty }}" placeholder=""ngModel>
+          <input type="hidden" name="item" value="bcd" ngModel>
+      </td>
+      <td>${{ item.cost }}</td>
+      <td>
+        <button (click)='removeItem(item._id)'>Remove</button>
+        <!-- <a href="/api/removeItem/{{item.id}}">Remove</a> -->
+      </td>
+    </tr>
+  </table>
+  <h4>Total: ${{ shoppingCart.totalcost }}</h4>
+</div>
+
+<!-- <form (submit)="updateCart(formData)" #formData="ngForm">
+  <button>Update Cart</button>
+</form> -->
+
+<!-- <form #f="ngForm" (submit)="addUser(f.value,f.valid)">
+    <label for="name" class="col-sm-1 control-label">Name</label>
+    <div class="col-sm-4">
+        <input class="form-control" [(ngModel)]="userModel.name" #name="ngModel" name="name" ng-maxlength="49" />
+    </div>
+    <label class="col-sm-1 control-label">Service</label>
+        <select class="form-control" name="service" [(ngModel)]="userModel.service">
+            <option *ngFor='let service of services' [value]='service'>{{service.name}}</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Create</button>
+</form> -->

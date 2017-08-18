@@ -9,6 +9,8 @@ module.exports=(app)=>{
   app.post("/api/addEvent", controllers.addEvent);
   app.get("/api/getAllEvents", controllers.getAllEvents);
   app.get("/api/getEvent/:id", controllers.getEvent);
+  app.get("/api/getCart", controllers.getCart);
+  app.get("/api/removeItem/:id", controllers.removeItem);
   // app.post('/api/newcust', controllers.newCustomer);
   // app.get('/api/getusers', controllers.getUsers);
   // app.get('/api/getrecentusers', controllers.getrecentUsers);

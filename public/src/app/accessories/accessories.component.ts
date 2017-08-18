@@ -24,8 +24,8 @@ export class AccessoriesComponent implements OnInit {
     this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
       this.file_name = response;
       this.addAccessory();
-     }
-     this.getAllAccessories();
+    }
+    this.getAllAccessories();
 	}
 
 	constructor(public _accessoryService: AccessoriesService) {}
