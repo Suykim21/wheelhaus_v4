@@ -2,24 +2,8 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
-@media (min-width: 1px) {
-  a {
-    text-decoration: none;
-  }
-}
-
 @media only screen and (max-width: 480px) {
 
-  * {
-    font-family: 'Raleway', sans-serif;
-  }
-
-  hr {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2em;
-  }
 
   .container {
     -webkit-background-size: cover;
@@ -43,9 +27,9 @@
   .intro {
     position: relative;
     width: 100%;
-    top: 35%;
+    top: 36%;
     left: 50%;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
@@ -53,15 +37,10 @@
   }
 
   .intro img {
-    width: 30%;
-    height: auto;
-  }
-
-  /* .intro img {
     display: block;
     margin: auto;
     height: 60px;
-  } */
+  }
 
   .intro h1 {
     width: 100vw;
@@ -78,14 +57,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 35vh;
-  }
-
-  .arrow {
-    left: 50;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    padding-top: 40vh;
   }
 
   /* ------------------------------------------ */
@@ -95,7 +67,7 @@
   .wrapper {
     padding: 1%;
     background: #1B1D1E;
-    /* border-color: #1B1D1E; */
+    border-color: #1B1D1E;
   }
 
   .bikes {
@@ -132,7 +104,30 @@
   .bikes h4 {
     color: darkgray;
     text-align: center;
-    margin: 1em 0;
+    margin: 0;
+  }
+
+  /* ------------------------------------------ */
+  /* Section - Footer */
+  /* ------------------------------------------ */
+
+  .footer {
+    background: #1B1D1E;
+    border-color: #1B1D1E;
+    color: white;
+    text-transform: uppercase;
+    padding: 2%;
+  }
+
+  .footer h5, h6 {
+    text-align: center;
+    margin: 0;
+  }
+
+
+  .container {
+    border-color: #1B1D1E;
+    font-family: 'Raleway', sans-serif;
   }
 
 }
