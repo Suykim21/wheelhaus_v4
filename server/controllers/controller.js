@@ -79,12 +79,8 @@ module.exports = {
 
   addEvent: (req, res) => {
     var event = new Event(req.body);
-    console.log(req.body);
-    console.log("**** @ ADDEVENT in CONTROLLER ~~~~~~~~~~~~~~~~~~~~~~")
     event.save((err, event) => {
       if(err){
-        console.log(err);
-        console.log("ERROR IN CONTROLLER @ ADD EVENT");
       }else{
         return;
       }
@@ -112,37 +108,106 @@ module.exports = {
   },
 
   getCart: (req, res) => {
+    console.log(req.session.cart);
     if(!req.session.cart){
-      req.session.cart = [
-        {
-          '_id' : 1,
-          'name':'BurgerWallet',
-          'cost': 100,
-          'qty': 1,
-          'path': 'file-1502839909463.jpg',
-        },
-        {
-          '_id': 2,
-          'name':'TacoWallet',
-          'cost': 500,
-          'qty': 3,
-          'path': 'file-1502839909463.jpg',
-        }
-      ];
-      console.log(req.session.cart);
-      console.log("CART INITIALIZED ~~~~~~~~~~~~~~~~~~~~~~~~~~")
+      req.session.cart =[];
     }
     return res.json(req.session.cart);
   },
 
+  addItem: (req, res) => {
+    Accessory.find({_id: req.params.id}, (err, accessory) => {
+      if(err){
+        Bike.find({_id: req.params.id}, (err, bike) => {
+          if(err){
+            Apparel.find({_id: req.params.id}, (err, apparel) => {
+              if(err){
+                console.log("SOMETHING WENT TOTALLY WRONG @ CONTORLLER ADD ITEM TO CART");
+              }else{
+                console.log("REQ SESSION CART APPAREL~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+                if(req.session.cart.length > 0){
+                  for(var i = 0; i < req.session.cart.length; i++){
+                    if(req.session.cart[i]._id = req.params.id){
+                      req.session.cart[i].qty ++;
+                      req.session.save();
+                      var added = true;
+                    }
+                  }
+                  if(!added){
+                    accessory[0].qty = 1;
+                    req.session.cart.push(accessory[0]);
+                    req.session.save();
+                    return res.json();
+                  }
+                }else{
+                    bike.qty = 1;
+                    req.session.cart.push(apparel);
+                    req.session.save();
+                }
+              }
+            })
+          }else{
+            console.log("REQ SESSION CART BIKE~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            if(req.session.cart.length > 0){
+              for(var i = 0; i < req.session.cart.length; i++){
+                if(req.session.cart[i]._id = req.params.id){
+                  req.session.cart[i].qty ++;
+                  req.session.save();
+                  var added = true;
+                }
+              }
+              if(!added){
+                accessory[0].qty = 1;
+                req.session.cart.push(accessory[0]);
+                req.session.save();
+                return res.json();
+              }
+            }else{
+              bike[0].qty = 1;
+              req.session.cart.push(bike[0]);
+              req.session.save();
+              }
+            }
+          })
+      }else{
+        if(req.session.cart.length > 0){
+          for(var i = 0; i < req.session.cart.length; i++){
+            if(req.session.cart[i]._id == req.params.id){
+              req.session.cart[i].qty ++;
+              req.session.save();
+              var added = true;
+            }
+          }
+          if(!added){
+            accessory[0].qty = 1;
+            req.session.cart.push(accessory[0]);
+            req.session.save();
+            return res.json();
+          }
+        }else{
+          accessory[0].qty = 1;
+          req.session.cart.push(accessory[0]);
+          req.session.save();
+          return res.json();
+        }
+        }
+      })
+    },
+
   removeItem: (req, res) => {
-    console.log(req.session.cart[req.params.id]);
-    console.log('remove button clicked ~~~~~~~~~~~~~~~~~~~~~~')
-    for(var i = 0; i < req.session.cart; i++){
+    for(var i = 0; i < req.session.cart.length; i++){
       if(req.session.cart[i]._id == req.params.id){
-        cart.splice(i, 1);
+        req.session.cart.splice(i, 1);
       }
     }
-    return;
+    req.session.save();
+    return res.json(req.session.cart);
+  },
+
+  clearCart: (req, res) => {
+    req.session.cart = [];
+    req.session.save();
+    return res.json(req.session.cart);
   }
+
 }

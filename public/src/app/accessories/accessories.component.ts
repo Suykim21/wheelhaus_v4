@@ -15,6 +15,7 @@ export class AccessoriesComponent implements OnInit {
     public file_name:any;
     public accessory:any;
     public all_accessories:Array<any>;
+    public _router: Router;
 
   ngOnInit() {
     // override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
@@ -46,6 +47,12 @@ export class AccessoriesComponent implements OnInit {
     this._accessoryService.getAllAccessories()
     .then(accessories => { this.all_accessories = accessories;
     })
+    .catch()
+  }
+
+  addItem(id){
+    this._accessoryService.addItem(id)
+    .then(() => this._router.navigate['/accessories'])
     .catch()
   }
 }

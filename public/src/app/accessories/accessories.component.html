@@ -53,6 +53,7 @@
         <img src="{{ accessory.path }}">
         <h3>{{ accessory.name }}</h3>
         <h4>${{ accessory.cost }}</h4>
+        <button (click)="addItem(accessory._id)">Add to Cart</button>
       </div>
     </div>
   </section>

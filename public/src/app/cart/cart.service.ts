@@ -21,4 +21,10 @@ export class CartService {
     .toPromise()
   }
 
+  clearCart(){
+    return this._http.get("/api/clearCart")
+    .map(data => data.json)
+    .toPromise()
+  }
+
 }

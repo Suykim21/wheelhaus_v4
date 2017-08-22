@@ -23,4 +23,10 @@ export class AccessoriesService {
     .map(data => data.json())
     .toPromise();
   }
+
+  addItem(id){
+    return this._http.get('/api/addItem/' + id)
+    .map(data => data.json())
+    .toPromise()
+  }
 }

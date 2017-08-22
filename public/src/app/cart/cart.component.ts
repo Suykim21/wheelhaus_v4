@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.mobile.css',
+              './cart.component.tablet.css',
+              './cart.component.desktop.css']
 })
 export class CartComponent implements OnInit {
+
+  handler: any;
+  amount: number;
 
   private shoppingCart: any;
 
@@ -17,7 +23,15 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCart()
+    this.getCart();
+    this.handler = StripeCheckout.configure({
+		  key: environment.stripeKey,
+		  image: "https://stripe.com/img/documentation/checkout/marketplace.png",
+		  locale: "auto",
+      token: token => {
+        // this.paymentSvc.processPayment(token, this.amount)
+      }
+	  });
   }
 
   getCart(){
@@ -30,6 +44,7 @@ export class CartComponent implements OnInit {
         for(var i = 0; i < cart_items.length; i++){
           total_price += cart_items[i].cost*cart_items[i].qty;
         }
+        this.amount = total_price;
         cart_items["totalcost"] = total_price;
       }
       this.shoppingCart = cart_items;
@@ -44,8 +59,22 @@ export class CartComponent implements OnInit {
 
   removeItem(item){
     this._cartService.removeItem(item)
-    .then(()=>this._router.navigate['/cart'])
+    .then(()=> this._router.navigate(['/cart']))
     .catch()
+  }
+
+  clearCart(){
+    this._cartService.clearCart()
+    .then(()=> this._router.navigate(['/cart']))
+    .catch()
+  }
+
+  handlePayment(){
+	  this.handler.open({
+		  name: "Wheelhaus",
+		  description: "Deposit Funds to Account",
+		  amount: this.amount
+	  });
   }
 
 }

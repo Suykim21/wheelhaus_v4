@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 // import { PaymentService } from '../payments/payment.service';
 import { environment } from '../../environments/environment';
+import { CartService } from './../cart/cart.service';
 
 
 @Component({
@@ -10,14 +11,18 @@ import { environment } from '../../environments/environment';
 })
 export class NavbarComponent implements OnInit {
 
+  cart: number;
   handler: any;
   amount: 500;
 
   // In constructor
   // "private paymentSvc: PaymentService"
-  constructor() { }
+  constructor(
+    public _cartService: CartService
+  ) { }
 
   ngOnInit() {
+    this.getCartLength();
 	  this.handler = StripeCheckout.configure({
 		  key: environment.stripeKey,
 		  image: "https://stripe.com/img/documentation/checkout/marketplace.png",
@@ -48,5 +53,11 @@ export class NavbarComponent implements OnInit {
     onPopstate(){
       this.handler.close()
     }
+
+  getCartLength(){
+    this._cartService.getCart()
+    .then((cart)=>{this.cart = cart.length ; console.log(cart.length)})
+    .catch()
+  }
 
 }
