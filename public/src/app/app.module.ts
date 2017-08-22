@@ -13,7 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandComponent } from './land/land.component';
 import { DetailsComponent } from './events/details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
-
+import { EventsService } from './events/events.service';
+import { DetailsService } from './events/details/details.service';
 import { AccessoriesService } from './accessories/accessories.service';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
@@ -21,6 +22,8 @@ import { ApparelComponent } from './apparel/apparel.component';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
 import { AccessComponent } from './access/access.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { AccessComponent } from './access/access.component';
     AccessoriesComponent,
     FileSelectDirective,
     ApparelComponent,
-    AccessComponent
+    AccessComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { AccessComponent } from './access/access.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AccessoriesService],
+  providers: [AccessoriesService, EventsService, DetailsService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

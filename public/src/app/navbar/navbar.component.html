@@ -2,7 +2,10 @@
 <header>
   <nav>
     <i class="icon ion-navicon" (click)="openSideMenu()"></i>
-    <i class="icon ion-ios-cart" (click)="handlePayment()"></i>
+    <!-- <i class="icon ion-ios-cart" (click)="handlePayment()"></i> -->
+    <a class="icon ion-ios-cart" routerLink="/cart">{{ cart }}</a>
+    <!-- <i class="icon ion-ios-cart"><a routerLink="/bikes"></a></i> -->
+
   </nav>
 
   <div id="side-menu" class="side-nav">

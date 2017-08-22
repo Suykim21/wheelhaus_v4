@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {  FileUploader } from 'ng2-file-upload';
 import { AccessoriesService } from './accessories.service';
 import { RouterModule, Routes, Router } from '@angular/router';
@@ -6,13 +6,16 @@ import { RouterModule, Routes, Router } from '@angular/router';
 @Component({
   selector: 'app-accessories',
   templateUrl: './accessories.component.html',
-  styleUrls: ['./accessories.component.css']
+  styleUrls: ['./accessories.component.mobile.css',
+              './accessories.component.tablet.css',
+              './accessories.component.desktop.css']
 })
 export class AccessoriesComponent implements OnInit {
     public uploader:FileUploader = new FileUploader({url:'http://localhost:3002/accessoryupload'});
     public file_name:any;
     public accessory:any;
     public all_accessories:Array<any>;
+    public _router: Router;
 
   ngOnInit() {
     // override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
@@ -44,6 +47,12 @@ export class AccessoriesComponent implements OnInit {
     this._accessoryService.getAllAccessories()
     .then(accessories => { this.all_accessories = accessories;
     })
+    .catch()
+  }
+
+  addItem(id){
+    this._accessoryService.addItem(id)
+    .then(() => this._router.navigate['/accessories'])
     .catch()
   }
 }
