@@ -53,19 +53,15 @@ export class CartComponent implements OnInit {
     .catch()
   }
 
-  updateCart(a){
-    console.log(a.value);
-  }
-
   removeItem(item){
     this._cartService.removeItem(item)
-    .then(()=> this._router.navigate(['/cart']))
+    .then(()=> this.getCart())
     .catch()
   }
 
   clearCart(){
     this._cartService.clearCart()
-    .then(()=> this._router.navigate(['/cart']))
+    .then(()=> this.getCart())
     .catch()
   }
 
