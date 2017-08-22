@@ -53,6 +53,44 @@ module.exports = {
       }
     })
   },
+
+  getExpensiveAccessories: (req, res) => {
+    Accessory.find({}).sort('-cost').exec((err, accessories) => {
+      if(err){
+      }else{
+        return res.json(accessories);
+      }
+    })
+  },
+
+  getCheapestAccessories: (req, res) => {
+    Accessory.find({}).sort('+cost').exec((err, accessories) => {
+      if(err){
+      }else{
+        return res.json(accessories);
+      }
+    })
+  },
+
+  getPopularAccessories: (req, res) => {
+    Accessory.find({}).sort('-bought').exec((err, accessories) => {
+      if(err){
+      }else{
+        return res.json(accessories);
+      }
+    })
+  },
+
+  getLimitedAccesories: (req, res) => {
+    Accessory.find({limited: true}, (err, accessories) => {
+      if(err){
+        console.log(err);
+      }else{
+        return res.json(accessories);
+      }
+    })
+  },
+
   addEventImage: (req, res) => {
     var storage = multer.diskStorage({ //multers disk storage settings
       destination: function (req, file, cb) {

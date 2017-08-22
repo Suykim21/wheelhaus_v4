@@ -47,6 +47,12 @@
     </div>
   </section>
 
+  <h3>SORT BY</h3>
+  <button (click)="getAllAccessories()">Featured</button>
+  <button (click)="getExpensive()">Highest highest $</button>
+  <button (click)="getCheapest()">Lowest $</button>
+  <button (click)="mostPopular()">Most Popular</button>
+  <button (click)="getLimited()">Limited Edition</button>
   <section class="wrapper">
     <div class="bikes" *ngFor="let accessory of all_accessories">
       <div class="item">

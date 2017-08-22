@@ -55,4 +55,28 @@ export class AccessoriesComponent implements OnInit {
     .then(() => this._router.navigate['/accessories'])
     .catch()
   }
+
+  getExpensive(){
+    this._accessoryService.getExpensiveAccessories()
+    .then(accessories => this.all_accessories = accessories)
+    .catch()
+  }
+
+  getCheapest(){
+    this._accessoryService.getCheapestAccessories()
+    .then(accessories => this.all_accessories = accessories)
+    .catch()
+  }
+
+  mostPopular(){
+    this._accessoryService.getPopular()
+    .then(accessories => this.all_accessories = accessories)
+    .catch()
+  }
+
+  getLimited(){
+    this._accessoryService.getLimited()
+    .then(accessories => this.all_accessories = accessories)
+    .catch()
+  }
 }
