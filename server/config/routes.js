@@ -13,10 +13,10 @@ module.exports=(app)=>{
   app.get("/api/removeItem/:id", controllers.removeItem);
   app.get("/api/clearCart", controllers.clearCart);
   app.get("/api/addItem/:id", controllers.addItem);
-  // app.post('/api/newcust', controllers.newCustomer);
-  // app.get('/api/getusers', controllers.getUsers);
-  // app.get('/api/getrecentusers', controllers.getrecentUsers);
-  // app.post('/api/newprod', controllers.addProduct);
+  app.get('/api/getExpensiveAccessories', controllers.getExpensiveAccessories);
+  app.get('/api/getCheapestAccessories', controllers.getCheapestAccessories);
+  app.get('/api/getPopularAccessories', controllers.getPopularAccessories);
+  app.get('/api/getLimitedAccesories', controllers.getLimitedAccesories);
   // app.get('/api/getprods', controllers.getProds);
   // app.post('/api/neworder', controllers.placeOrder);
   // app.get('/api/getorders', controllers.getOrders);

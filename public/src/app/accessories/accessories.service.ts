@@ -29,4 +29,28 @@ export class AccessoriesService {
     .map(data => data.json())
     .toPromise()
   }
+
+  getExpensiveAccessories(){
+    return this._http.get('/api/getExpensiveAccessories')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getCheapestAccessories(){
+    return this._http.get('/api/getCheapestAccessories')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getPopular(){
+    return this._http.get('/api/getPopularAccessories')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getLimited(){
+    return this._http.get('/api/getLimitedAccesories')
+    .map(data => data.json())
+    .toPromise()
+  }
 }
