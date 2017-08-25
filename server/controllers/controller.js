@@ -145,9 +145,8 @@ module.exports = {
       }
     })
   },
-
+// CART METHODS
   getCart: (req, res) => {
-    console.log(req.session.cart);
     if(!req.session.cart){
       req.session.cart =[];
     }
@@ -176,12 +175,13 @@ module.exports = {
                     accessory[0].qty = 1;
                     req.session.cart.push(accessory[0]);
                     req.session.save();
-                    return res.json();
+                    return res.json({success: true});
                   }
                 }else{
                     bike.qty = 1;
                     req.session.cart.push(apparel);
                     req.session.save();
+                    return res.json({success: true});
                 }
               }
             })
@@ -199,12 +199,13 @@ module.exports = {
                 accessory[0].qty = 1;
                 req.session.cart.push(accessory[0]);
                 req.session.save();
-                return res.json();
+                return res.json({success: true});
               }
             }else{
               bike[0].qty = 1;
               req.session.cart.push(bike[0]);
               req.session.save();
+              return res.json({success: true});
               }
             }
           })
@@ -221,13 +222,13 @@ module.exports = {
             accessory[0].qty = 1;
             req.session.cart.push(accessory[0]);
             req.session.save();
-            return res.json();
+            return res.json({success: true});
           }
         }else{
           accessory[0].qty = 1;
           req.session.cart.push(accessory[0]);
           req.session.save();
-          return res.json();
+          return res.json({success: true});
         }
         }
       })
