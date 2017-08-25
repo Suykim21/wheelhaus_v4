@@ -10,6 +10,7 @@ export class EventsService {
   ) { }
 
   addEvent(event, path){
+    console.log("ADDDING EVENT FROM SERVICE!!!!!!")
     path = path.substr(1).slice(0, -1);
     event["path"] = path;
     var address = {
@@ -24,7 +25,7 @@ export class EventsService {
     delete event['state'];
     delete event['zipcode'];
     console.log(event);
-    return this._http.post('/api/addEvent', event)
+    return this._http.post('/addEvent', event)
     .map(data => data.json())
     .toPromise();
   }

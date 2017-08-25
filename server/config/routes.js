@@ -6,7 +6,7 @@ module.exports=(app)=>{
   app.post("/api/addAccessory", controllers.addAccessory);
   app.get("/api/getAllAccessories", controllers.getAllAccessories);
   app.post("/eventupload", controllers.addEventImage);
-  app.post("/api/addEvent", controllers.addEvent);
+  app.post("/addEvent", controllers.addEvent);
   app.get("/api/getAllEvents", controllers.getAllEvents);
   app.get("/api/getEvent/:id", controllers.getEvent);
   app.get("/api/getCart", controllers.getCart);

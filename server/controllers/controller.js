@@ -110,6 +110,7 @@ module.exports = {
       res.json({error_code:1,err_desc:err});
       return;
     }else{
+      // CONSOLE.LOG REQ.FILE
       res.json(req.file.filename);
     }
   })
