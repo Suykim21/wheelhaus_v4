@@ -9,7 +9,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  public uploader:FileUploader = new FileUploader({url:'http://localhost:3002/eventupload'});
+  public uploader:FileUploader = new FileUploader({url:'http://localhost:6789/eventupload'});
   public file_name:any;
   public event:any;
   public all_events:Array<any>;
