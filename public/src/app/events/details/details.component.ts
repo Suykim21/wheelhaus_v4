@@ -1,10 +1,10 @@
-import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
-// import { MapsAPILoader } from '@agm/core';
 import { DetailsService } from './details.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {  } from 'googlemaps';
+import { Observable } from 'rxjs/Observable';
+import {MapsAPILoader} from '@agm/core';
+declare var google: any;
 
 @Component({
   selector: 'app-details',
@@ -12,37 +12,22 @@ import {  } from 'googlemaps';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-  public searchControl: FormControl;
-  public zoom: number;
+  lat: number;
+  lng: number;
   public event: any;
   public event_id: String;
   public other_events: any;
-
-  @ViewChild("search")
-  public searchElementRef: ElementRef;
+  public event_address: any;
+  public geocoder;
 
   constructor(
-    // private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,
     private _detailService: DetailsService,
-    private _activateRoute: ActivatedRoute
-  ) {}
+    private _activateRoute: ActivatedRoute,
+    private mapsAPILoader: MapsAPILoader
+  ){}
+
 
   ngOnInit() {
-    var address = event;
-    // var geocoder = new google.maps.Geocoder();
-    // geocoder.geocode( { 'address': address}, function(results, status) {
-    //   if (status == google.maps.GeocoderStatus.OK)
-    //   {
-    //       // do something with the geocoded result
-    //       //
-    //       // results[0].geometry.location.latitude
-    //       // results[0].geometry.location.longitude
-    //   }
-    // });
-
     this._activateRoute.params.subscribe((param)=>{
       this.event_id = param.id;
     })
@@ -54,14 +39,26 @@ export class DetailsComponent implements OnInit {
     this._detailService.getEvent(event_id)
     .then(event => {
       this.event = event;
-      // console.log(this.event);
+      this.event_address = event.address.street + event.address.city + ", " + event.address.state + " " + event.address.zipcode;
+      console.log(this.event_address);
+      this.mapsAPILoader.load().then(() => {
+        console.log('google script loaded');
+        this.geocoder = new google.maps.Geocoder();
+        this.geocoder.geocode({ 'address': this.event_address }, (results, status) => {
+          console.log(results);
+          console.log(status);
+          this.lat = results[0].geometry.location.lat();
+          this.lng = results[0].geometry.location.lng();
+          // console.log("lat: " + latitude + ", long: " + longitude);
+        });
+      });
     })
     .catch()
   }
 
 // This will grab all events from DB,
 // remove the event that is being shown on show page,
-// and shuffling the events to be used on OTHER EVENTS
+// and shuffe the events to be used on OTHER EVENTS
   getOtherEvents(){
     this._detailService.getOtherEvents()
     .then( other_events => {
