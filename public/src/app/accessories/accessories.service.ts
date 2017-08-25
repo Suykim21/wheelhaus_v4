@@ -12,7 +12,6 @@ export class AccessoriesService {
   addAccessory(accessory, path){
     path = path.substr(1).slice(0, -1);
     accessory["path"] = path;
-    console.log(path);
     return this._http.post('/api/addAccessory', accessory)
     .map(data => data.json())
     .toPromise();
@@ -22,12 +21,6 @@ export class AccessoriesService {
     return this._http.get('/api/getAllAccessories')
     .map(data => data.json())
     .toPromise();
-  }
-
-  addItem(id){
-    return this._http.get('/api/addItem/' + id)
-    .map(data => data.json())
-    .toPromise()
   }
 
   getExpensiveAccessories(){
@@ -50,6 +43,12 @@ export class AccessoriesService {
 
   getLimited(){
     return this._http.get('/api/getLimitedAccesories')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getCart(){
+    return this._http.get('/api/getCart')
     .map(data => data.json())
     .toPromise()
   }

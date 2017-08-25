@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {  FileUploader } from 'ng2-file-upload';
 import { AccessoriesService } from './accessories.service';
+import { CartService } from './../cart/cart.service';
 import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
@@ -11,7 +12,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
               './accessories.component.desktop.css']
 })
 export class AccessoriesComponent implements OnInit {
-    public uploader:FileUploader = new FileUploader({url:'http://localhost:3002/accessoryupload'});
+    public uploader:FileUploader = new FileUploader({url:'http://localhost:6789/accessoryupload'});
     public file_name:any;
     public accessory:any;
     public all_accessories:Array<any>;
@@ -29,7 +30,10 @@ export class AccessoriesComponent implements OnInit {
     this.getAllAccessories();
 	}
 
-	constructor(public _accessoryService: AccessoriesService) {}
+	constructor(
+    public _accessoryService: AccessoriesService,
+    public _cartService: CartService
+  ) {}
 
   holdAccessoryDetails(accessory){
     this.accessory = accessory.value;
@@ -37,7 +41,6 @@ export class AccessoriesComponent implements OnInit {
 
   addAccessory(){
     var accessory = this.accessory;
-    console.log(this.accessory);
     this._accessoryService.addAccessory(accessory, this.file_name)
     .then()
     .catch()
@@ -50,11 +53,21 @@ export class AccessoriesComponent implements OnInit {
     .catch()
   }
 
+// CART FUNCTIONALITY
+
   addItem(id){
-    this._accessoryService.addItem(id)
-    .then(() => this._router.navigate['/accessories'])
+    this._cartService.addItem(id)
+    .then((success) => {
+      this.updateCartCount();
+  })
     .catch()
   }
+
+  updateCartCount(){
+    this._cartService.updateCartCount("Updating Cart Count");
+  }
+
+// FILTERS
 
   getExpensive(){
     this._accessoryService.getExpensiveAccessories()

@@ -20,10 +20,4 @@ export class DetailsService {
     .map(data => data.json())
     .toPromise()
   }
-
-  getLocation(address):Promise<any> {
-    return this._http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyD1ZzI7wCgzlk1_fe68Zp5w6kJ2ELedqMA')
-    .map(data => data.json())
-    .toPromise()
-  }
 }
