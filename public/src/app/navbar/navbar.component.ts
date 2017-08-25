@@ -1,6 +1,8 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, OnDestroy } from '@angular/core';
 // import { PaymentService } from '../payments/payment.service';
 import { environment } from '../../environments/environment';
+import { CartService } from './../cart/cart.service';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -8,25 +10,35 @@ import { environment } from '../../environments/environment';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnDestroy {
 
+  cart: number;
   handler: any;
-  amount: 500;
+  amount: number;
+  subscription: Subscription;
 
   // In constructor
   // "private paymentSvc: PaymentService"
-  constructor() { }
+  constructor(
+    public _cartService: CartService
+  ) {
+  }
 
   ngOnInit() {
-	  this.handler = StripeCheckout.configure({
-		  key: environment.stripeKey,
-		  image: "https://stripe.com/img/documentation/checkout/marketplace.png",
-		  locale: "auto",
-      token: token => {
-        // this.paymentSvc.processPayment(token, this.amount)
-      }
-	  });
+    this._cartService.currentMessage.subscribe(success => this.getCartLength());
+	  // this.handler = StripeCheckout.configure({
+		//   key: environment.stripeKey,
+		//   image: "https://stripe.com/img/documentation/checkout/marketplace.png",
+		//   locale: "auto",
+    //   token: token => {
+    //     this.paymentSvc.processPayment(token, this.amount)
+    //   }
+	  // });
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    }
 
   handlePayment(){
 	  this.handler.open({
@@ -48,5 +60,11 @@ export class NavbarComponent implements OnInit {
     onPopstate(){
       this.handler.close()
     }
+
+  getCartLength(){
+    this._cartService.getCart()
+    .then((cart)=>{this.cart = cart.length ; console.log(cart.length); console.log(cart);})
+    .catch()
+  }
 
 }

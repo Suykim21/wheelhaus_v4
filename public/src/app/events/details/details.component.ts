@@ -1,8 +1,10 @@
-import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
+import { DetailsService } from './details.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import {MapsAPILoader} from '@agm/core';
+declare var google: any;
 
 @Component({
   selector: 'app-details',
@@ -10,64 +12,77 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-  public latitude: number;
-  public longitude: number;
-  public searchControl: FormControl;
-  public zoom: number;
-
-  @ViewChild("search")
-  public searchElementRef: ElementRef;
+  lat: number;
+  lng: number;
+  public event: any;
+  public event_id: String;
+  public other_events: any;
+  public event_address: any;
+  public geocoder;
 
   constructor(
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
-  ) {}
+    private _detailService: DetailsService,
+    private _activateRoute: ActivatedRoute,
+    private mapsAPILoader: MapsAPILoader
+  ){}
+
 
   ngOnInit() {
-    //set google maps defaults
-    this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
-
-    //create search FormControl
-    this.searchControl = new FormControl();
-
-    //set current position
-    this.setCurrentPosition();
-
-    //load Places Autocomplete
-    this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          //get the place result
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-          //verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-          //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
-        });
-      });
-    });
+    this._activateRoute.params.subscribe((param)=>{
+      this.event_id = param.id;
+    })
+    this.getEvent(this.event_id);
+    this.getOtherEvents();
   }
 
-  private setCurrentPosition() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 12;
+  getEvent(event_id){
+    this._detailService.getEvent(event_id)
+    .then(event => {
+      this.event = event;
+      this.event_address = event.address.street + event.address.city + ", " + event.address.state + " " + event.address.zipcode;
+      console.log(this.event_address);
+      this.mapsAPILoader.load().then(() => {
+        console.log('google script loaded');
+        this.geocoder = new google.maps.Geocoder();
+        this.geocoder.geocode({ 'address': this.event_address }, (results, status) => {
+          console.log(results);
+          console.log(status);
+          this.lat = results[0].geometry.location.lat();
+          this.lng = results[0].geometry.location.lng();
+          // console.log("lat: " + latitude + ", long: " + longitude);
+        });
       });
-    }
+    })
+    .catch()
+  }
+
+// This will grab all events from DB,
+// remove the event that is being shown on show page,
+// and shuffe the events to be used on OTHER EVENTS
+  getOtherEvents(){
+    this._detailService.getOtherEvents()
+    .then( other_events => {
+      this.other_events = other_events;
+      var this_event = this.event;
+      function shuffle (array, event) {
+        var i = 0
+          , j = 0
+          , temp = null
+
+        for (i = array.length - 1; i > 0; i -= 1) {
+          if(array[i] == event){
+            array.slice(i);
+          }
+          j = Math.floor(Math.random() * (i + 1))
+          temp = array[i]
+          array[i] = array[j]
+          array[j] = temp
+        }
+        return array;
+      }
+      this.other_events = shuffle(this.other_events, this.event);
+      // console.log(this.other_events);
+    })
+    .catch()
   }
 }

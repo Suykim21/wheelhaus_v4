@@ -6,10 +6,11 @@ import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { LandComponent } from './land/land.component';
 import { NavbarComponent } from "./navbar/navbar.component";
-import { ApparelComponent } from "./apparel/apparel.component";
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { AccessComponent } from './access/access.component';
+import { CartComponent } from './cart/cart.component';
+import { ApparelComponent } from "./apparel/apparel.component";
 import { ApparelListComponent } from './apparel/apparel-list/apparel-list.component';
 import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.component';
 import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component';
@@ -17,19 +18,16 @@ import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component
 
 const routes: Routes = [
   {path: 'events', component: EventsComponent},
-  {path: 'events/details', component: DetailsComponent},
+  {path: 'events/:id', component: DetailsComponent},
   {path: 'about', component: AboutComponent},
   {path: '', component: LandComponent},
-  // { path: 'apparel', component: ApparelComponent, children: [
-  //       { path: 'new', component: ApparelNewComponent },
-  //       { path: 'show/:id', component: ApparelShowComponent },
-  // ]},
   {path: 'apparel', component: ApparelComponent},
   {path: 'apparel/new', component: ApparelNewComponent},
   {path: 'apparel/show/:id', component: ApparelShowComponent},
   {path: 'bikes', component: BikeStoreComponent},
   {path: 'accessories', component: AccessoriesComponent},
-  {path: 'access', component: AccessComponent}
+  {path: 'access', component: AccessComponent},
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

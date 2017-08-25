@@ -19,6 +19,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
 app.use(express.static(path.join(__dirname, 'public', "dist", "assets", "apparel")));
+app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'accessories_images')));
+app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'events_images')));
+
 require('./server/config/mongoose.js');
 
 // FOR CORSS-ORIGIN IMAGE UPLOAD
@@ -42,4 +45,4 @@ var route = require('./server/config/routes.js')(app)
 app.get('*', (req,res)=>{
   res.sendFile(path.resolve('public/dist/index.html'))
 })
-app.listen(3002,()=>console.log("Listening on port 3002"));
+app.listen(6789,()=>console.log("Listening on port 6789"));
