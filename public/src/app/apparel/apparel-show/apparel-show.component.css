@@ -59,31 +59,38 @@
       /* ------------------------------------------ */
     
       .wrapper {
+        outline: 3px solid blue;
         padding: 1%;
         background: #1B1D1E;
         border-color: #1B1D1E;
       }
     
-      .bikes {
+      .item-left {
         background-color: white;
         position: relative;
-        width: 100%;
-        height: 95%;
-        margin: auto;
-        text-align: justify;
-        /* color: white; */
-        /* padding-top: 5%; */
-        color: black;
-        padding: 5%;
-      }
-    
-      .item {
-        position: relative;
+        outline: 1px solid red;
         display: inline-block;
         width: 45%;
+        /* height: 95%; */
+        /* margin: auto; */
+        /* text-align: justify; */
+        /* color: white; */
+        /* padding-top: 5%; */
+        /* color: black; */
+        /* padding: 5%; */
       }
     
-      .item img  {
+      .item-right {
+        background-color: white;
+        outline: 1px solid red;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 45%;
+        /* width: 45%; */
+      }
+    
+      /* .item img  {
         display: block;
         margin: auto;
         width: 90%;
@@ -107,7 +114,7 @@
         color: darkgray;
         text-align: center;
         margin: 0;
-      }
+      } */
     
       /* ------------------------------------------ */
       /* Section - Footer */

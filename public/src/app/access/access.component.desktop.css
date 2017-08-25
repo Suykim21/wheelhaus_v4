@@ -2,7 +2,25 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
+@media (min-width: 1025px) {
+  .icon {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 960px) {
+
+  * {
+    margin: 0;
+  }
+
+  hr {
+    display: none;
+  }
+
+  /* .icon {
+    display: none;
+  } */
 
 
   .container {
@@ -27,13 +45,19 @@
   .intro {
     position: relative;
     width: 100%;
-    top: 36%;
+    top: 50%;
     left: 50%;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+    font-size: 2.5em;
     text-align: center;
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+  }
+
+  .intro img {
+    width: 20%;
+    height: auto !important;
   }
 
   .intro h1 {
@@ -51,7 +75,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 50vh;
+    padding-top: 25vh;
   }
 
   /* ------------------------------------------ */
@@ -59,16 +83,16 @@
   /* ------------------------------------------ */
 
   .wrapper {
-    padding: 1%;
+    padding: 5%;
     background: #1B1D1E;
-    border-color: #1B1D1E;
+    /* border-color: #1B1D1E; */
   }
 
   .bikes {
     background-color: white;
     position: relative;
     width: 100%;
-    height: 95%;
+    height: auto;
     margin: auto;
     text-align: justify;
     color: white;
@@ -104,30 +128,6 @@
   .item h4 {
     color: darkgray;
     text-align: center;
-    margin: 0;
+    margin: 1em 0;
   }
-
-  /* ------------------------------------------ */
-  /* Section - Footer */
-  /* ------------------------------------------ */
-
-  .footer {
-    background: #1B1D1E;
-    border-color: #1B1D1E;
-    color: white;
-    text-transform: uppercase;
-    padding: 2%;
-  }
-
-  .footer h5, h6 {
-    text-align: center;
-    margin: 0;
-  }
-
-
-  .container {
-    border-color: #1B1D1E;
-    font-family: 'Raleway', sans-serif;
-  }
-
 }

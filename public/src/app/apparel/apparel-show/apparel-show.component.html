@@ -8,9 +8,11 @@
     </section>
   
     <section class="wrapper">
-      <div class="bikes">
+      <div class="item-left">
         <h1>{{ apparel.name }}</h1>
         <img src="{{ apparel.image }}" alt="Product">
+      </div>
+      <div class="item-right">
         <h2>{{ apparel.description }}</h2>
         <h2>Price: ${{ apparel.price | number : '1.2-2' }}</h2>
       </div>
