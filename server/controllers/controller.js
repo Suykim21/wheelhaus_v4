@@ -1,12 +1,9 @@
 let mongoose = require('mongoose');
-// var User = mongoose.model('User');
-// var Product = mongoose.model('Product');
 var Accessory = mongoose.model('Accessory');
 var Event = mongoose.model('Event');
 // var MongoClient = require('mongodb').MongoClient;
 
 // FOR FILE UPLOADS
-var fs = require('fs');
 var multer = require("multer");
 
 module.exports = {
@@ -20,7 +17,6 @@ module.exports = {
         cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
       }
     });
-
     var upload = multer({ //multer settings
       storage: storage
     }).single('file');
@@ -35,6 +31,7 @@ module.exports = {
 },
 
   addAccessory: (req, res) => {
+    console.log("controller for accessories")
     var accessory = new Accessory(req.body);
     accessory.save((err, accessory) => {
       if(err){
@@ -53,6 +50,9 @@ module.exports = {
       }
     })
   },
+
+// ACCESSORY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// FILTER METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
 
   getExpensiveAccessories: (req, res) => {
     Accessory.find({}).sort('-cost').exec((err, accessories) => {
@@ -91,6 +91,9 @@ module.exports = {
     })
   },
 
+// EVENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
+
   addEventImage: (req, res) => {
     var storage = multer.diskStorage({ //multers disk storage settings
       destination: function (req, file, cb) {
@@ -120,6 +123,7 @@ module.exports = {
     var event = new Event(req.body);
     event.save((err, event) => {
       if(err){
+        console.log(err);
       }else{
         return;
       }
@@ -145,7 +149,8 @@ module.exports = {
       }
     })
   },
-// CART METHODS
+// CART ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
   getCart: (req, res) => {
     if(!req.session.cart){
       req.session.cart =[];
@@ -154,84 +159,143 @@ module.exports = {
   },
 
   addItem: (req, res) => {
-    Accessory.find({_id: req.params.id}, (err, accessory) => {
-      if(err){
-        Bike.find({_id: req.params.id}, (err, bike) => {
-          if(err){
-            Apparel.find({_id: req.params.id}, (err, apparel) => {
-              if(err){
-                console.log("SOMETHING WENT TOTALLY WRONG @ CONTORLLER ADD ITEM TO CART");
-              }else{
-                console.log("REQ SESSION CART APPAREL~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-                if(req.session.cart.length > 0){
-                  for(var i = 0; i < req.session.cart.length; i++){
-                    if(req.session.cart[i]._id = req.params.id){
-                      req.session.cart[i].qty ++;
-                      req.session.save();
-                      var added = true;
-                    }
-                  }
-                  if(!added){
-                    accessory[0].qty = 1;
-                    req.session.cart.push(accessory[0]);
-                    req.session.save();
-                    return res.json({success: true});
-                  }
-                }else{
-                    bike.qty = 1;
-                    req.session.cart.push(apparel);
-                    req.session.save();
-                    return res.json({success: true});
-                }
-              }
-            })
-          }else{
-            console.log("REQ SESSION CART BIKE~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-            if(req.session.cart.length > 0){
-              for(var i = 0; i < req.session.cart.length; i++){
-                if(req.session.cart[i]._id = req.params.id){
-                  req.session.cart[i].qty ++;
-                  req.session.save();
-                  var added = true;
-                }
-              }
-              if(!added){
-                accessory[0].qty = 1;
-                req.session.cart.push(accessory[0]);
+    console.log(req.params.type);
+    console.log('*********************');
+    console.log(req.body.id);
+    if(req.params.type == 'accessory'){
+      Accessory.find({_id: req.body.id}, (err, accessory) => {
+        if(err){
+        }else{
+          if(req.session.cart.length > 0){
+            for(var i = 0; i < req.session.cart.length; i++){
+              if(req.session.cart[i]._id == req.params.id){
+                req.session.cart[i].qty ++;
                 req.session.save();
-                return res.json({success: true});
+                var added = true;
               }
-            }else{
-              bike[0].qty = 1;
-              req.session.cart.push(bike[0]);
+            }
+            if(!added){
+              accessory[0].qty = 1;
+              req.session.cart.push(accessory[0]);
               req.session.save();
               return res.json({success: true});
-              }
             }
-          })
-      }else{
-        if(req.session.cart.length > 0){
-          for(var i = 0; i < req.session.cart.length; i++){
-            if(req.session.cart[i]._id == req.params.id){
-              req.session.cart[i].qty ++;
-              req.session.save();
-              var added = true;
-            }
-          }
-          if(!added){
+          }else{
             accessory[0].qty = 1;
             req.session.cart.push(accessory[0]);
             req.session.save();
             return res.json({success: true});
           }
-        }else{
-          accessory[0].qty = 1;
-          req.session.cart.push(accessory[0]);
-          req.session.save();
-          return res.json({success: true});
-        }
         }
       })
+    }
+    else if(req.params.type == 'apparel'){
+      Apparel.find({_id: req.body.id}, (err, apparel) => {
+        if(err){
+        }else{
+          if(req.session.cart.length > 0){
+            for(var i = 0; i < req.session.cart.length; i++){
+              if(req.session.cart[i]._id == req.params.id){
+                req.session.cart[i].qty ++;
+                req.session.save();
+                var added = true;
+              }
+            }
+            if(!added){
+              apparel[0].qty = 1;
+              req.session.cart.push(apparel[0]);
+              req.session.save();
+              return res.json({success: true});
+            }
+          }else{
+            apparel[0].qty = 1;
+            req.session.cart.push(apparel[0]);
+            req.session.save();
+            return res.json({success: true});
+          }
+        }
+      })
+    }
+    else if(req.params.type == 'bike'){
+      Bike.find({_id: req.body.id}, (err, bike) => {
+        if(err){
+        }else{
+          if(req.session.cart.length > 0){
+            for(var i = 0; i < req.session.cart.length; i++){
+              if(req.session.cart[i]._id == req.params.id){
+                req.session.cart[i].qty ++;
+                req.session.save();
+                var added = true;
+              }
+            }
+            if(!added){
+              bike[0].qty = 1;
+              req.session.cart.push(bike[0]);
+              req.session.save();
+              return res.json({success: true});
+            }
+          }else{
+            bike[0].qty = 1;
+            req.session.cart.push(bike[0]);
+            req.session.save();
+            return res.json({success: true});
+          }
+        }
+      })
+    }
+        // Bike.find({_id: req.params.id}, (err, bike) => {
+        //   if(err){
+        //     Apparel.find({_id: req.params.id}, (err, apparel) => {
+        //       if(err){
+        //         console.log("SOMETHING WENT TOTALLY WRONG @ CONTORLLER ADD ITEM TO CART");
+        //       }else{
+        //         console.log("REQ SESSION CART APPAREL~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        //         if(req.session.cart.length > 0){
+        //           for(var i = 0; i < req.session.cart.length; i++){
+        //             if(req.session.cart[i]._id = req.params.id){
+        //               req.session.cart[i].qty ++;
+        //               req.session.save();
+        //               var added = true;
+        //             }
+        //           }
+        //           if(!added){
+        //             apparel[0].qty = 1;
+        //             req.session.cart.push(apparel[0]);
+        //             req.session.save();
+        //             return res.json({success: true});
+        //           }
+        //         }else{
+        //             bike.qty = 1;
+        //             req.session.cart.push(apparel);
+        //             req.session.save();
+        //             return res.json({success: true});
+        //         }
+        //       }
+        //     })
+        //   }else{
+        //     console.log("REQ SESSION CART BIKE~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        //     if(req.session.cart.length > 0){
+        //       for(var i = 0; i < req.session.cart.length; i++){
+        //         if(req.session.cart[i]._id = req.params.id){
+        //           req.session.cart[i].qty ++;
+        //           req.session.save();
+        //           var added = true;
+        //         }
+        //       }
+        //       if(!added){
+        //         accessory[0].qty = 1;
+        //         req.session.cart.push(accessory[0]);
+        //         req.session.save();
+        //         return res.json({success: true});
+        //       }
+        //     }else{
+        //       bike[0].qty = 1;
+        //       req.session.cart.push(bike[0]);
+        //       req.session.save();
+        //       return res.json({success: true});
+        //       }
+        //     }
+        //   })
     },
 
   removeItem: (req, res) => {

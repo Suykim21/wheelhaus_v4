@@ -1,42 +1,18 @@
 <!-- USED TO ADD NEW PRODUCTS IN -->
-<!-- <h1>LKJFDSKJFLSJFLKJS</h1>
+<h1>LKJFDSKJFLSJFLKJS</h1>
 <form (submit)="holdAccessoryDetails(formData)" #formData="ngForm">
     <p>Name: <input type="text" name="name" ngModel></p>
     <p>Description:</p>
     <textarea name="description" cols="30" rows="10" ngModel></textarea>
-      <p>Quantity: <input type="number" name="qty" ngModel></p>
-      <p>Price: <input type="number" name="cost" ngModel></p>
+      <p>Quantity: <input type="number" name="quantity" ngModel></p>
+      <p>Price: <input type="number" name="price" ngModel></p>
     Limited?
     <input type="checkbox" name="limited" ngModel>
       <p>File: <input type="file" class="form-control" name="image" ng2FileSelect [uploader]="uploader"/></p>
       <p *ngFor="let file of uploader.queue">
         <button (click)="file.upload()">Add</button>
       </p>
-</form> -->
-
-<!-- <table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Cost</th>
-    <th>Qty</th>
-    <th>Bought</th>
-    <th>Path</th>
-    <th>Limited</th>
-  </tr>
-  <tr *ngFor="let accessory of all_accessories">
-    <td>{{ accessory.name }}</td>
-    <td>{{ accessory.description }}</td>
-    <td>{{ accessory.cost }}</td>
-    <td>{{ accessory.qty }}</td>
-    <td>{{ accessory.bought }}</td>
-    <td>
-      <img src="assets/accessories_images/{{ accessory.path }}" alt="">
-    </td>
-    <td>{{ accessory.limited }}</td>
-  </tr>
-</table> -->
-<!-- DO NOT DELETE ~ THIS WILL ADD PRODUCTS -->
+</form>
 
 <div class="container">
   <section class="beginning">
@@ -64,9 +40,9 @@
   <section class="wrapper">
     <div class="bikes" *ngFor="let accessory of all_accessories">
       <div class="item">
-        <img src="{{ accessory.path }}">
+        <img src="{{ accessory.image }}">
         <h3>{{ accessory.name }}</h3>
-        <h4>${{ accessory.cost }}</h4>
+        <h4>${{ accessory.price }}</h4>
         <button (click)="addItem(accessory._id)">Add to Cart</button>
       </div>
     </div>

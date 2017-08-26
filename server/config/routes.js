@@ -1,18 +1,21 @@
 var controllers = require('./../controllers/controller.js');
 
 module.exports=(app)=>{
-  // ACCESSORY 1) adds image 2) adds Accessory in DB 3) gets all images
+  // Accessory Routes. 1st two are to upload image/add accessory to db
   app.post("/accessoryupload", controllers.addAccessoryImage);
   app.post("/api/addAccessory", controllers.addAccessory);
   app.get("/api/getAllAccessories", controllers.getAllAccessories);
+  // Event routes. 1st two are to upload image/add event to db
   app.post("/eventupload", controllers.addEventImage);
   app.post("/addEvent", controllers.addEvent);
   app.get("/api/getAllEvents", controllers.getAllEvents);
   app.get("/api/getEvent/:id", controllers.getEvent);
+  // Cart routes
   app.get("/api/getCart", controllers.getCart);
   app.get("/api/removeItem/:id", controllers.removeItem);
   app.get("/api/clearCart", controllers.clearCart);
-  app.get("/api/addItem/:id", controllers.addItem);
+  app.post("/api/addItem/:type", controllers.addItem);
+  // Accessory Filters
   app.get('/api/getExpensiveAccessories', controllers.getExpensiveAccessories);
   app.get('/api/getCheapestAccessories', controllers.getCheapestAccessories);
   app.get('/api/getPopularAccessories', controllers.getPopularAccessories);

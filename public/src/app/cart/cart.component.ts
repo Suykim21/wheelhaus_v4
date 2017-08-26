@@ -48,6 +48,7 @@ export class CartComponent implements OnInit {
         cart_items["totalcost"] = total_price;
       }
       this.shoppingCart = cart_items;
+      console.log(this.shoppingCart);
     })
     .catch()
   }

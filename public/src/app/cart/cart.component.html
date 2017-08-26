@@ -9,31 +9,34 @@
   </section>
 
   <section class="wrapper" *ngIf='shoppingCart'>
-    <div class="items">
-      <table>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Qty</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-        <tr *ngFor='let item of shoppingCart'>
-          <td><img src="{{ item.path }}"></td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.qty }}</td>
-          <td>{{ item.cost }}</td>
-          <td><button (click) = 'removeItem(item._id)'>Remove</button></td>
-        </tr>
-      </table>
-      <div class="item" *ngFor='let item of shoppingCart'>
+      <div class="items">
+        <table>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+          <tr *ngFor='let item of shoppingCart'>
+            <td><img src="{{ item.path }}"></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.qty }}</td>
+            <td>{{ item.cost }}</td>
+            <td><button (click) = 'removeItem(item._id)'>Remove</button></td>
+          </tr>
+        </table>
+        <div class="item" *ngFor='let item of shoppingCart'>
+        </div>
       </div>
-    </div>
-
-    <h4>Total: ${{ shoppingCart.totalcost }}</h4>
-    <button (click)="clearCart()">Clear Cart</button>
-    <button (click)='handlePayment()' >Pay</button>
-
+      <h4>Total: ${{ shoppingCart.totalcost }}</h4>
+      <div *ngIf='shoppingCart.totalcost > 0'>
+        <button (click)="clearCart()">Clear Cart</button>
+        <button (click)='handlePayment()'>Pay</button>
+      </div>
+      <div *ngIf='shoppingCart.totalcost == 0'>
+        <button>Get to shopping!</button>
+      </div>
   </section>
 
   <section class="footer">
@@ -42,11 +45,6 @@
   </section>
 
 </div>
-
-
-
-
-
 
 <!-- PRE - CSS WORK - JUST FUNCTIONALITY -->
 <!-- START -->

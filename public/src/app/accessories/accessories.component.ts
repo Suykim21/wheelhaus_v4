@@ -17,6 +17,7 @@ export class AccessoriesComponent implements OnInit {
     public accessory:any;
     public all_accessories:Array<any>;
     public _router: Router;
+    public item_type: String = 'accessory';
 
   ngOnInit() {
     // override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
@@ -35,16 +36,19 @@ export class AccessoriesComponent implements OnInit {
     public _cartService: CartService
   ) {}
 
+// Upload images and adding to DB
+
   holdAccessoryDetails(accessory){
     this.accessory = accessory.value;
   }
 
   addAccessory(){
-    var accessory = this.accessory;
-    this._accessoryService.addAccessory(accessory, this.file_name)
+    this._accessoryService.addAccessory(this.accessory, this.file_name)
     .then()
     .catch()
   }
+
+// For for-looping accessories in DB on accessory page
 
   getAllAccessories(){
     this._accessoryService.getAllAccessories()
@@ -53,43 +57,43 @@ export class AccessoriesComponent implements OnInit {
     .catch()
   }
 
-// CART FUNCTIONALITY
-
-  addItem(id){
-    this._cartService.addItem(id)
-    .then((success) => {
-      this.updateCartCount();
-  })
-    .catch()
-  }
-
-  updateCartCount(){
-    this._cartService.updateCartCount("Updating Cart Count");
-  }
-
-// FILTERS
-
-  getExpensive(){
-    this._accessoryService.getExpensiveAccessories()
-    .then(accessories => this.all_accessories = accessories)
-    .catch()
-  }
-
-  getCheapest(){
-    this._accessoryService.getCheapestAccessories()
-    .then(accessories => this.all_accessories = accessories)
-    .catch()
-  }
-
-  mostPopular(){
-    this._accessoryService.getPopular()
-    .then(accessories => this.all_accessories = accessories)
-    .catch()
-  }
-
-  getLimited(){
-    this._accessoryService.getLimited()
-    .then(accessories => this.all_accessories = accessories)
-    .catch()
-  }
+// // CART FUNCTIONALITY
+//
+//   addItem(id, type){
+//     this._cartService.addItem(id, this.item_type)
+//     .then((success) => {
+//       this.updateCartCount();
+//   })
+//     .catch()
+//   }
+//
+//   updateCartCount(){
+//     this._cartService.updateCartCount("Updating Cart Count");
+//   }
+//
+// // FILTERS
+//
+//   getExpensive(){
+//     this._accessoryService.getExpensiveAccessories()
+//     .then(accessories => this.all_accessories = accessories)
+//     .catch()
+//   }
+//
+//   getCheapest(){
+//     this._accessoryService.getCheapestAccessories()
+//     .then(accessories => this.all_accessories = accessories)
+//     .catch()
+//   }
+//
+//   mostPopular(){
+//     this._accessoryService.getPopular()
+//     .then(accessories => this.all_accessories = accessories)
+//     .catch()
+//   }
+//
+//   getLimited(){
+//     this._accessoryService.getLimited()
+//     .then(accessories => this.all_accessories = accessories)
+//     .catch()
+//   }
 }
