@@ -15,7 +15,7 @@ var sessionInfomation = {
   }
 }
 app.use(session(sessionInfomation));
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
 app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'accessories_images')));
