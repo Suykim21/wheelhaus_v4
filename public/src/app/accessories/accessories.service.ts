@@ -52,4 +52,5 @@ export class AccessoriesService {
     .map(data => data.json())
     .toPromise()
   }
+  
 }

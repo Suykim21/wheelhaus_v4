@@ -45,4 +45,4 @@ var route = require('./server/config/routes.js')(app)
 app.get('*', (req,res)=>{
   res.sendFile(path.resolve('public/dist/index.html'))
 })
-app.listen(6789,()=>console.log("Listening on port 6789"));
+app.listen(3000,()=>console.log("Listening on port 3000"));

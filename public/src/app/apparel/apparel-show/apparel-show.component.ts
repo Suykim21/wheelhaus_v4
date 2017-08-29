@@ -1,6 +1,7 @@
 import { ApparelService } from './../apparel.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CartService } from './../../cart/cart.service';
 
 @Component({
   selector: 'app-apparel-show',
@@ -14,6 +15,7 @@ export class ApparelShowComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _apparelService: ApparelService,
+    public _cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,19 @@ export class ApparelShowComponent implements OnInit {
     this._apparelService.showApparel(id)
     .then( current_apparel => this.apparel = current_apparel)
     .catch( err => console.log(err))
+  }
+
+// CART FUNCTIONALITY
+  addItem(id){
+    this._cartService.addItem(id)
+    .then((success) => {
+      this.updateCartCount();
+  })
+    .catch()
+  }
+
+  updateCartCount(){
+    this._cartService.updateCartCount("Updating Cart Count");
   }
 
 }

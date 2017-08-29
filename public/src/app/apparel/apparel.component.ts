@@ -1,5 +1,7 @@
 import { ApparelService } from './apparel.service';
 import { Component, OnInit } from '@angular/core';
+import { CartService } from './../cart/cart.service';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-apparel',
@@ -9,10 +11,14 @@ import { Component, OnInit } from '@angular/core';
               './apparel.component.desktop.css']
 })
 export class ApparelComponent implements OnInit {
+  public _router: Router;
+  public apparel: Array<any>;
+
   apparels: Array<any>
 
   constructor(
-    public _apparelService: ApparelService
+    public _apparelService: ApparelService,
+    public _cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -21,8 +27,45 @@ export class ApparelComponent implements OnInit {
 
   getAllApparel(){
     this._apparelService.getAllApparel()
-    .then(all_apparel => { this.apparels = all_apparel;})
+    .then(apparel => { this.apparels = apparel;})
     .catch()
   }
 
+// CART FUNCTIONALITY
+  addItem(id){
+    this._cartService.addItem(id)
+    .then((success) => {
+      this.updateCartCount();
+  })
+    .catch()
+  }
+
+  updateCartCount(){
+    this._cartService.updateCartCount("Updating Cart Count");
+  }
+
+// FILTERS
+  getExpensive(){
+    this._apparelService.getExpensiveApparel()
+    .then(all_apparel => this.apparels = all_apparel)
+    .catch()
+  }
+
+  getCheapest(){
+    this._apparelService.getCheapestApparel()
+    .then(all_apparel => this.apparels = all_apparel)
+    .catch()
+  }
+
+  mostPopular(){
+    this._apparelService.getPopular()
+    .then(all_apparel => this.apparels = all_apparel)
+    .catch()
+  }
+
+  getLimited(){
+    this._apparelService.getLimited()
+    .then(all_apparel => this.apparel = all_apparel)
+    .catch()
+  }
 }

@@ -25,4 +25,34 @@ export class ApparelService {
     .toPromise() 
   }
 
+  getExpensiveApparel(){
+    return this._http.get('/api/getExpensiveApparel')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getCheapestApparel(){
+    return this._http.get('/api/getCheapestApparel')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getPopular(){
+    return this._http.get('/api/getPopularApparel')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getLimited(){
+    return this._http.get('/api/getLimitedApparel')
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getCart(){
+    return this._http.get('/api/getCart')
+    .map(data => data.json())
+    .toPromise()
+  }
+
 }

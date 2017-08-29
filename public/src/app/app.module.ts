@@ -27,7 +27,6 @@ import { ApparelService } from './apparel/apparel.service';
 import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component';
 import { ApparelDestroyComponent } from './apparel/apparel-destroy/apparel-destroy.component';
 import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.component';
-import { ApparelListComponent } from './apparel/apparel-list/apparel-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,6 @@ import { ApparelListComponent } from './apparel/apparel-list/apparel-list.compon
     ApparelComponent,
     AccessComponent,
     ApparelNewComponent,
-    ApparelListComponent,
     ApparelShowComponent,
     ApparelDestroyComponent,
     CartComponent,

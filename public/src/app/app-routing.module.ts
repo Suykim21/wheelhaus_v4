@@ -11,7 +11,6 @@ import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { AccessComponent } from './access/access.component';
 import { CartComponent } from './cart/cart.component';
 import { ApparelComponent } from "./apparel/apparel.component";
-import { ApparelListComponent } from './apparel/apparel-list/apparel-list.component';
 import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.component';
 import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component';
 

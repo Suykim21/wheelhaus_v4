@@ -9,6 +9,7 @@ var Apparel = mongoose.model('Apparel');
 // FOR FILE UPLOADS
 var fs = require('fs');
 var multer = require("multer");
+
 // DECLARING APPAREL FILE UPLOAD VARIABLE
 var apparelStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
@@ -118,15 +119,15 @@ module.exports = {
       storage: storage
     }).single('file');
     upload(req,res,function(err){
-    if(err){
-      res.json({error_code:1,err_desc:err});
-      return;
-    }else{
-      // CONSOLE.LOG REQ.FILE
-      res.json(req.file.filename);
-    }
-  })
-},
+      if(err){
+        res.json({error_code:1,err_desc:err});
+        return;
+      }else{
+        // CONSOLE.LOG REQ.FILE
+        res.json(req.file.filename);
+      }
+    })
+  },
 
   addEvent: (req, res) => {
     var event = new Event(req.body);
@@ -167,62 +168,66 @@ module.exports = {
   },
 
   addItem: (req, res) => {
+    console.log("%$^$^$%^&$%^&$^&$%^&")
     Accessory.find({_id: req.params.id}, (err, accessory) => {
-      if(err){
-        Bike.find({_id: req.params.id}, (err, bike) => {
-          if(err){
-            Apparel.find({_id: req.params.id}, (err, apparel) => {
-              if(err){
-                console.log("SOMETHING WENT TOTALLY WRONG @ CONTORLLER ADD ITEM TO CART");
-              }else{
-                console.log("REQ SESSION CART APPAREL~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-                if(req.session.cart.length > 0){
-                  for(var i = 0; i < req.session.cart.length; i++){
-                    if(req.session.cart[i]._id = req.params.id){
-                      req.session.cart[i].qty ++;
-                      req.session.save();
-                      var added = true;
-                    }
-                  }
-                  if(!added){
-                    accessory[0].qty = 1;
-                    req.session.cart.push(accessory[0]);
-                    req.session.save();
-                    return res.json({success: true});
-                  }
-                }else{
-                    bike.qty = 1;
-                    req.session.cart.push(apparel);
-                    req.session.save();
-                    return res.json({success: true});
-                }
-              }
-            })
-          }else{
-            console.log("REQ SESSION CART BIKE~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-            if(req.session.cart.length > 0){
-              for(var i = 0; i < req.session.cart.length; i++){
-                if(req.session.cart[i]._id = req.params.id){
-                  req.session.cart[i].qty ++;
-                  req.session.save();
-                  var added = true;
-                }
-              }
-              if(!added){
-                accessory[0].qty = 1;
-                req.session.cart.push(accessory[0]);
-                req.session.save();
-                return res.json({success: true});
-              }
-            }else{
-              bike[0].qty = 1;
-              req.session.cart.push(bike[0]);
-              req.session.save();
-              return res.json({success: true});
-              }
-            }
-          })
-      }else{
+      if(accessory == []){
+        console.log("HEYHEYEHEYEYEYHEYEHYEYEHYEHYHEYHEYHEYHEEHYEYEHYEHYEHYEHYEHYHEY")
+        // Bike.find({_id: req.params.id}, (err, bike) => {
+        //   if(err){
+        //     console.log("++++++++++++++++++++++++++")
+        //     Apparel.find({_id: req.params.id}, (err, apparel) => {
+        //       if(err){
+        //         console.log("SOMETHING WENT TOTALLY WRONG @ CONTORLLER ADD ITEM TO CART");
+        //       }else{
+        //         console.log("REQ SESSION CART APPAREL~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        //         if(req.session.cart.length > 0){
+        //           for(var i = 0; i < req.session.cart.length; i++){
+        //             if(req.session.cart[i]._id = req.params.id){
+        //               req.session.cart[i].qty ++;
+        //               req.session.save();
+        //               var added = true;
+        //             }
+        //           }
+        //           if(!added){
+        //             apparel[0].quantity = 1;
+        //             req.session.cart.push(apparel[0]);
+        //             req.session.save();
+        //             return res.json({success: true});
+        //           }
+        //         }else{
+        //             apparel.quantity = 1;
+        //             req.session.cart.push(apparel);
+        //             req.session.save();
+        //             return res.json({success: true});
+        //         }
+        //       }
+        //     })
+        //   }else{
+        //     console.log("REQ SESSION CART BIKE~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        //     if(req.session.cart.length > 0){
+        //       for(var i = 0; i < req.session.cart.length; i++){
+        //         if(req.session.cart[i]._id = req.params.id){
+        //           req.session.cart[i].qty ++;
+        //           req.session.save();
+        //           var added = true;
+        //         }
+        //       }
+        //       if(!added){
+        //         accessory[0].qty = 1;
+        //         req.session.cart.push(accessory[0]);
+        //         req.session.save();
+        //         return res.json({success: true});
+        //       }
+        //     }else{
+        //       bike[0].qty = 1;
+        //       req.session.cart.push(bike[0]);
+        //       req.session.save();
+        //       return res.json({success: true});
+        //       }
+        //     }
+        //   })
+        }else{
+        console.log(accessory);
         if(req.session.cart.length > 0){
           for(var i = 0; i < req.session.cart.length; i++){
             if(req.session.cart[i]._id == req.params.id){
@@ -238,6 +243,7 @@ module.exports = {
             return res.json({success: true});
           }
         }else{
+          console.log("***********************************")
           accessory[0].qty = 1;
           req.session.cart.push(accessory[0]);
           req.session.save();
@@ -276,6 +282,7 @@ module.exports = {
   addApparel: (req,res)=> {
     let newApparel = new Apparel(req.body);
     newApparel.image = req.body.path;
+    console.log(req.body);
     newApparel.save((err,savedAppar)=>{
       if(err){
         console.log("Error saving apparel");
@@ -286,24 +293,61 @@ module.exports = {
   },
 
   getAllApparel: (req,res) => {
-      Apparel.find({}, (err, apparels) => {
-          if(err){
-              return res.sendStatus(500);
-          } else {
-              return res.json(apparels);
-          }
-      })
+    Apparel.find({}, (err, apparels) => {
+      if(err){
+          return res.sendStatus(500);
+      } else {
+          return res.json(apparels);
+      }
+    })
   },
 
   getApparel: (req, res) => {
-      Apparel.findOne({_id: req.params.id}, (err, current_apparel) => {
-          if(err){
-              console.log(err);
-              return res.sendStatus(500);
-          } else {
-              return res.json(current_apparel);
-          }
-      })
+    Apparel.findOne({_id: req.params.id}, (err, current_apparel) => {
+      if(err){
+          console.log(err);
+          return res.sendStatus(500);
+      } else {
+          return res.json(current_apparel);
+      }
+    })
+  },
+
+  getExpensiveApparel: (req, res) => {
+    Apparel.find({}).sort('-cost').exec((err, apparel) => {
+      if(err){
+      }else{
+        return res.json(apparel);
+      }
+    })
+  },
+
+  getCheapestApparel: (req, res) => {
+    Apparel.find({}).sort('+cost').exec((err, apparel) => {
+      if(err){
+      }else{
+        return res.json(apparel);
+      }
+    })
+  },
+
+  getPopularApparel: (req, res) => {
+    Apparel.find({}).sort('-bought').exec((err, apparel) => {
+      if(err){
+      }else{
+        return res.json(apparel);
+      }
+    })
+  },
+
+  getLimitedApparel: (req, res) => {
+    Apparel.find({limited: true}, (err, apparel) => {
+      if(err){
+        console.log(err);
+      }else{
+        return res.json(apparel);
+      }
+    })
   },
 
 

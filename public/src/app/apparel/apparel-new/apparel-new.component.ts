@@ -11,7 +11,7 @@ import { FileUploader } from 'ng2-file-upload';
 export class ApparelNewComponent implements OnInit {
 
   public uploader:FileUploader = new FileUploader({
-    url: 'http://localhost:3002/api/apparelupload',
+    url: 'http://localhost:3000/api/apparelupload',
   });
 
   public filename: any;
