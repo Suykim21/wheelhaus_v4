@@ -10,9 +10,10 @@ export class EventsService {
   ) { }
 
   addEvent(event, path){
-    console.log("ADDDING EVENT FROM SERVICE!!!!!!")
+    console.log(event);
+    console.log("*****");
     path = path.substr(1).slice(0, -1);
-    event["path"] = path;
+    event["image"] = path;
     var address = {
       street: event.street,
       city: event.city,

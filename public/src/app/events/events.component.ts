@@ -33,8 +33,8 @@ export class EventsComponent implements OnInit {
   }
 
   addEvent(){
-    var event = this.event;
-    this._eventService.addEvent(event, this.file_name)
+    console.log("adding event!!!LKFJKLDFLSJLFJSLKFJSLKFJKDLS:FLKDSFLKDSJ");
+    this._eventService.addEvent(this.event, this.file_name)
     .then()
     .catch()
   }

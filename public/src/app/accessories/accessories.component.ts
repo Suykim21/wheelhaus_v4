@@ -57,43 +57,43 @@ export class AccessoriesComponent implements OnInit {
     .catch()
   }
 
-// // CART FUNCTIONALITY
-//
-//   addItem(id, type){
-//     this._cartService.addItem(id, this.item_type)
-//     .then((success) => {
-//       this.updateCartCount();
-//   })
-//     .catch()
-//   }
-//
-//   updateCartCount(){
-//     this._cartService.updateCartCount("Updating Cart Count");
-//   }
-//
-// // FILTERS
-//
-//   getExpensive(){
-//     this._accessoryService.getExpensiveAccessories()
-//     .then(accessories => this.all_accessories = accessories)
-//     .catch()
-//   }
-//
-//   getCheapest(){
-//     this._accessoryService.getCheapestAccessories()
-//     .then(accessories => this.all_accessories = accessories)
-//     .catch()
-//   }
-//
-//   mostPopular(){
-//     this._accessoryService.getPopular()
-//     .then(accessories => this.all_accessories = accessories)
-//     .catch()
-//   }
-//
-//   getLimited(){
-//     this._accessoryService.getLimited()
-//     .then(accessories => this.all_accessories = accessories)
-//     .catch()
-//   }
+// CART FUNCTIONALITY
+
+  addItem(id, type){
+    this._cartService.addItem(id, this.item_type)
+    .then((success) => {
+      this.updateCartCount();
+  })
+    .catch()
+  }
+
+  updateCartCount(){
+    this._cartService.updateCartCount("Updating Cart Count");
+  }
+
+// FILTERS
+
+  getExpensive(){
+    this._accessoryService.getExpensiveAccessories()
+    .then(accessories => {this.all_accessories = accessories; console.log(accessories)})
+    .catch()
+  }
+
+  getCheapest(){
+    this._accessoryService.getCheapestAccessories()
+    .then(accessories => {this.all_accessories = accessories; console.log(accessories)})
+    .catch()
+  }
+
+  mostPopular(){
+    this._accessoryService.getPopular()
+    .then(accessories => this.all_accessories = accessories)
+    .catch()
+  }
+
+  getLimited(){
+    this._accessoryService.getLimited()
+    .then(accessories => {this.all_accessories = accessories; console.log(accessories)})
+    .catch()
+  }
 }
