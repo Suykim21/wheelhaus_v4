@@ -1,6 +1,6 @@
 <!-- USED TO ADD NEW PRODUCTS IN -->
-<h1>LKJFDSKJFLSJFLKJS</h1>
-<form (submit)="holdAccessoryDetails(formData)" #formData="ngForm">
+<!-- <h1>LKJFDSKJFLSJFLKJS</h1> -->
+<!-- <form (submit)="holdAccessoryDetails(formData)" #formData="ngForm">
     <p>Name: <input type="text" name="name" ngModel></p>
     <p>Description:</p>
     <textarea name="description" cols="30" rows="10" ngModel></textarea>
@@ -12,7 +12,7 @@
       <p *ngFor="let file of uploader.queue">
         <button (click)="file.upload()">Add</button>
       </p>
-</form>
+</form> -->
 
 <div class="container">
   <section class="beginning">
@@ -38,8 +38,8 @@
 
 
   <section class="wrapper">
-    <div class="bikes" *ngFor="let accessory of all_accessories">
-      <div class="item">
+    <div class="bikes">
+      <div class="item" *ngFor="let accessory of all_accessories">
         <img src="{{ accessory.image }}">
         <h3>{{ accessory.name }}</h3>
         <h4>${{ accessory.price }}</h4>

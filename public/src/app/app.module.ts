@@ -23,6 +23,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AccessComponent } from './access/access.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
+import { BikeStoreService } from './bike-store/bike-store.service';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { CartService } from './cart/cart.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AccessoriesService, EventsService, DetailsService, CartService],
+  providers: [AccessoriesService, EventsService, DetailsService, CartService, BikeStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

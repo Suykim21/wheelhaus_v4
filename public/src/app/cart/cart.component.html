@@ -8,35 +8,33 @@
     </div>
   </section>
 
+
   <section class="wrapper" *ngIf='shoppingCart'>
-      <div class="items">
-        <table>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th></th>
-          </tr>
-          <tr *ngFor='let item of shoppingCart'>
-            <td><img src="{{ item.path }}"></td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.qty }}</td>
-            <td>{{ item.cost }}</td>
-            <td><button (click) = 'removeItem(item._id)'>Remove</button></td>
-          </tr>
-        </table>
-        <div class="item" *ngFor='let item of shoppingCart'>
-        </div>
+    <!-- <div class="cart"> -->
+      <div class="items" *ngIf='shoppingCart.totalcost > 0'>
+        <h4>
+          My bag: {{ shoppingCart.length }} item(s)
+          <div *ngIf='shoppingCart.totalcost > 0'>
+            <p><button routerLink="/">Continue Shopping</button></p>
+            <h4 *ngIf='shoppingCart.totalcost > 0'>Total: ${{ shoppingCart.totalcost }}</h4>
+            <button (click)='handlePayment()'>Pay</button>
+          </div>
+        </h4>
+          <div class="eachItem" *ngFor='let item of shoppingCart'>
+            <img src="{{ item.image }}">
+            <!-- <div class="eachItemDescription"> -->
+              <h5>{{ item.name }}</h5>
+              <p>Qty: {{ item.quantity }}</p>
+              <p>${{ item.price }}</p>
+              <p><button (click) = 'removeItem(item._id)'>Remove</button></p>
+            <!-- </div> -->
+          </div>
+          <button (click)="clearCart()">Clear Cart</button>
       </div>
-      <h4>Total: ${{ shoppingCart.totalcost }}</h4>
-      <div *ngIf='shoppingCart.totalcost > 0'>
-        <button (click)="clearCart()">Clear Cart</button>
-        <button (click)='handlePayment()'>Pay</button>
+      <div class='getShopping' *ngIf='shoppingCart.totalcost == 0'>
+        <button routerLink="/">What?!? Nothing in your bag? Get to shopping!</button>
       </div>
-      <div *ngIf='shoppingCart.totalcost == 0'>
-        <button>Get to shopping!</button>
-      </div>
+    <!-- </div> -->
   </section>
 
   <section class="footer">
@@ -45,55 +43,3 @@
   </section>
 
 </div>
-
-<!-- PRE - CSS WORK - JUST FUNCTIONALITY -->
-<!-- START -->
-<!-- START -->
-
-<!-- <div *ngIf='shoppingCart'>
-  <h3>My Bag: {{shoppingCart.length}} item(s)</h3>
-  <table>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Quantity</th>
-      <th>Cost</th>
-      <th></th>
-    </tr>
-    <tr *ngFor='let item of shoppingCart'>
-      <td><img src="{{ item.path }}"></td>
-      <td>{{ item.name }}</td>
-      <td>
-          <input type="text" name="qty" placeholder="{{ item.qty }}" placeholder=""ngModel>
-          <input type="hidden" name="item" value="bcd" ngModel>
-      </td>
-      <td>${{ item.cost }}</td>
-      <td>
-        <button (click)='removeItem(item._id)'>Remove</button>
-      </td>
-    </tr>
-  </table>
-  <h4>Total: ${{ shoppingCart.totalcost }}</h4>
-  <p><button (click)="clearCart()">Clear Cart</button></p>
-</div> -->
-
-
-<!-- END -->
-<!-- END -->
-
-<!-- <form (submit)="updateCart(formData)" #formData="ngForm">
-  <button>Update Cart</button>
-</form> -->
-
-<!-- <form #f="ngForm" (submit)="addUser(f.value,f.valid)">
-    <label for="name" class="col-sm-1 control-label">Name</label>
-    <div class="col-sm-4">
-        <input class="form-control" [(ngModel)]="userModel.name" #name="ngModel" name="name" ng-maxlength="49" />
-    </div>
-    <label class="col-sm-1 control-label">Service</label>
-        <select class="form-control" name="service" [(ngModel)]="userModel.service">
-            <option *ngFor='let service of services' [value]='service'>{{service.name}}</option>
-        </select>
-    </div>
-    <button class="btn btn-primary" type="submit">Create</button>
-</form> -->

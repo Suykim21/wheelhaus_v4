@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
       }else{
         var total_price = 0;
         for(var i = 0; i < cart_items.length; i++){
-          total_price += cart_items[i].cost*cart_items[i].qty;
+          total_price += cart_items[i].price*cart_items[i].quantity;
         }
         this.amount = total_price;
         cart_items["totalcost"] = total_price;
