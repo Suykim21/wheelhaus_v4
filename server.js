@@ -18,7 +18,7 @@ app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
-app.use(express.static(path.join(__dirname, 'public', "dist", "assets", "apparel")));
+app.use(express.static(path.join(__dirname, 'public', "dist", "assets", "apparel_images")));
 app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'accessories_images')));
 app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'events_images')));
 app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'bikes_images')));
@@ -45,4 +45,4 @@ var route = require('./server/config/routes.js')(app)
 app.get('*', (req,res)=>{
   res.sendFile(path.resolve('public/dist/index.html'))
 })
-app.listen(3000,()=>console.log("Listening on port 3000"));
+app.listen(6789,()=>console.log("Listening on port 6789"));

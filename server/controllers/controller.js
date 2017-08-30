@@ -11,16 +11,17 @@ var multer = require("multer");
 // DECLARING APPAREL FILE UPLOAD VARIABLE
 var apparelStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-      cb(null, './public/dist/assets/apparel');
+      cb(null, './public/dist/assets/apparel_images');
   },
   filename: function (req, file, cb) {
       var datetimestamp = Date.now();
       cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
   }
 });
+
 var apparelUpload = multer({ //multer settings
-              storage: apparelStorage
-          }).single('file');
+  storage: apparelStorage
+}).single('file');
 
 module.exports = {
   addAccessoryImage: (req, res) => {

@@ -17,7 +17,7 @@
           </h4>
           <div *ngIf='shoppingCart.totalcost > 0'>
             <p><button routerLink="/">Continue Shopping</button></p>
-            <h4 *ngIf='shoppingCart.totalcost > 0'>Total: ${{ shoppingCart.totalcost }}</h4>
+            <h4 *ngIf='shoppingCart.totalcost > 0'>Total: ${{ shoppingCart.totalcost | number : '1.2-2' }}</h4>
             <button (click)='handlePayment()'>Pay</button>
           </div>
         </div>
@@ -26,7 +26,7 @@
             <img src="{{ item.image }}">
               <h5>{{ item.name }}</h5>
               <p>Qty: {{ item.quantity }}</p>
-              <p>${{ item.price }}</p>
+              <p>${{ item.price | number : '1.2-2' }}</p>
               <p><button (click) = 'removeItem(item._id)'>Remove</button></p>
           </div>
 

@@ -13,6 +13,7 @@
       <img src="{{ apparel.image }}" alt="Product">
     </div>
     <div class="item-right">
+      <h1>{{ apparel.name }}</h1>
       <h2>{{ apparel.description }}</h2>
       <h2>Price: ${{ apparel.price | number : '1.2-2' }}</h2>
       <button (click)="addItem(apparel._id)">Add to Cart</button>
@@ -24,3 +25,4 @@
     <h6>&copy;2017</h6>
   </section>
 </div>
+

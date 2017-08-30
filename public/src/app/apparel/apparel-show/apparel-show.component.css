@@ -59,7 +59,7 @@
       /* ------------------------------------------ */
     
       .wrapper {
-        outline: 3px solid blue;
+        /* outline: 3px solid blue; */
         padding: 1%;
         background: #1B1D1E;
         border-color: #1B1D1E;
@@ -68,7 +68,7 @@
       .item-left {
         background-color: white;
         position: relative;
-        outline: 1px solid red;
+        /* outline: 1px solid red; */
         display: inline-block;
         width: 45%;
         /* height: 95%; */
@@ -82,7 +82,7 @@
     
       .item-right {
         background-color: white;
-        outline: 1px solid red;
+        /* outline: 1px solid red; */
         position: relative;
         display: inline-block;
         vertical-align: top;
