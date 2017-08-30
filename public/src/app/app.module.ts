@@ -23,6 +23,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AccessComponent } from './access/access.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
+import { BikeStoreService } from './bike-store/bike-store.service';
 import { ApparelService } from './apparel/apparel.service';
 import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component';
 import { ApparelDestroyComponent } from './apparel/apparel-destroy/apparel-destroy.component';
@@ -60,8 +61,7 @@ import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.compon
     FormsModule,
     ReactiveFormsModule,
   ],
-
-  providers: [AccessoriesService, EventsService, DetailsService, CartService, ApparelService],
+  providers: [AccessoriesService, EventsService, DetailsService, CartService, BikeStoreService, ApparelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

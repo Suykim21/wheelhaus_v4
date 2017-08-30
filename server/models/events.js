@@ -20,10 +20,7 @@ var EventSchema = new mongoose.Schema({
 		},
 	},
 	date: {type: Date, required: [true, "The event date is required"]},
-	rsvp: {type: Number
-    // , required: [true, "The event rsvps is required"] << CHANGE THIS WHEN READY TO USE.
-  },
-	path: {type: String}
+	image: {type: String}
 }, {timestamps: true})
 
 mongoose.model('Event', EventSchema)

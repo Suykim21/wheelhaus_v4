@@ -23,8 +23,8 @@ export class CartService {
     .toPromise()
   }
 
-  addItem(id){
-    return this._http.get('/api/addItem/' + id)
+  addItem(id, type){
+    return this._http.post('/api/addItem/' + type, {id: id})
     .map(data => data)
     .toPromise()
   }
