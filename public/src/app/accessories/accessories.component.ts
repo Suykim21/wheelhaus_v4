@@ -41,7 +41,7 @@ export class AccessoriesComponent implements OnInit {
   holdAccessoryDetails(accessory){
     this.accessory = accessory.value;
   }
-
+  
   addAccessory(){
     this._accessoryService.addAccessory(this.accessory, this.file_name)
     .then()

@@ -31,5 +31,15 @@ module.exports=(app)=>{
   app.get("/api/getCheapestBikes", controllers.getCheapestBikes);
   app.get("/api/getPopularBikes", controllers.getPopularBikes);
   app.get("/api/getLimitedBikes", controllers.getLimitedBikes);
+  // Apparel Routes
+  app.post('/api/apparelupload', controllers.addApparelImg);
+  app.post('/api/addapparel', controllers.addApparel);
+  app.get('/api/allapparel', controllers.getAllApparel);
+  app.get('/api/apparel/show/:id', controllers.getApparel);
+  // Apparel Filters
+  app.get('/api/getExpensiveApparel', controllers.getExpensiveApparel);
+  app.get('/api/getCheapestApparel', controllers.getCheapestApparel);
+  app.get('/api/getPopularApparel', controllers.getPopularApparel);
+  app.get('/api/getLimitedApparel', controllers.getLimitedApparel);
 
 }
