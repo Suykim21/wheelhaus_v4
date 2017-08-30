@@ -44,7 +44,6 @@ module.exports = {
   getAllAccessories: (req, res) => {
     Accessory.find({}, (err, accessories) => {
       if(err){
-        console.log(err);
       }else{
         return res.json(accessories);
       }
@@ -93,7 +92,6 @@ module.exports = {
   getLimitedAccesories: (req, res) => {
     Accessory.find({limited: true}, (err, accessories) => {
       if(err){
-        console.log(err);
       }else{
         return res.json(accessories);
       }
@@ -139,7 +137,6 @@ module.exports = {
   getAllBikes: (req, res) => {
     Bike.find({}, (err, bikes) => {
       if(err){
-        console.log(err);
       }else{
         return res.json(bikes);
       }
@@ -188,7 +185,6 @@ module.exports = {
   getLimitedBikes: (req, res) => {
     Bike.find({limited: true}, (err, bikes) => {
       if(err){
-        console.log(err);
       }else{
         return res.json(bikes);
       }
@@ -227,7 +223,6 @@ module.exports = {
     var event = new Event(req.body);
     event.save((err, event) => {
       if(err){
-        console.log(err);
       }else{
         return;
       }
@@ -237,7 +232,6 @@ module.exports = {
   getAllEvents: (req, res) => {
     Event.find({}, (err, event) => {
       if(err){
-        console.log(err);
       }else{
         return res.json(event);
       }
@@ -247,7 +241,6 @@ module.exports = {
   getEvent: (req, res) => {
     Event.findOne({_id: req.params.id}, (err, event) =>{
       if(err){
-        console.log(err)
       }else{
         return res.json(event);
       }
@@ -263,9 +256,6 @@ module.exports = {
   },
 
   addItem: (req, res) => {
-    console.log(req.params.type);
-    console.log('*********************');
-    console.log(req.body.id);
     if(req.params.type == 'accessory'){
       Accessory.find({_id: req.body.id}, (err, accessory) => {
         if(err){
@@ -273,19 +263,19 @@ module.exports = {
           if(req.session.cart.length > 0){
             for(var i = 0; i < req.session.cart.length; i++){
               if(req.session.cart[i]._id == req.params.id){
-                req.session.cart[i].qty ++;
+                req.session.cart[i].quantity ++;
                 req.session.save();
                 var added = true;
               }
             }
             if(!added){
-              accessory[0].qty = 1;
+              accessory[0].quantity = 1;
               req.session.cart.push(accessory[0]);
               req.session.save();
               return res.json({success: true});
             }
           }else{
-            accessory[0].qty = 1;
+            accessory[0].quantity = 1;
             req.session.cart.push(accessory[0]);
             req.session.save();
             return res.json({success: true});
@@ -300,19 +290,19 @@ module.exports = {
           if(req.session.cart.length > 0){
             for(var i = 0; i < req.session.cart.length; i++){
               if(req.session.cart[i]._id == req.params.id){
-                req.session.cart[i].qty ++;
+                req.session.cart[i].quantity ++;
                 req.session.save();
                 var added = true;
               }
             }
             if(!added){
-              apparel[0].qty = 1;
+              apparel[0].quantity = 1;
               req.session.cart.push(apparel[0]);
               req.session.save();
               return res.json({success: true});
             }
           }else{
-            apparel[0].qty = 1;
+            apparel[0].quantity = 1;
             req.session.cart.push(apparel[0]);
             req.session.save();
             return res.json({success: true});
@@ -327,19 +317,19 @@ module.exports = {
           if(req.session.cart.length > 0){
             for(var i = 0; i < req.session.cart.length; i++){
               if(req.session.cart[i]._id == req.params.id){
-                req.session.cart[i].qty ++;
+                req.session.cart[i].quantity ++;
                 req.session.save();
                 var added = true;
               }
             }
             if(!added){
-              bike[0].qty = 1;
+              bike[0].quantity = 1;
               req.session.cart.push(bike[0]);
               req.session.save();
               return res.json({success: true});
             }
           }else{
-            bike[0].qty = 1;
+            bike[0].quantity = 1;
             req.session.cart.push(bike[0]);
             req.session.save();
             return res.json({success: true});
