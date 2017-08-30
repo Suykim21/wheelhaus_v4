@@ -13,6 +13,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 export class ApparelComponent implements OnInit {
   public _router: Router;
   public apparel: Array<any>;
+  public item_type: String = 'apparel';
 
   apparels: Array<any>
 
@@ -32,8 +33,8 @@ export class ApparelComponent implements OnInit {
   }
 
 // CART FUNCTIONALITY
-  addItem(id){
-    this._cartService.addItem(id)
+  addItem(id, type){
+    this._cartService.addItem(id, this.item_type)
     .then((success) => {
       this.updateCartCount();
   })

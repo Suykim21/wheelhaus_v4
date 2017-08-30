@@ -11,6 +11,7 @@ import { CartService } from './../../cart/cart.service';
 export class ApparelShowComponent implements OnInit {
   apparel_id: String;
   apparel = {};
+  item_type: String = 'apparel'
 
   constructor(
     private _route: ActivatedRoute,
@@ -32,8 +33,8 @@ export class ApparelShowComponent implements OnInit {
   }
 
 // CART FUNCTIONALITY
-  addItem(id){
-    this._cartService.addItem(id)
+  addItem(id, type){
+    this._cartService.addItem(id, this.item_type)
     .then((success) => {
       this.updateCartCount();
   })
