@@ -24,6 +24,12 @@ export class AccessoriesService {
     .toPromise();
   }
 
+  get3Accessories(){
+    return this._http.get('/api/get3Accessories')
+    .map(data => data.json())
+    .toPromise()
+  }
+
   getExpensiveAccessories(){
     return this._http.get('/api/getExpensiveAccessories')
     .map(data => data.json())

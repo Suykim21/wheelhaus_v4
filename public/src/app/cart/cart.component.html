@@ -10,31 +10,31 @@
 
 
   <section class="wrapper" *ngIf='shoppingCart'>
-    <!-- <div class="cart"> -->
       <div class="items" *ngIf='shoppingCart.totalcost > 0'>
-        <h4>
-          My bag: {{ shoppingCart.length }} item(s)
+        <div class="bag">
+          <h4>
+            My bag: {{ shoppingCart.length }} item(s)
+          </h4>
           <div *ngIf='shoppingCart.totalcost > 0'>
             <p><button routerLink="/">Continue Shopping</button></p>
             <h4 *ngIf='shoppingCart.totalcost > 0'>Total: ${{ shoppingCart.totalcost }}</h4>
             <button (click)='handlePayment()'>Pay</button>
           </div>
-        </h4>
+        </div>
+
           <div class="eachItem" *ngFor='let item of shoppingCart'>
             <img src="{{ item.image }}">
-            <!-- <div class="eachItemDescription"> -->
               <h5>{{ item.name }}</h5>
               <p>Qty: {{ item.quantity }}</p>
               <p>${{ item.price }}</p>
               <p><button (click) = 'removeItem(item._id)'>Remove</button></p>
-            <!-- </div> -->
           </div>
+
           <button (click)="clearCart()">Clear Cart</button>
       </div>
       <div class='getShopping' *ngIf='shoppingCart.totalcost == 0'>
         <button routerLink="/">What?!? Nothing in your bag? Get to shopping!</button>
       </div>
-    <!-- </div> -->
   </section>
 
   <section class="footer">
