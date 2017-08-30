@@ -26,6 +26,12 @@ export class BikeStoreService {
     .toPromise();
   }
 
+  get3Bikes(){
+    return this._http.get('/api/get3Bikes')
+    .map(data => data.json())
+    .toPromise()
+  }
+
   getExpensiveBikes(){
     return this._http.get('/api/getExpensiveBikes')
     .map(data => data.json())

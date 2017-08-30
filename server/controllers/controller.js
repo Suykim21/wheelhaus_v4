@@ -51,6 +51,15 @@ module.exports = {
     })
   },
 
+  get3Accessories: (req, res) => {
+    Accessory.find({}).limit(3).exec((err, accessories) => {
+      if(err){
+      }else{
+        return res.json(accessories);
+      }
+    })
+  },
+
 // ACCESSORY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // FILTER METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
 
@@ -133,6 +142,15 @@ module.exports = {
         console.log(err);
       }else{
         return res.json(bikes);
+      }
+    })
+  },
+
+  get3Bikes: (req, res) => {
+    Bike.find({}).limit(3).exec((err, bike) => {
+      if(err){
+      }else{
+        return res.json(bike);
       }
     })
   },
