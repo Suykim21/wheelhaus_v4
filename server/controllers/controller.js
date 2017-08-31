@@ -9,7 +9,7 @@ var multer = require("multer");
 // DECLARING APPAREL FILE UPLOAD VARIABLE
 var apparelStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-      cb(null, './public/src/assets/apparel_images');
+      cb(null, './public/dist/assets/apparel');
   },
   filename: function (req, file, cb) {
       var datetimestamp = Date.now();
@@ -23,7 +23,7 @@ var apparelUpload = multer({ //multer settings
 // DECLARING ACCESSORIES FILE UPLOAD VARIABLE
 var accessoryStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, '/var/www/wheelhaus/public/dist/assets/accessories_images');
+      cb(null, './public/dist/assets/accessories_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -87,6 +87,16 @@ module.exports = {
       if(err){
       }else{
         return res.json(accessories);
+      }
+    })
+  },
+  getAccessory: (req, res) => {
+    Accessory.findOne({_id: req.params.id}, (err, current_accessory) => {
+      if(err){
+          console.log(err);
+          return res.sendStatus(500);
+      } else {
+          return res.json(current_accessory);
       }
     })
   },
@@ -158,6 +168,16 @@ module.exports = {
       if(err){
       }else{
         return res.json(bikes);
+      }
+    })
+  },
+  getBike: (req, res) => {
+    Bike.findOne({_id: req.params.id}, (err, current_bike) => {
+      if(err){
+          console.log(err);
+          return res.sendStatus(500);
+      } else {
+          return res.json(current_bike);
       }
     })
   },
@@ -383,6 +403,14 @@ module.exports = {
           return res.sendStatus(500);
       } else {
           return res.json(current_apparel);
+      }
+    })
+  },
+  get3Apparels: (req, res) => {
+    Apparel.find({}).limit(3).exec((err, apparel) => {
+      if(err){
+      }else{
+        return res.json(apparel);
       }
     })
   },
