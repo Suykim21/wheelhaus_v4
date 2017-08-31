@@ -2,9 +2,9 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
-@media only screen and (min-width: 481px) {
+@media only screen and (max-width: 480px) {
     
-    
+
       .container {
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -36,6 +36,12 @@
         transform: translateX(-50%) translateY(-50%);
       }
     
+      .intro img {
+        display: block;
+        margin: auto;
+        height: 60px;
+      }
+    
       .intro h1 {
         width: 100vw;
         margin: 0;
@@ -51,26 +57,26 @@
         font-size: 300%;
         color: white;
         position: fixed;
-        padding-top: 50vh;
+        padding-top: 40vh;
       }
     
       /* ------------------------------------------ */
       /* Section - Featured Items */
       /* ------------------------------------------ */
-    
+      
       .wrapper {
-        /* outline: 3px solid blue; */
+        margin: auto;
         padding: 1%;
         background: #1B1D1E;
         border-color: #1B1D1E;
+        display: grid;
       }
     
       .item-left {
+        padding-left: 3%;
         background-color: white;
         position: relative;
-        /* outline: 1px solid red; */
         display: inline-block;
-        width: 45%;
         /* height: 95%; */
         /* margin: auto; */
         /* text-align: justify; */
@@ -80,41 +86,44 @@
         /* padding: 5%; */
       }
     
+      .item-left img {
+        margin: auto;
+        width: 90%;
+        padding: 5%;
+      }
+    
       .item-right {
+        padding: 0 5%;
         background-color: white;
-        /* outline: 1px solid red; */
         position: relative;
         display: inline-block;
         vertical-align: top;
-        width: 45%;
-        /* width: 45%; */
+      }
+
+      .item-right h1 {
+        font-weight: bold;
+        font-size: 2.5em;
       }
     
-      /* .item img  {
-        display: block;
-        margin: auto;
-        width: 90%;
-        padding: 5% 0;
+      .button {
+        display: inline-block;
+        font-size: 1.15rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-width: 2px;
+        border-style: solid;
+        padding: .5em 1.75em;
+        color: #00ffff;
+        border-color:#00ffff;
+        background: #fff;
+        /* margin-bottom: 1em; */
       }
     
-      .item hr {
-        width: 80%;
-        color: black;
+      .button:hover,
+      .button:active {
+          background-color: #00ffff;
+          color: #fff;
       }
-    
-      .item h3 {
-        color: black;
-        text-align: center;
-        margin: 0.3em;
-        -webkit-margin-before:0em;
-        -webkit-margin-after:0em;
-      }
-    
-      .item h4 {
-        color: darkgray;
-        text-align: center;
-        margin: 0;
-      } */
     
       /* ------------------------------------------ */
       /* Section - Footer */
