@@ -23,7 +23,7 @@ var apparelUpload = multer({ //multer settings
 // DECLARING ACCESSORIES FILE UPLOAD VARIABLE
 var accessoryStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, '/var/www/wheelhaus/public/dist/assets/accessories_images');
+      cb(null, './public/dist/assets/apparel_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
