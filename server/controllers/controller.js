@@ -23,7 +23,7 @@ var apparelUpload = multer({ //multer settings
 // DECLARING ACCESSORIES FILE UPLOAD VARIABLE
 var accessoryStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './public/dist/assets/accessories_images');
+    cb(null, '/var/www/wheelhaus/public/dist/assets/accessories_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -37,7 +37,7 @@ var accessoryUpload = multer({ //multer settings
 // DECLARING BIKE-STORE FILE UPLOAD VARIABLE
 var bikeStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './public/dist/assets/bikes_images');
+    cb(null, '/var/www/wheelhaus/public/dist/assets/bikes_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -51,7 +51,7 @@ var bikeUpload = multer({ //multer settings
 // DECLARING EVENT FILE UPLOAD VARIABLE
 var eventStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './public/dist/assets/events_images');
+    cb(null, '/var/www/wheelhaus/public/dist/assets/events_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
