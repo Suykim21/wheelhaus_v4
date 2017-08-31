@@ -34,7 +34,6 @@ export class BikeStoreNewComponent implements OnInit {
   }
 
   addBike(){
-    console.log("bike");
     this._bikeService.addBike(this.bike, this.file_name)
     .then()
     .catch()
