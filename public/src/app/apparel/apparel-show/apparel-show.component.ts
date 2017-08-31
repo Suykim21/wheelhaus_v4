@@ -6,7 +6,11 @@ import { CartService } from './../../cart/cart.service';
 @Component({
   selector: 'app-apparel-show',
   templateUrl: './apparel-show.component.html',
-  styleUrls: ['./apparel-show.component.css']
+  styleUrls: [
+    './apparel-show.component.desktop.css',
+    './apparel-show.component.mobile.css',
+    './apparel-show.component.tablet.css'
+  ]
 })
 export class ApparelShowComponent implements OnInit {
   apparel_id: String;
