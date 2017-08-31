@@ -65,6 +65,7 @@
       /* ------------------------------------------ */
       
       .wrapper {
+        margin: auto;
         padding: 1%;
         background: #1B1D1E;
         border-color: #1B1D1E;
