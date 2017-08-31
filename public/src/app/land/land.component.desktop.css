@@ -61,6 +61,8 @@
     padding: 1%;
     background: #1B1D1E;
     border-color: #1B1D1E;
+    display: grid;
+    grid-template-columns: 70% 30%;
   }
 
   .featured-items {

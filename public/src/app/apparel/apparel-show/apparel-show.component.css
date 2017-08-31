@@ -63,6 +63,8 @@
         padding: 1%;
         background: #1B1D1E;
         border-color: #1B1D1E;
+        display: grid;
+        grid-template-columns: 70% 30%;
       }
     
       .item-left {
@@ -70,7 +72,6 @@
         position: relative;
         /* outline: 1px solid red; */
         display: inline-block;
-        width: 45%;
         /* height: 95%; */
         /* margin: auto; */
         /* text-align: justify; */
@@ -86,7 +87,6 @@
         position: relative;
         display: inline-block;
         vertical-align: top;
-        width: 45%;
         /* width: 45%; */
       }
     
