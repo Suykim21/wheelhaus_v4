@@ -21,8 +21,14 @@ export class ApparelService {
 
   showApparel(id){
     return this._http.get('/api/apparel/show/' + id)
-    .map( (current_user: Response) => current_user.json())
+    .map( (current_apparel: Response) => current_apparel.json())
     .toPromise() 
+  }
+
+  get3Apparels(){
+    return this._http.get('/api/get3Apparels')
+    .map(data => data.json())
+    .toPromise()
   }
 
   getExpensiveApparel(){

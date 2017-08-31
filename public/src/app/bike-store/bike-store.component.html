@@ -3,7 +3,7 @@
     <div class="intro">
       <img src="../../assets/logos/WHL-white.png">
       <h1>Wheelhaus</h1>
-      <h2>Apparel</h2>
+      <h2>Bike Store</h2>
       <i class="icon ion-arrow-down-b"></i>
     </div>
   </section>
@@ -24,10 +24,9 @@
   <section class="wrapper">
     <div class="bikes" >
       <div class="item" *ngFor="let bike of all_bikes">
-        <img src="{{ bike.image }}">
+        <a [routerLink]="['show', bike._id ]"><img src="{{ bike.image }}"></a>
         <h3>{{ bike.name }}</h3>
         <h4>${{ bike.price }}</h4>
-        <button (click)="addItem(bike._id)">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -36,5 +35,4 @@
     <h5>Legendary Media Production</h5>
     <h6>&copy;2017</h6>
   </section>
-
 </div>

@@ -32,8 +32,8 @@ export class ApparelShowComponent implements OnInit {
 
   showApparel(id){
     this._apparelService.showApparel(id)
-    .then( current_apparel => this.apparel = current_apparel)
-    .catch( err => console.log(err))
+    .then(current_apparel => this.apparel = current_apparel)
+    .catch(err => console.log(err))
   }
 
 // CART FUNCTIONALITY

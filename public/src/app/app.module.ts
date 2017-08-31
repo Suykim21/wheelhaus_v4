@@ -30,6 +30,8 @@ import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.compon
 import { AccessoriesNewComponent } from './accessories/accessories-new/accessories-new.component';
 import { EventsNewComponent } from './events/events-new/events-new.component';
 import { BikeStoreNewComponent } from './bike-store/bike-store-new/bike-store-new.component';
+import { AccessoriesShowComponent } from './accessories/accessories-show/accessories-show.component';
+import { BikeStoreShowComponent } from './bike-store/bike-store-show/bike-store-show.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { BikeStoreNewComponent } from './bike-store/bike-store-new/bike-store-ne
     AccessoriesNewComponent,
     EventsNewComponent,
     BikeStoreNewComponent,
+    AccessoriesShowComponent,
+    BikeStoreShowComponent,
   ],
   imports: [
     BrowserModule,

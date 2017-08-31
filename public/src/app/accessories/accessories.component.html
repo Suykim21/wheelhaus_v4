@@ -25,10 +25,9 @@
   <section class="wrapper">
     <div class="bikes">
       <div class="item" *ngFor="let accessory of all_accessories">
-        <img src="{{ accessory.image }}">
+        <a [routerLink]="['show', accessory._id ]"><img src="{{ accessory.image }}"></a>
         <h3>{{ accessory.name }}</h3>
         <h4>${{ accessory.price }}</h4>
-        <button (click)="addItem(accessory._id)">Add to Cart</button>
       </div>
     </div>
   </section>

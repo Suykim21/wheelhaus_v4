@@ -15,6 +15,7 @@ module.exports=(app)=>{
   app.post("/accessoryupload", controllers.addAccessoryImage);
   app.post("/api/addAccessory", controllers.addAccessory);
   app.get("/api/getAllAccessories", controllers.getAllAccessories);
+  app.get('/api/accessories/show/:id', controllers.getAccessory);
   app.get("/api/get3Accessories", controllers.get3Accessories);
   // Accessory Filters *****
   app.get('/api/getExpensiveAccessories', controllers.getExpensiveAccessories);
@@ -25,6 +26,7 @@ module.exports=(app)=>{
   app.post("/bikeupload", controllers.addBikeImage);
   app.post("/api/addBike", controllers.addBike);
   app.get("/api/getAllBikes", controllers.getAllBikes);
+  app.get('/api/bikes/show/:id', controllers.getBike);
   app.get("/api/get3Bikes", controllers.get3Bikes);
   // Bike Filters *****
   app.get("/api/getExpensiveBikes", controllers.getExpensiveBikes);
@@ -36,6 +38,7 @@ module.exports=(app)=>{
   app.post('/api/addapparel', controllers.addApparel);
   app.get('/api/allapparel', controllers.getAllApparel);
   app.get('/api/apparel/show/:id', controllers.getApparel);
+  app.get("/api/get3Apparels", controllers.get3Apparels);
   // Apparel Filters
   app.get('/api/getExpensiveApparel', controllers.getExpensiveApparel);
   app.get('/api/getCheapestApparel', controllers.getCheapestApparel);
