@@ -9,7 +9,7 @@ var multer = require("multer");
 // DECLARING APPAREL FILE UPLOAD VARIABLE
 var apparelStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-      cb(null, '/var/www/wheelhaus/public/dist/assets/apparel_images');
+      cb(null, './public/src/assets/apparel_images');
   },
   filename: function (req, file, cb) {
       var datetimestamp = Date.now();
