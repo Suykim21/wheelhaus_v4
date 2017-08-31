@@ -19,6 +19,12 @@ export class ApparelService {
     .map(data => data.json()).toPromise();
   }
 
+  get3Apparel(){
+    return this._http.get('/api/get3Apparel')
+    .map(data => data.json())
+    .toPromise()
+  }
+
   showApparel(id){
     return this._http.get('/api/apparel/show/' + id)
     .map( (current_apparel: Response) => current_apparel.json())

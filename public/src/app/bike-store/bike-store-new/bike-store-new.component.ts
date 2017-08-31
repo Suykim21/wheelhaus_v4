@@ -10,7 +10,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class BikeStoreNewComponent implements OnInit {
 
-  public uploader:FileUploader = new FileUploader({url:'http://localhost:6789/bikeupload'});
+  public uploader:FileUploader = new FileUploader({url:'/bikeupload'});
   public file_name:any;
   public bike:any;
 

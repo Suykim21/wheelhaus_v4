@@ -8,7 +8,7 @@ import { AccessoriesService } from './../accessories.service';
   styleUrls: ['./accessories-new.component.css']
 })
 export class AccessoriesNewComponent implements OnInit {
-      public uploader:FileUploader = new FileUploader({url:'http://localhost:6789/accessoryupload'});
+      public uploader:FileUploader = new FileUploader({url:'/accessoryupload'});
       public file_name:any;
       public accessory:any;
   constructor(

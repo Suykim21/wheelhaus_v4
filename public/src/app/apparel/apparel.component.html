@@ -26,7 +26,7 @@
       <div class="item" *ngFor="let apparel of apparels">
         <a [routerLink]="['show', apparel._id ]"><img src="{{ apparel.image }}"></a>
         <h3>{{ apparel.name }}</h3>
-        <h4>{{ apparel.price }}</h4>
+        <h4>${{ apparel.price }}</h4>
       </div>
     </div>  
   </section> 

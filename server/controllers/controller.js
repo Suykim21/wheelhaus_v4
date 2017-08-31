@@ -9,7 +9,7 @@ var multer = require("multer");
 // DECLARING APPAREL FILE UPLOAD VARIABLE
 var apparelStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-      cb(null, './public/dist/assets/apparel');
+      cb(null, './public/src/assets/apparel_images');
   },
   filename: function (req, file, cb) {
       var datetimestamp = Date.now();
@@ -23,7 +23,7 @@ var apparelUpload = multer({ //multer settings
 // DECLARING ACCESSORIES FILE UPLOAD VARIABLE
 var accessoryStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-      cb(null, './public/dist/assets/apparel_images');
+      cb(null, './public/src/assets/accessories_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -37,7 +37,7 @@ var accessoryUpload = multer({ //multer settings
 // DECLARING BIKE-STORE FILE UPLOAD VARIABLE
 var bikeStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, '/var/www/wheelhaus/public/dist/assets/bikes_images');
+    cb(null, './public/src/assets/bikes_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -51,7 +51,7 @@ var bikeUpload = multer({ //multer settings
 // DECLARING EVENT FILE UPLOAD VARIABLE
 var eventStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, '/var/www/wheelhaus/public/dist/assets/events_images');
+    cb(null, './public/src/assets/events_images');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -406,7 +406,7 @@ module.exports = {
       }
     })
   },
-  get3Apparels: (req, res) => {
+  get3Apparel: (req, res) => {
     Apparel.find({}).limit(3).exec((err, apparel) => {
       if(err){
       }else{

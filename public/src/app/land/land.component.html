@@ -12,27 +12,27 @@
     <div class="featured-items">
       <h2>Featured Bikes</h2>
       <div class="item" *ngFor='let bike of bikes'>
-        <img src="{{ bike.image }}">
+        <a href="/bike/show/{{ bike._id }}"><img src="{{ bike.image }}"></a>
         <h3>{{ bike.name }}</h3>
-        <h4>{{ bike.price }}</h4>
+        <h4>${{ bike.price }}</h4>
       </div>
     </div>
 
     <div class="featured-items">
       <h2>Featured Accessories</h2>
       <div class="item" *ngFor='let accessory of accessories'>
-          <img src="{{ accessory.image }}">
+          <a href="/accessories/show/{{ accessory._id }}"><img src="{{ accessory.image }}"></a>
           <h3>{{ accessory.name }}</h3>
-          <h4>{{ accessory.price }}</h4>
+          <h4>${{ accessory.price }}</h4>
       </div>
     </div>
 
-    <div class="featured-items" *ngFor='let apparel of apparel'>
+    <div class="featured-items">
       <h2>Featured Apparel</h2>
-      <div class="item" *ngIf='apparel < 3'>
-        <img src="assets/bikes/bike2.png">
-        <h3>The Monterey</h3>
-        <h4>50 53 55 58 61 cm</h4>
+      <div class="item" *ngFor='let a of apparel'>
+        <a href="/apparel/show/{{ a._id }}"><img src="{{ a.image }}"></a>
+        <h3>{{ a.name }}</h3>
+        <h4>${{ a.price }}</h4>
       </div>
     </div>
   </section>

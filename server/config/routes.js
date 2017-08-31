@@ -38,7 +38,7 @@ module.exports=(app)=>{
   app.post('/api/addapparel', controllers.addApparel);
   app.get('/api/allapparel', controllers.getAllApparel);
   app.get('/api/apparel/show/:id', controllers.getApparel);
-  app.get("/api/get3Apparels", controllers.get3Apparels);
+  app.get("/api/get3Apparel", controllers.get3Apparel);
   // Apparel Filters
   app.get('/api/getExpensiveApparel', controllers.getExpensiveApparel);
   app.get('/api/getCheapestApparel', controllers.getCheapestApparel);
