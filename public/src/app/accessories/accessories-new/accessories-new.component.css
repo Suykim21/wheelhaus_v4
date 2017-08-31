@@ -2,7 +2,7 @@
 /* Land Image  */
 /* ------------------------------------------ */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 481px) {
 
 
   .container {
@@ -17,7 +17,7 @@
   }
 
   .beginning {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../assets/backgrounds/access-back.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../assets/backgrounds/apparel-back.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -36,12 +36,6 @@
     transform: translateX(-50%) translateY(-50%);
   }
 
-  .intro img {
-    display: block;
-    margin: auto;
-    height: 60px;
-  }
-
   .intro h1 {
     width: 100vw;
     margin: 0;
@@ -57,7 +51,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 40vh;
+    padding-top: 50vh;
   }
 
   /* ------------------------------------------ */
@@ -77,23 +71,31 @@
     height: 95%;
     margin: auto;
     text-align: justify;
-    color: white;
-    padding-top: 5%;
+    /* color: white; */
+    /* padding-top: 5%; */
+    color: black;
+    padding: 5%;
   }
 
-  .bikes img  {
+  .item {
+    position: relative;
+    display: inline-block;
+    width: 45%;
+  }
+
+  .item img  {
     display: block;
     margin: auto;
     width: 90%;
     padding: 5% 0;
   }
 
-  .bikes hr {
+  .item hr {
     width: 80%;
     color: black;
   }
 
-  .bikes h3 {
+  .item h3 {
     color: black;
     text-align: center;
     margin: 0.3em;
@@ -101,7 +103,7 @@
     -webkit-margin-after:0em;
   }
 
-  .bikes h4 {
+  .item h4 {
     color: darkgray;
     text-align: center;
     margin: 0;
@@ -123,7 +125,6 @@
     text-align: center;
     margin: 0;
   }
-
 
   .container {
     border-color: #1B1D1E;

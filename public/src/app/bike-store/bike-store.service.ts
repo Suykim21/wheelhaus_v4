@@ -10,11 +10,8 @@ export class BikeStoreService {
   ) { }
 
   addBike(bike, path){
-    console.log(bike);
-    console.log("going in the services for bike");
     path = path.substr(1).slice(0, -1);
     bike["image"] = path;
-    console.log(bike);
     return this._http.post('/api/addBike', bike)
     .map(data => data.json())
     .toPromise();

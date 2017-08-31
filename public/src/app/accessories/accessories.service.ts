@@ -10,7 +10,6 @@ export class AccessoriesService {
   ) { }
 
   addAccessory(accessory, path){
-    console.log("going in the services for accessories");
     path = path.substr(1).slice(0, -1);
     accessory["image"] = path;
     return this._http.post('/api/addAccessory', accessory)
@@ -59,5 +58,5 @@ export class AccessoriesService {
     .map(data => data.json())
     .toPromise()
   }
-  
+
 }
