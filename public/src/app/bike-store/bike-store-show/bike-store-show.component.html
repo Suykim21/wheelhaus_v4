@@ -1,0 +1,31 @@
+<div class="container">
+    <section class="beginning">
+      <div class="intro">
+        <img src="../../assets/logos/WHL-white.png">
+        <h1>Wheelhaus</h1>
+        <h2>Bike Store</h2>
+        <i class="icon ion-arrow-down-b"></i>
+      </div>
+    </section>
+  
+    <section class="wrapper">
+        <div class="item-left">
+          <img src="{{ bike.image }}" alt="Product">
+        </div>
+    
+        <div class="item-right">
+          <h1>{{ bike.name }}</h1>
+          <h2>{{ bike.description }}</h2>
+          <h2>${{ bike.price | number : '1.2-2' }}</h2>
+          <button class="button" (click)="addItem(bike._id)">Add to Cart</button>
+          <h3>Free Ground Shipping On Orders Over $100</h3>
+          <h3>(Continental U.S. Only)</h3>
+        </div>
+      </section> 
+  
+    <section class="footer">
+      <h5>Legendary Media Production</h5>
+      <h6>&copy;2017</h6>
+    </section>
+  </div>
+  

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import 'rxjs';
 
 @Injectable()
@@ -21,6 +21,12 @@ export class AccessoriesService {
     return this._http.get('/api/getAllAccessories')
     .map(data => data.json())
     .toPromise();
+  }
+
+  showAccessory(id){
+    return this._http.get('/api/accessories/show/' + id)
+    .map( (current_accessory: Response) => current_accessory.json())
+    .toPromise() 
   }
 
   get3Accessories(){

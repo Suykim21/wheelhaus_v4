@@ -15,6 +15,8 @@ import { CartComponent } from './cart/cart.component';
 import { ApparelComponent } from "./apparel/apparel.component";
 import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.component';
 import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component';
+import { BikeStoreShowComponent } from './bike-store/bike-store-show/bike-store-show.component';
+import { AccessoriesShowComponent } from './accessories/accessories-show/accessories-show.component';
 
 
 const routes: Routes = [
@@ -28,8 +30,10 @@ const routes: Routes = [
   {path: 'apparel/show/:id', component: ApparelShowComponent},
   {path: 'bikes', component: BikeStoreComponent},
   {path: 'bikes/new', component: BikeStoreNewComponent},
+  {path: 'bikes/show/:id', component: BikeStoreShowComponent},
   {path: 'accessories', component: AccessoriesComponent},
   {path: 'accessories/new', component: AccessoriesNewComponent},
+  {path: 'accessories/show/:id', component: AccessoriesShowComponent},
   {path: 'cart', component: CartComponent}
 ];
 

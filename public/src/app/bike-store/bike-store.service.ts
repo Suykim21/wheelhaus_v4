@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import 'rxjs';
 
 @Injectable()
@@ -21,6 +21,12 @@ export class BikeStoreService {
     return this._http.get('/api/getAllBikes')
     .map(data => data.json())
     .toPromise();
+  }
+
+  showBike(id){
+    return this._http.get('/api/bikes/show/' + id)
+    .map( (current_bike: Response) => current_bike.json())
+    .toPromise() 
   }
 
   get3Bikes(){
