@@ -64,12 +64,12 @@
       /* ------------------------------------------ */
 
       .wrapper {
-        /* outline: 3px solid blue; */
+        margin: auto;
         padding: 1%;
         background: #1B1D1E;
         border-color: #1B1D1E;
         display: grid;
-        grid-template-columns: 65% 45%;
+        grid-template-columns: 65% 35%;
       }
     
       .item-left {
