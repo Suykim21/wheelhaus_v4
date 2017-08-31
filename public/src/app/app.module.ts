@@ -20,7 +20,6 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ApparelComponent } from './apparel/apparel.component';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
-import { AccessComponent } from './access/access.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { BikeStoreService } from './bike-store/bike-store.service';
@@ -28,6 +27,9 @@ import { ApparelService } from './apparel/apparel.service';
 import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component';
 import { ApparelDestroyComponent } from './apparel/apparel-destroy/apparel-destroy.component';
 import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.component';
+import { AccessoriesNewComponent } from './accessories/accessories-new/accessories-new.component';
+import { EventsNewComponent } from './events/events-new/events-new.component';
+import { BikeStoreNewComponent } from './bike-store/bike-store-new/bike-store-new.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +43,13 @@ import { ApparelShowComponent } from './apparel/apparel-show/apparel-show.compon
     AccessoriesComponent,
     FileSelectDirective,
     ApparelComponent,
-    AccessComponent,
     ApparelNewComponent,
     ApparelShowComponent,
     ApparelDestroyComponent,
     CartComponent,
+    AccessoriesNewComponent,
+    EventsNewComponent,
+    BikeStoreNewComponent,
   ],
   imports: [
     BrowserModule,
