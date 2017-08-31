@@ -10,7 +10,6 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { BikeStoreComponent } from './bike-store/bike-store.component';
 import { BikeStoreNewComponent } from './bike-store/bike-store-new/bike-store-new.component';
-import { AccessComponent } from './access/access.component';
 import { AccessoriesNewComponent } from './accessories/accessories-new/accessories-new.component';
 import { CartComponent } from './cart/cart.component';
 import { ApparelComponent } from "./apparel/apparel.component";
