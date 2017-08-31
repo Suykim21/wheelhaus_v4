@@ -20,7 +20,7 @@ import { ApparelNewComponent } from './apparel/apparel-new/apparel-new.component
 const routes: Routes = [
   {path: 'events', component: EventsComponent},
   {path: 'events/new', component: EventsNewComponent},
-  {path: 'events/:id', component: DetailsComponent},
+  {path: 'events/show/:id', component: DetailsComponent},
   {path: 'about', component: AboutComponent},
   {path: '', component: LandComponent},
   {path: 'apparel', component: ApparelComponent},

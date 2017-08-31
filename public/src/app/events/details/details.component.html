@@ -15,7 +15,6 @@
       <p>{{ event.description }}</p>
 
       <br>
-      <!-- location, address  -->
       <a href="http://maps.google.com/?q=Los Angeles" target="_blank" >{{ event.address.street }}</a>
       <!-- linking to google maps api -->
       <p >{{ event.address.city }}, {{ event.address.state }} {{ event.address.zipcode }}</p>
@@ -34,23 +33,13 @@
       <!-- Modal pop-up thanking user for rsvping  -->
       <!-- might need to do ngIf to change button to 'unjoin' event -->
       <a [routerLink]="['/events/details']" class="button button-small">rsvp</a>
-      <!-- <div class="form-control">
-        <h1>Location:</h1>
-        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
-          #search [formControl]="searchControl">
-      </div>
 
-      <agm-map [latitude]="lat" [longitude]="lng">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map> -->
     </div>
 
     <div class="pic-one" >
       <img src="{{ event.image }}" alt="one">
       <div class="form-control">
         <h1>Location:</h1>
-        <!-- <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
-        #search [formControl]="searchControl"> -->
       </div>
 
       <agm-map [latitude]="lat" [longitude]="lng">
@@ -63,14 +52,13 @@
   <section class="popular-events">
     <h1>Other Events</h1>
 
-    <!-- <div class="popular-details"> -->
+
 
     <div class="popular" >
       <img src="{{ other_events[0].image }}">
       <p class="popular-date">Date</p>
       <h1>{{ other_events[0].title }}</h1>
-      <!-- <p class="cut-text">{{ other_events[0].description }}</p> -->
-      <a href="/events/{{ other_events[0]._id }}" class="button button-small">details</a>
+      <a href="/events/show/{{ other_events[0]._id }}" class="button button-small">details</a>
     </div>
 
     <hr>
@@ -79,8 +67,7 @@
       <img src="{{ other_events[1].image }}">
       <p class="popular-date">Date</p>
       <h1>{{ other_events[1].title }}</h1>
-      <!-- <p class="cut-text">{{ other_events[1].description }}</p> -->
-      <a href="/events/{{ other_events[1]._id }}" class="button button-small">details</a>
+      <a href="/events/show/{{ other_events[1]._id }}" class="button button-small">details</a>
     </div>
 
     <hr>
@@ -89,16 +76,11 @@
       <img src="{{ other_events[2].image }}">
       <p class="popular-date">Date</p>
       <h1>{{ other_events[2].title }}</h1>
-      <!-- <p class="cut-text">{{ other_events[2].description }}</p> -->
-      <a href="/events/{{ other_events[2]._id }}" class="button button-small">details</a>
+      <a href="/events/show/{{ other_events[2]._id }}" class="button button-small">details</a>
     </div>
 
     <hr>
     <a href="/events" class="button button-small button-large">all events</a>
   </section>
-
-  <!-- <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map> -->
 
 </div>

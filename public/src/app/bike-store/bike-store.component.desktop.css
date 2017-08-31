@@ -100,11 +100,17 @@ color: white;
     transform: translateX(-50%) translateY(-50%);
   }
 
+  .intro img {
+    display: block;
+    margin: auto;
+    height: 90px;
+  }
+
   .intro h1 {
     width: 100vw;
     margin: 0;
     color: white;
-    font-size: 3em;
+    font-size: 5em;
   }
 
   .intro h2 {
@@ -115,7 +121,7 @@ color: white;
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 45vh;
+    padding-top: 40vh;
   }
 
   /* ------------------------------------------ */
