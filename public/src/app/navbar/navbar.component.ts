@@ -63,7 +63,7 @@ export class NavbarComponent implements OnDestroy {
 
   getCartLength(){
     this._cartService.getCart()
-    .then((cart)=>{this.cart = cart.length ; console.log(cart.length); console.log(cart);})
+    .then((cart)=> this.cart = cart.length )
     .catch()
   }
 

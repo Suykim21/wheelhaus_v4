@@ -60,14 +60,4 @@ export class LandComponent implements OnInit {
     .then((bikes) => this.bikes = bikes)
     .catch()
   }
-
-  // getApparel(){
-  //   this._apparelService.getAllApparel()
-  //   .then((apparel) => this.apparel = apparel)
-  //   .catch()
-  // }
-
-
-
-
 }

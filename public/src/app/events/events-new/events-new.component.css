@@ -17,7 +17,7 @@
   }
 
   .beginning {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../assets/backgrounds/access-back.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../assets/backgrounds/apparel-back.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -36,17 +36,11 @@
     transform: translateX(-50%) translateY(-50%);
   }
 
-  .intro img {
-    display: block;
-    margin: auto;
-    height: 90px;
-  }
-
   .intro h1 {
     width: 100vw;
     margin: 0;
     color: white;
-    font-size: 4em;
+    font-size: 3em;
   }
 
   .intro h2 {
@@ -57,7 +51,7 @@
     font-size: 300%;
     color: white;
     position: fixed;
-    padding-top: 35vh;
+    padding-top: 50vh;
   }
 
   /* ------------------------------------------ */
@@ -77,8 +71,10 @@
     height: 95%;
     margin: auto;
     text-align: justify;
-    color: white;
-    padding-top: 5%;
+    /* color: white; */
+    /* padding-top: 5%; */
+    color: black;
+    padding: 5%;
   }
 
   .item {

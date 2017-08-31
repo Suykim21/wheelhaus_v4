@@ -4,10 +4,8 @@ var Bike = mongoose.model('Bike');
 var Event = mongoose.model('Event');
 var Apparel = mongoose.model('Apparel');
 // var MongoClient = require('mongodb').MongoClient;
-
 // FOR FILE UPLOADS
 var multer = require("multer");
-
 // DECLARING APPAREL FILE UPLOAD VARIABLE
 var apparelStorage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
@@ -18,26 +16,55 @@ var apparelStorage = multer.diskStorage({ //multers disk storage settings
       cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
   }
 });
-
 var apparelUpload = multer({ //multer settings
   storage: apparelStorage
 }).single('file');
 
+// DECLARING ACCESSORIES FILE UPLOAD VARIABLE
+var accessoryStorage = multer.diskStorage({ //multers disk storage settings
+  destination: function (req, file, cb) {
+    cb(null, './public/dist/assets/accessories_images');
+  },
+  filename: function (req, file, cb) {
+    var datetimestamp = Date.now();
+    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+  }
+});
+var accessoryUpload = multer({ //multer settings
+  storage: accessoryStorage
+}).single('file');
+
+// DECLARING BIKE-STORE FILE UPLOAD VARIABLE
+var bikeStorage = multer.diskStorage({ //multers disk storage settings
+  destination: function (req, file, cb) {
+    cb(null, './public/dist/assets/bikes_images');
+  },
+  filename: function (req, file, cb) {
+    var datetimestamp = Date.now();
+    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+  }
+});
+var bikeUpload = multer({ //multer settings
+  storage: bikeStorage
+}).single('file');
+
+// DECLARING EVENT FILE UPLOAD VARIABLE
+var eventStorage = multer.diskStorage({ //multers disk storage settings
+  destination: function (req, file, cb) {
+    cb(null, './public/dist/assets/events_images');
+  },
+  filename: function (req, file, cb) {
+    var datetimestamp = Date.now();
+    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+  }
+});
+var eventUpload = multer({ //multer settings
+  storage: eventStorage
+}).single('file');
+
 module.exports = {
   addAccessoryImage: (req, res) => {
-    var storage = multer.diskStorage({ //multers disk storage settings
-      destination: function (req, file, cb) {
-        cb(null, './public/src/assets/accessories_images');
-      },
-      filename: function (req, file, cb) {
-        var datetimestamp = Date.now();
-        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-      }
-    });
-    var upload = multer({ //multer settings
-      storage: storage
-    }).single('file');
-    upload(req,res,function(err){
+    accessoryUpload(req,res,function(err){
     if(err){
       res.json({error_code:1,err_desc:err});
       return;
@@ -46,7 +73,6 @@ module.exports = {
     }
   })
 },
-
   addAccessory: (req, res) => {
     var accessory = new Accessory(req.body);
     accessory.save((err, accessory) => {
@@ -56,7 +82,6 @@ module.exports = {
       }
     })
   },
-
   getAllAccessories: (req, res) => {
     Accessory.find({}, (err, accessories) => {
       if(err){
@@ -65,7 +90,6 @@ module.exports = {
       }
     })
   },
-
   get3Accessories: (req, res) => {
     Accessory.find({}).limit(3).exec((err, accessories) => {
       if(err){
@@ -74,10 +98,8 @@ module.exports = {
       }
     })
   },
-
 // ACCESSORY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // FILTER METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-
   getExpensiveAccessories: (req, res) => {
     Accessory.find({}).sort('-price').exec((err, accessories) => {
       if(err){
@@ -86,7 +108,6 @@ module.exports = {
       }
     })
   },
-
   getCheapestAccessories: (req, res) => {
     Accessory.find({}).sort('+price').exec((err, accessories) => {
       if(err){
@@ -95,7 +116,6 @@ module.exports = {
       }
     })
   },
-
   getPopularAccessories: (req, res) => {
     Accessory.find({}).sort('-bought').exec((err, accessories) => {
       if(err){
@@ -104,7 +124,6 @@ module.exports = {
       }
     })
   },
-
   getLimitedAccesories: (req, res) => {
     Accessory.find({limited: true}, (err, accessories) => {
       if(err){
@@ -113,24 +132,10 @@ module.exports = {
       }
     })
   },
-
   // BIKES *****************************
   // UPLOAD \/ \/\ \/ \/ \/ \/ \/ \/ \/
-
   addBikeImage: (req, res) => {
-    var storage = multer.diskStorage({ //multers disk storage settings
-      destination: function (req, file, cb) {
-        cb(null, './public/src/assets/bikes_images');
-      },
-      filename: function (req, file, cb) {
-        var datetimestamp = Date.now();
-        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-      }
-    });
-    var upload = multer({ //multer settings
-      storage: storage
-    }).single('file');
-    upload(req,res,function(err){
+    bikeUpload(req,res,function(err){
     if(err){
       res.json({error_code:1,err_desc:err});
       return;
@@ -139,7 +144,6 @@ module.exports = {
     }
   })
 },
-
   addBike: (req, res) => {
     var bike = new Bike(req.body);
     bike.save((err, bike) => {
@@ -149,7 +153,6 @@ module.exports = {
       }
     })
   },
-
   getAllBikes: (req, res) => {
     Bike.find({}, (err, bikes) => {
       if(err){
@@ -158,7 +161,6 @@ module.exports = {
       }
     })
   },
-
   get3Bikes: (req, res) => {
     Bike.find({}).limit(3).exec((err, bike) => {
       if(err){
@@ -167,10 +169,8 @@ module.exports = {
       }
     })
   },
-
 // Bike ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // FILTER METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-
   getExpensiveBikes: (req, res) => {
     Bike.find({}).sort('-price').exec((err, bikes) => {
       if(err){
@@ -179,7 +179,6 @@ module.exports = {
       }
     })
   },
-
   getCheapestBikes: (req, res) => {
     Bike.find({}).sort('+price').exec((err, bikes) => {
       if(err){
@@ -188,7 +187,6 @@ module.exports = {
       }
     })
   },
-
   getPopularBikes: (req, res) => {
     Bike.find({}).sort('-bought').exec((err, bikes) => {
       if(err){
@@ -197,7 +195,6 @@ module.exports = {
       }
     })
   },
-
   getLimitedBikes: (req, res) => {
     Bike.find({limited: true}, (err, bikes) => {
       if(err){
@@ -206,24 +203,10 @@ module.exports = {
       }
     })
   },
-
 // EVENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-
   addEventImage: (req, res) => {
-    var storage = multer.diskStorage({ //multers disk storage settings
-      destination: function (req, file, cb) {
-        cb(null, './public/src/assets/events_images');
-      },
-      filename: function (req, file, cb) {
-        var datetimestamp = Date.now();
-        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-      }
-    });
-    var upload = multer({ //multer settings
-      storage: storage
-    }).single('file');
-    upload(req,res,function(err){
+    eventUpload(req,res,function(err){
       if(err){
         res.json({error_code:1,err_desc:err});
         return;
@@ -233,7 +216,6 @@ module.exports = {
       }
     })
   },
-
   addEvent: (req, res) => {
     var event = new Event(req.body);
     event.save((err, event) => {
@@ -243,7 +225,6 @@ module.exports = {
       }
     })
   },
-
   getAllEvents: (req, res) => {
     Event.find({}, (err, event) => {
       if(err){
@@ -252,7 +233,6 @@ module.exports = {
       }
     })
   },
-
   getEvent: (req, res) => {
     Event.findOne({_id: req.params.id}, (err, event) =>{
       if(err){
@@ -261,17 +241,14 @@ module.exports = {
       }
     })
   },
-
 // CART ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-
   getCart: (req, res) => {
     if(!req.session.cart){
       req.session.cart =[];
     }
     return res.json(req.session.cart);
   },
-
   addItem: (req, res) => {
     if(req.params.type == 'accessory'){
       Accessory.find({_id: req.body.id}, (err, accessory) => {
@@ -355,7 +332,6 @@ module.exports = {
       })
     }
   },
-
   removeItem: (req, res) => {
     for(var i = 0; i < req.session.cart.length; i++){
       if(req.session.cart[i]._id == req.params.id){
@@ -365,13 +341,11 @@ module.exports = {
     req.session.save();
     return res.json(req.session.cart);
   },
-
   clearCart: (req, res) => {
     req.session.cart = [];
     req.session.save();
     return res.json(req.session.cart);
   },
-
   addApparelImg: (req, res) => {
     apparelUpload(req, res, function(err) {
       if(err){
@@ -381,7 +355,6 @@ module.exports = {
       res.json(req.file.filename);
     });
   },
-
   addApparel: (req,res)=> {
     let newApparel = new Apparel(req.body);
     newApparel.image = req.body.path;
@@ -394,7 +367,6 @@ module.exports = {
       }
     })
   },
-
   getAllApparel: (req,res) => {
     Apparel.find({}, (err, apparels) => {
       if(err){
@@ -404,7 +376,6 @@ module.exports = {
       }
     })
   },
-
   getApparel: (req, res) => {
     Apparel.findOne({_id: req.params.id}, (err, current_apparel) => {
       if(err){
@@ -415,7 +386,6 @@ module.exports = {
       }
     })
   },
-
   getExpensiveApparel: (req, res) => {
     Apparel.find({}).sort('-cost').exec((err, apparel) => {
       if(err){
@@ -424,7 +394,6 @@ module.exports = {
       }
     })
   },
-
   getCheapestApparel: (req, res) => {
     Apparel.find({}).sort('+cost').exec((err, apparel) => {
       if(err){
@@ -433,7 +402,6 @@ module.exports = {
       }
     })
   },
-
   getPopularApparel: (req, res) => {
     Apparel.find({}).sort('-bought').exec((err, apparel) => {
       if(err){
@@ -442,7 +410,6 @@ module.exports = {
       }
     })
   },
-
   getLimitedApparel: (req, res) => {
     Apparel.find({limited: true}, (err, apparel) => {
       if(err){
@@ -452,6 +419,4 @@ module.exports = {
       }
     })
   },
-
-
 }
