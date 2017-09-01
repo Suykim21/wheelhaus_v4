@@ -54,14 +54,18 @@ export class CartComponent implements OnInit {
 
   removeItem(item){
     this._cartService.removeItem(item)
-    .then(()=> this.getCart())
+    .then(()=> {this.getCart(); this.updateCartCount();})
     .catch()
   }
 
   clearCart(){
     this._cartService.clearCart()
-    .then(()=> this.getCart())
+    .then(()=> {this.getCart(); this.updateCartCount();})
     .catch()
+  }
+
+  updateCartCount(){
+    this._cartService.updateCartCount("Updating Cart Count");
   }
 
   handlePayment(){

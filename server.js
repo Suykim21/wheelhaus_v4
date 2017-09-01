@@ -18,20 +18,11 @@ app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
-app.use(express.static(path.join(__dirname, 'public', "dist", "assets", "apparel")));
-app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'accessories_images')));
-app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'events_images')));
-app.use(express.static(path.join(__dirname, 'public', "dist", 'assets', 'bikes_images')));
+app.use(express.static(path.join(__dirname, 'public', "src", "assets", "apparel_images")));
+app.use(express.static(path.join(__dirname, 'public', "src", 'assets', 'accessories_images')));
+app.use(express.static(path.join(__dirname, 'public', "src", 'assets', 'events_images')));
+app.use(express.static(path.join(__dirname, 'public', "src", 'assets', 'bikes_images')));
 require('./server/config/mongoose.js');
-
-// FOR CORSS-ORIGIN IMAGE UPLOAD
-// app.use(function(req, res, next) { //allow cross origin requests
-//   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-//   res.header("Access-Control-Allow-Origin", "http://localhost:3001");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   res.header("Access-Control-Allow-Credentials", true);
-//   next();
-// });
 
 app.use(function(req, res, next) {
 //set headers to allow cross origin request.

@@ -3,7 +3,7 @@
 /* ------------------------------------------ */
 
 @media only screen and (min-width: 481px) {
-     
+
       .container {
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -14,7 +14,7 @@
         left: 0;
         z-index: -1;
       }
-    
+
       .beginning {
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../assets/backgrounds/access-back.jpg');
         background-size: cover;
@@ -22,7 +22,7 @@
         height: 100vh;
         background-attachment: fixed;
       }
-    
+
       .intro {
         position: relative;
         width: 100%;
@@ -34,29 +34,29 @@
         -ms-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
       }
-    
+
       .intro h1 {
         width: 100vw;
         margin: 0;
         color: white;
         font-size: 3em;
       }
-    
+
       .intro h2 {
         color: white;
       }
-    
+
       .intro .icon {
         font-size: 300%;
         color: white;
         position: fixed;
         padding-top: 50vh;
       }
-    
+
       /* ------------------------------------------ */
       /* Section - Featured Items */
       /* ------------------------------------------ */
-    
+
       .wrapper {
         margin: auto;
         padding: 1%;
@@ -65,7 +65,7 @@
         display: grid;
         grid-template-columns: 65% 35%;
       }
-    
+
       .item-left {
         padding-left: 3%;
         background-color: white;
@@ -79,12 +79,12 @@
         /* color: black; */
         /* padding: 5%; */
       }
-    
+
       .item-left img {
         width: 75%;
         padding: 5%;
       }
-    
+
       .item-right {
         background-color: white;
         position: relative;
@@ -96,7 +96,7 @@
         font-weight: bold;
         font-size: 2.5em;
       }
-    
+
       .button {
         display: inline-block;
         font-size: 1.15rem;
@@ -110,17 +110,41 @@
         background: #fff;
         /* margin-bottom: 1em; */
       }
-    
+
+      .message {
+        margin: 20px;
+        color: red;
+        font-size: 28px;
+        font-weight: bold;
+        -webkit-animation: fadeinout 4s linear forwards;
+      }
+
+      @-webkit-keyframes fadeinout {
+        0%,100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes fadeinout {
+        0%,100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
       .button:hover,
       .button:active {
           background-color: #00ffff;
           color: #fff;
       }
-    
+
+      .button:hover,
+      .button:active {
+          background-color: #00ffff;
+          color: #fff;
+      }
+
       /* ------------------------------------------ */
       /* Section - Footer */
       /* ------------------------------------------ */
-    
+
       .footer {
         background: #1B1D1E;
         border-color: #1B1D1E;
@@ -128,16 +152,15 @@
         text-transform: uppercase;
         padding: 2%;
       }
-    
+
       .footer h5, h6 {
         text-align: center;
         margin: 0;
       }
-    
+
       .container {
         border-color: #1B1D1E;
         font-family: 'Raleway', sans-serif;
       }
-    
+
 }
-    

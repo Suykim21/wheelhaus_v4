@@ -1,7 +1,7 @@
 /* ------------------------------------------ */
 /* Land Image  */
 /* ------------------------------------------ */
-  
+
 @media only screen and (min-width: 960px) {
 
     .container {
@@ -73,7 +73,7 @@
         display: grid;
         grid-template-columns: 65% 35%;
       }
-    
+
       .item-left {
         padding-left: 3%;
         background-color: white;
@@ -87,12 +87,12 @@
         /* color: black; */
         /* padding: 5%; */
       }
-    
+
       .item-left img {
         width: 65%;
         padding: 5%;
       }
-    
+
       .item-right {
         padding: 0 5%;
         background-color: white;
@@ -100,12 +100,12 @@
         display: inline-block;
         vertical-align: top;
       }
-    
+
       .item-right h1 {
         font-weight: bold;
         font-size: 2.5em;
       }
-    
+
       .button {
         display: inline-block;
         font-size: 1.15rem;
@@ -119,7 +119,25 @@
         background: #fff;
         /* margin-bottom: 1em; */
       }
-    
+
+      .message {
+        margin: 20px;
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+        -webkit-animation: fadeinout 4s linear forwards;
+      }
+
+      @-webkit-keyframes fadeinout {
+        0%,100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes fadeinout {
+        0%,100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
       .button:hover,
       .button:active {
           background-color: #00ffff;
@@ -150,4 +168,3 @@
     }
 
 }
-  

@@ -10,6 +10,7 @@
 
   <section class="wrapper">
     <div class="item-left">
+      <div class="message fadein fadeout" *ngIf="showMessage == true">{{message}}</div>
       <img src="{{ apparel.image }}" alt="Product">
     </div>
 
@@ -21,11 +22,10 @@
       <h3>Free Ground Shipping On Orders Over $100</h3>
       <h3>(Continental U.S. Only)</h3>
     </div>
-  </section> 
+  </section>
 
   <section class="footer">
     <h5>Legendary Media Production</h5>
     <h6>&copy;2017</h6>
   </section>
 </div>
-

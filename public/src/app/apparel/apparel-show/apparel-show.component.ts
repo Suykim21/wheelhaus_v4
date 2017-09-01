@@ -16,6 +16,8 @@ export class ApparelShowComponent implements OnInit {
   apparel_id: String;
   apparel = {};
   item_type: String = 'apparel'
+  message: String = 'Added item to cart';
+  showMessage: Boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -41,6 +43,8 @@ export class ApparelShowComponent implements OnInit {
     this._cartService.addItem(id, this.item_type)
     .then((success) => {
       this.updateCartCount();
+      this.showMessage = true;
+      setTimeout(() => this.showMessage = false, 4000);
   })
     .catch()
   }
