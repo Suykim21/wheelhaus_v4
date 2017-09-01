@@ -119,7 +119,7 @@ module.exports = {
     })
   },
   getCheapestAccessories: (req, res) => {
-    Accessory.find({}).sort('+price').exec((err, accessories) => {
+    Accessory.find({}).sort('price').exec((err, accessories) => {
       if(err){
       }else{
         return res.json(accessories);
@@ -200,7 +200,7 @@ module.exports = {
     })
   },
   getCheapestBikes: (req, res) => {
-    Bike.find({}).sort('+price').exec((err, bikes) => {
+    Bike.find({}).sort('price').exec((err, bikes) => {
       if(err){
       }else{
         return res.json(bikes);
@@ -276,10 +276,11 @@ module.exports = {
         }else{
           if(req.session.cart.length > 0){
             for(var i = 0; i < req.session.cart.length; i++){
-              if(req.session.cart[i]._id == req.params.id){
+              if(req.session.cart[i]._id == req.body.id){
                 req.session.cart[i].quantity ++;
                 req.session.save();
                 var added = true;
+                return res.json({success: true});
               }
             }
             if(!added){
@@ -303,10 +304,11 @@ module.exports = {
         }else{
           if(req.session.cart.length > 0){
             for(var i = 0; i < req.session.cart.length; i++){
-              if(req.session.cart[i]._id == req.params.id){
+              if(req.session.cart[i]._id == req.body.id){
                 req.session.cart[i].quantity ++;
                 req.session.save();
                 var added = true;
+                return res.json({success: true});
               }
             }
             if(!added){
@@ -330,10 +332,11 @@ module.exports = {
         }else{
           if(req.session.cart.length > 0){
             for(var i = 0; i < req.session.cart.length; i++){
-              if(req.session.cart[i]._id == req.params.id){
+              if(req.session.cart[i]._id == req.body.id){
                 req.session.cart[i].quantity ++;
                 req.session.save();
                 var added = true;
+                return res.json({success: true});
               }
             }
             if(!added){
@@ -415,7 +418,7 @@ module.exports = {
     })
   },
   getExpensiveApparel: (req, res) => {
-    Apparel.find({}).sort('-cost').exec((err, apparel) => {
+    Apparel.find({}).sort('-price').exec((err, apparel) => {
       if(err){
       }else{
         return res.json(apparel);
@@ -423,7 +426,7 @@ module.exports = {
     })
   },
   getCheapestApparel: (req, res) => {
-    Apparel.find({}).sort('+cost').exec((err, apparel) => {
+    Apparel.find({}).sort('price').exec((err, apparel) => {
       if(err){
       }else{
         return res.json(apparel);

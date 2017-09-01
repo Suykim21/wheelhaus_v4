@@ -16,8 +16,11 @@ export class AccessoriesShowComponent implements OnInit {
   accessory_id: String;
   accessory = {};
   item_type: String = 'accessory'
+  message: String = 'Added item to cart';
+  showMessage: Boolean = false;
 
   constructor(
+    private _router: Router,
     private _route: ActivatedRoute,
     private _accessoriesService: AccessoriesService,
     public _cartService: CartService
@@ -33,7 +36,7 @@ export class AccessoriesShowComponent implements OnInit {
   showAccessory(id){
     this._accessoriesService.showAccessory(id)
     .then(current_accessory => this.accessory = current_accessory)
-    .catch(err => console.log(err))
+    .catch()
   }
 
 // CART FUNCTIONALITY
@@ -41,6 +44,8 @@ export class AccessoriesShowComponent implements OnInit {
     this._cartService.addItem(id, this.item_type)
     .then((success) => {
       this.updateCartCount();
+      this.showMessage = true;
+      setTimeout(() => this.showMessage = false, 4000);
   })
     .catch()
   }

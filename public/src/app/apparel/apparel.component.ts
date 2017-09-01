@@ -48,7 +48,7 @@ export class ApparelComponent implements OnInit {
 // FILTERS
   getExpensive(){
     this._apparelService.getExpensiveApparel()
-    .then(all_apparel => this.apparels = all_apparel)
+    .then(all_apparel => {this.apparels = all_apparel; console.log(all_apparel);})
     .catch()
   }
 

@@ -16,6 +16,8 @@ export class BikeStoreShowComponent implements OnInit {
   bike_id: String;
   bike = {};
   item_type: String = 'bike'
+  message: String = 'Added item to cart';
+  showMessage: Boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -33,7 +35,7 @@ export class BikeStoreShowComponent implements OnInit {
   showBike(id){
     this._bikeService.showBike(id)
     .then(current_bike => this.bike = current_bike)
-    .catch(err => console.log(err))
+    .catch()
   }
 
 // CART FUNCTIONALITY
@@ -41,6 +43,8 @@ export class BikeStoreShowComponent implements OnInit {
     this._cartService.addItem(id, this.item_type)
     .then((success) => {
       this.updateCartCount();
+      this.showMessage = true;
+      setTimeout(() => this.showMessage = false, 4000);
   })
     .catch()
   }

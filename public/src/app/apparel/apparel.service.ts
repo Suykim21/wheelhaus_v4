@@ -9,7 +9,7 @@ export class ApparelService {
 
   addApparel(apparel, path){
     path = path.substr(1).slice(0, -1);
-    apparel["path"] = path; 
+    apparel["path"] = path;
     return this._http.post('/api/addapparel', apparel)
     .map( (questions: Response) => questions.json()).toPromise()
   }
@@ -28,7 +28,7 @@ export class ApparelService {
   showApparel(id){
     return this._http.get('/api/apparel/show/' + id)
     .map( (current_apparel: Response) => current_apparel.json())
-    .toPromise() 
+    .toPromise()
   }
 
   get3Apparels(){

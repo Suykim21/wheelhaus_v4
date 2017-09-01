@@ -34,20 +34,6 @@ export class AccessoriesComponent implements OnInit {
     .catch()
   }
 
-// CART FUNCTIONALITY
-
-  addItem(id, type){
-    this._cartService.addItem(id, this.item_type)
-    .then((success) => {
-      this.updateCartCount();
-  })
-    .catch()
-  }
-
-  updateCartCount(){
-    this._cartService.updateCartCount("Updating Cart Count");
-  }
-
 // FILTERS
 
   getExpensive(){
