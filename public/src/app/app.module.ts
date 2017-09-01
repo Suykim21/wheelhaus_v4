@@ -32,6 +32,7 @@ import { EventsNewComponent } from './events/events-new/events-new.component';
 import { BikeStoreNewComponent } from './bike-store/bike-store-new/bike-store-new.component';
 import { AccessoriesShowComponent } from './accessories/accessories-show/accessories-show.component';
 import { BikeStoreShowComponent } from './bike-store/bike-store-show/bike-store-show.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { BikeStoreShowComponent } from './bike-store/bike-store-show/bike-store-
     BikeStoreNewComponent,
     AccessoriesShowComponent,
     BikeStoreShowComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

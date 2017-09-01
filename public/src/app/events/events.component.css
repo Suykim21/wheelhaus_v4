@@ -33,6 +33,7 @@ img {
     background-position: center;
     background-attachment: fixed;
     height: 100vh;
+    width: 100vw;
     color: #fff;
 }
 
@@ -59,6 +60,7 @@ img {
 
 .events {
     margin: 0;
+    overflow: hidden;
 }
 
 .events h1 {
