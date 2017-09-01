@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all ease-in-out 250ms;
+  color: black;
+  /* background-color: #8B2323; */
+}
+
+.clearfix::after,
+section::after,
+footer::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+/* ------------------------------------- */
+/* FOOTER  */
+/* ------------------------------------- */
+
+.contact-hero {
+  background-color: #00ffff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+  color: white;
+  padding: 3em 0;
+}
+
+[class^=col-] {
+  width: 100%;
+  padding: 0 2em;
+  margin-bottom: 2em;
+  font-size: 1em;
+}
+
+.icons {
+  font-size: 2em;
+}
+
+.ion-social-facebook:hover {
+  color: #3b5998;
+}
+
+.ion-social-github:hover {
+  color: #6e5494;
+}
+
+.ion-social-instagram:hover {
+  color: #bc2a8d;
+}
+
+.ion-social-twitter:hover {
+    color:#00aced;
+}
+
+.footer {
+  text-transform: uppercase;
+  margin-top: 2em;
+}
+
+.footer h5,
+h6 {
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .contact-hero {
+    padding: 4em .5em;
+  }
+  .col-1 {
+    width: 25%;
+  }
+
+  [class^=col-] {
+    float: left;
+    padding: 0;
+    padding-left: 2.5em;
+    font-size: .8em;
+  }
+  .footer {
+    margin-bottom: 2em;
+    position: absolute;
+    right:0;
+    left:0;
+    bottom:0;
+  }
+}
+
+@media (min-width: 1024px) {
+  [class^=col-] {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1200px) {
+  [class^=col-] {
+    padding-left: 6.5em;
+  }
+}
