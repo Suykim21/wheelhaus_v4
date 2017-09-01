@@ -1,7 +1,3 @@
-/* ------------------------------------------ */
-/* Land Image  */
-/* ------------------------------------------ */
-
 @media only screen and (min-width: 481px) {
 
 
@@ -108,27 +104,4 @@
     text-align: center;
     margin: 0;
   }
-
-  /* ------------------------------------------ */
-  /* Section - Footer */
-  /* ------------------------------------------ */
-
-  .footer {
-    background: #1B1D1E;
-    border-color: #1B1D1E;
-    color: white;
-    text-transform: uppercase;
-    padding: 2%;
-  }
-
-  .footer h5, h6 {
-    text-align: center;
-    margin: 0;
-  }
-
-  .container {
-    border-color: #1B1D1E;
-    font-family: 'Raleway', sans-serif;
-  }
-
 }

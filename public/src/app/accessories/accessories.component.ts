@@ -43,21 +43,9 @@ export class AccessoriesComponent implements OnInit {
   }
 
   getCheapest(){
-    // console.log(this.all_accessories[0].price);
-    for(var i = 0 ; i < this.all_accessories.length-1; i++){
-      for(var j = i+1 ; this.all_accessories.length - 1; j++){
-        console.log(this.all_accessories[j].price);
-        // if(this.all_accessories[i].price > this.all_accessories[j].price){
-        //   var temp = this.all_accessories[i];
-        //   this.all_accessories[i] = this.all_accessories[j];
-        //   this.all_accessories[j] = temp;
-        // }
-      }
-    }
-    // console.log(this.all_accessories);
-    // this._accessoryService.getCheapestAccessories()
-    // .then(accessories => console.log(accessories))
-    // .catch()
+    this._accessoryService.getCheapestAccessories()
+    .then(accessories => this.all_accessories = accessories)
+    .catch()
   }
 
   mostPopular(){

@@ -161,23 +161,4 @@
     padding-top: 60%;
     background-color: #6affcb;
   }*/
-
-  /* ------------------------------------------ */
-  /* Section - Footer */
-  /* ------------------------------------------ */
-
-  .footer {
-    background: #1B1D1E;
-    border-color: #1B1D1E;
-    color: white;
-    text-transform: uppercase;
-    padding: 2%;
-  }
-
-  .footer h5, h6 {
-    text-align: center;
-    margin: 0;
-  }
-
-
 }

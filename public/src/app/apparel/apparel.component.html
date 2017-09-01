@@ -12,7 +12,7 @@
       <div class="dropdown">
         <button class="dropbtn">SORT BY</button>
         <div class="dropdown-content">
-          <button (click)="getAllAccessories()" class="sort_unique">Featured</button>
+          <!-- <button (click)="getAllAccessories()" class="sort_unique">Featured</button> -->
           <button (click)="getExpensive()">Highest $</button>
           <button (click)="getCheapest()">Lowest $</button>
           <button (click)="mostPopular()">Most Popular</button>
@@ -28,13 +28,9 @@
         <h3>{{ apparel.name }}</h3>
         <h4>${{ apparel.price }}</h4>
       </div>
-    </div>  
-  </section> 
-
-  <section class="footer">
-    <h5>Legendary Media Production</h5>
-    <h6>&copy;2017</h6>
+    </div>
   </section>
+  <app-footer></app-footer>
 </div>
 
 

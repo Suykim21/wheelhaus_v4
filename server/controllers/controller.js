@@ -119,7 +119,7 @@ module.exports = {
     })
   },
   getCheapestAccessories: (req, res) => {
-    Accessory.find({}).sort( { price: -1 } ).exec((err, accessories) => {
+    Accessory.find({}).sort('price').exec((err, accessories) => {
       if(err){
       }else{
         return res.json(accessories);
@@ -200,7 +200,7 @@ module.exports = {
     })
   },
   getCheapestBikes: (req, res) => {
-    Bike.find({}).sort('+price').exec((err, bikes) => {
+    Bike.find({}).sort('price').exec((err, bikes) => {
       if(err){
       }else{
         return res.json(bikes);
@@ -418,7 +418,7 @@ module.exports = {
     })
   },
   getExpensiveApparel: (req, res) => {
-    Apparel.find({}).sort('-cost').exec((err, apparel) => {
+    Apparel.find({}).sort('-price').exec((err, apparel) => {
       if(err){
       }else{
         return res.json(apparel);
@@ -426,7 +426,7 @@ module.exports = {
     })
   },
   getCheapestApparel: (req, res) => {
-    Apparel.find({}).sort('+cost').exec((err, apparel) => {
+    Apparel.find({}).sort('price').exec((err, apparel) => {
       if(err){
       }else{
         return res.json(apparel);
