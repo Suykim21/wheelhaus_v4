@@ -98,13 +98,13 @@
   color: white;
   cursor: pointer;
   z-index: 10;
-  opacity: 0;
+  opacity: 1;
   background-color: rgba(17, 17, 17, 0.9);
 }
 
 .sidebar_menu {
   position: fixed;
-  width: 250px;
+  width: 0;
   margin-left: 0px;
   overflow: hidden;
   background-color: rgba(17, 17, 17, 0.9);
