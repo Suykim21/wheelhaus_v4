@@ -97,6 +97,7 @@
         position: relative;
         display: inline-block;
         vertical-align: top;
+        margin-top: -1px;
       }
 
       .item-right h1 {
