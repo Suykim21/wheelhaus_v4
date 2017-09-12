@@ -14,7 +14,7 @@ MongoDB, Express.js, Node.js, Angular, AWS (Deployment), Stripe Payment System, 
 5. In your command prompt, "ng build -w" </br>
 6. Navigate to the the root folder </br>
 7. In your command prompt, "npm install" </br>
-8. In your command prompt, "nodemon serve-r.js"
+8. In your command prompt, "nodemon server.js"
 
 ## Additional Information
 - [Mongod](https://docs.mongodb.com/manual/reference/program/mongod/) </br>
