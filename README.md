@@ -31,4 +31,4 @@ MongoDB, Express.js, Node.js, Angular, AWS (Deployment), Stripe Payment System, 
 </br>
 [Kevin Ma](https://github.com/KMA91)
 </br>
-//Please feel free to leave feedback. We are also open to constructive criticsm!-
+//Please feel free to leave feedback. We are open to constructive criticsm!
