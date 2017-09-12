@@ -7,26 +7,30 @@ Wheelhaus is a mock-up, bike, e-commerce website where clients may purchase bike
 MongoDB, Express.js, Node.js, Angular, AWS (Deployment), Stripe Payment System, Custom Css, Google Api integration, File-Uploads Feature, Github, Responsive Mobile/Tablet/Desktop Design
 
 ## How do I get it working?
-1) Clone the repo
+
+1.Clone the repo
 </br>
-2) Turn on mongod on your local machine.
+2.Turn on mongod on your local machine.
 </br>
-3) Navigate to project's public folder
+3.Navigate to project's public folder
 </br>
-4) In your command prompt, "npm install"
+4.In your command prompt, "npm install"
 </br>
-5) In your command prompt, "ng build -w"
+5.In your command prompt, "ng build -w"
 </br>
-6) Navigate to the the root folder
+6.Navigate to the the root folder
 </br>
-7) In your command prompt, "npm install"
+7.In your command prompt, "npm install"
 </br>
-8) In your command prompt, "nodemon server.js"
+8.In your command prompt, "nodemon server.js"
 
 ## Additional Information
 -[Mongod](https://docs.mongodb.com/manual/reference/program/mongod/)
+</br>
 -[NPM](https://docs.npmjs.com/)
+</br>
 -[Angular-CLI // "ng build w"](https://github.com/angular/angular-cli)
+</br>
 -[nodemon](https://github.com/remy/nodemon)
 
 ## Contributors
