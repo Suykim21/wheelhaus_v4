@@ -9,7 +9,7 @@ MongoDB, Express.js, Node.js, Angular, AWS (Deployment), Stripe Payment System, 
 ## How do I get it working?
 1) Clone the repo
 </br>
-2) Turn on [mongod](https://docs.mongodb.com/manual/reference/program/mongod/) from your local machine.
+2) Turn on mongod on your local machine.
 </br>
 3) Navigate to project's public folder
 </br>
@@ -22,6 +22,12 @@ MongoDB, Express.js, Node.js, Angular, AWS (Deployment), Stripe Payment System, 
 7) In your command prompt, "npm install"
 </br>
 8) In your command prompt, "nodemon server.js"
+
+## Additional Information
+-[Mongod](https://docs.mongodb.com/manual/reference/program/mongod/)
+-[NPM](https://docs.npmjs.com/)
+-[Angular-CLI // "ng build w"](https://github.com/angular/angular-cli)
+-[nodemon](https://github.com/remy/nodemon)
 
 ## Contributors
 [Jake Kiernan](https://github.com/jakekiernan/)
