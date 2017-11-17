@@ -81,13 +81,13 @@ export class CartComponent implements OnInit {
 
   plusItem(item){
     this._cartService.plusItem(item)
-    .then(()=>{this.getCart(); this.updateCartCount(); console.log(this.shoppingCart)})
+    .then(()=>{this.getCart(); this.updateCartCount();})
     .catch()
   }
 
   minusItem(item){
     this._cartService.minusItem(item)
-    .then(()=>{this.getCart(); this.updateCartCount(); console.log(this.shoppingCart)})
+    .then(()=>{this.getCart(); this.updateCartCount();})
     .catch()
   }
 
