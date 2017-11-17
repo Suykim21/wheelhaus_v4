@@ -251,10 +251,17 @@ module.exports = {
   minusItem:(req,res) => {
     for(var i = 0; i<req.session.cart.length; i++){
       if(req.session.cart[i]._id == req.params.id){
-        req.session.cart[i].quantity--;
+        if(req.session.cart[i].quantity > 1){
+          req.session.cart[i].quantity--;
+        }else{
+          // DELETE ITEM IF QTY === 0 AFTER DECREMENT
+          req.session.cart.splice(i, 1);
+        }
       }
     }
     req.session.save();
+    // PRINT WHAT THE CART LOOKS LIKE AFTER DECREMENT
+    console.log(req.session.cart);
     return res.json(req.session.cart)
   },
 
