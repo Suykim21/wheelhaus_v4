@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import{ BikeStoreService } from './../bike-store/bike-store.service';
 
 
 @Component({
@@ -16,10 +17,26 @@ import { trigger, style, transition, animate, keyframes, query, stagger} from '@
   ]
 })
 export class AboutComponent implements OnInit {
+  showMessage: Boolean = false;
+  message: String ="Successfully Sent"
+  showMessage2: Boolean = false;
+  error: String ="One or more information need to be filled out completely"
 
-  constructor() { }
+  constructor(private _bikeStoreService: BikeStoreService) { }
 
   ngOnInit() {
+  }
+
+  addInfo(formData){
+    // console.log(formData.value);
+    this._bikeStoreService.addInfo(formData.value)
+    // .then takes in a callback with one argument. The data response from server 
+      .then((response) => {console.log(response); this.showMessage = true; setTimeout(()=> this.showMessage = false, 4000)
+      })
+      .catch((err) => {console.log(err); this.showMessage2=true; setTimeout(()=> this.showMessage2 = false, 4000)})
+    
+    formData.reset();
+
   }
 
 }

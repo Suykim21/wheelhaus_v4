@@ -23,9 +23,17 @@ export class BikeStoreService {
     .toPromise();
   }
 
-  // addInfo(data){
-
-  // }
+  addInfo(infoObjectFromComponent){
+    // post method takes in two arguments
+    // 1. url to send the request to
+    // 2. the form data
+    return this._http.post('/api/addInfo', infoObjectFromComponent)
+    .map((responseFromTheServer: Response) => responseFromTheServer.json())
+    .toPromise()
+    // the above line is dealing with the outgoing request
+    // the line below is dealing with the incoming request
+    // the map takes in the callback
+  }
 
   // showBike(id){
   //   return this._http.get('/api/bikes/show/' + id)

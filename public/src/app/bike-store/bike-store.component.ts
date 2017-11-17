@@ -14,8 +14,8 @@ export class BikeStoreComponent implements OnInit {
   bike_id: String;
   bike = {};
   
-  message: String = 'Added item to cart';
-  showMessage: Boolean = false;
+  // message: String = 'Added item to cart';
+  // showMessage: Boolean = false;
 
   public _router: Router;
   public all_bikes: Array<any>;
@@ -57,8 +57,7 @@ export class BikeStoreComponent implements OnInit {
     this._cartService.addItem(id, this.item_type)
       .then((success) => {
         this.updateCartCount();
-        this.showMessage = true;
-        setTimeout(() => this.showMessage = false, 4000);
+        alert("Added to Cart");
       })
       .catch()
   }
@@ -67,8 +66,7 @@ export class BikeStoreComponent implements OnInit {
     this._cartService.addItem(id, this.item_type2)
       .then((success) => {
         this.updateCartCount();
-        this.showMessage = true;
-        setTimeout(() => this.showMessage = false, 4000);
+        alert("Added to Cart");
       })
       .catch()
   }

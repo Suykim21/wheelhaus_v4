@@ -36,9 +36,15 @@ var bikeUpload = multer({ //multer settings
 module.exports = {
   addInfo: (req, res) =>{
     var info = new Info(req.body);
-    info.save((err, info) =>{
-      if(err){} else{
-        return;
+    // the save function takes a callback which has two arguments
+    // Argument #1 -> Errors that the db is ending back if it has a problem saving
+    // Argument#2 => the instance of the object we just saved
+    info.save((err, savedInfo) =>{
+      if(err){
+        console.log(err);
+        return res.status(500).send("Error saving info");
+      } else{
+        return res.json(savedInfo);
       }
     })
   },
@@ -235,7 +241,7 @@ module.exports = {
   plusItem:(req, res) => {
     for(var i = 0; i< req.session.cart.length; i++){
       if(req.session.cart[i]._id == req.params.id){
-        req.session.cart[i].length++;
+        req.session.cart[i].quantity++;
       }
     }
     req.session.save();
@@ -245,7 +251,7 @@ module.exports = {
   minusItem:(req,res) => {
     for(var i = 0; i<req.session.cart.length; i++){
       if(req.session.cart[i]._id == req.params.id){
-        req.session.cart[i].length--;
+        req.session.cart[i].quantity--;
       }
     }
     req.session.save();

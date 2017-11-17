@@ -460,6 +460,19 @@ form {
   width: 70%;
 }
 
+.error,
+.message {
+  margin-bottom:1em;
+}
+
+.error{
+  color: #e62739;
+}
+
+.message{
+  color: #49C5B6;
+}
+
 input {
   background-color: #f1f1f1;
 }

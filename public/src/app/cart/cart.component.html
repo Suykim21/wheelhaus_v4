@@ -21,15 +21,18 @@
         <p>{{item.description}}</p>
       </div>
 
+
+      <!-- WORKING ON THIS! -->
       <div class="quantity">
-        <button id="minus-btn" type="button" name="button" (click)='minusItem()'>
+        <button id="minus-btn" type="button" name="button" (click)='minusItem(item._id)'>
           <i class="ion-ios-minus-outline"></i>
         </button>
-        <input type="text" name="name" value="{{quantity}}">
-        <button id="plus-btn" type="button" name="button" (click)='plusItem()'>
+        <input type="text" name="name" value="1 {{item.length}}">
+        <button id="plus-btn" type="button" name="button" (click)='plusItem(item._id)'>
           <i class="ion-ios-plus-outline"></i>
         </button>
       </div>
+      <!-- WORKING ON THIS! -->
 
       <div class="total-price">
         <p>${{ item.price | number : '1.2-2' }}</p>
