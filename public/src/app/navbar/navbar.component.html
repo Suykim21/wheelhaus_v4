@@ -1,0 +1,33 @@
+<!-- Mobile Bar & Menu Icon -->
+<input type="checkbox" class="menu-toggle" id="menu-toggle">
+<div class="mobile-bar">
+  <img src="../../assets/landing/wheelhaus_logo.png" alt="logo" class="logo">
+  <label for="menu-toggle" class="menu-icon">
+    <span></span>
+  </label>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <img src="../../assets/landing/wheelhaus_logo.png" alt="logo" class="logo">
+  <nav>
+    <ul>
+      <li id="title">
+        <h1 class="boxed_logo">wheelhaus</h1>
+        <h2 class="logo_tagline">cycle your way</h2>
+      </li>
+      <li>
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a routerLink="/about">About</a>
+      </li>
+      <li>
+        <a routerLink="/bikes">Products</a>
+      </li>
+      <li>
+        <a class="icon ion-ios-cart" routerLink="/cart">{{ cart }}</a>
+      </li>
+    </ul>
+  </nav>
+</header>

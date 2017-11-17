@@ -1,0 +1,77 @@
+<!-- <div class="container">
+  <section class="beginning">
+    <div class="intro">
+      <img src="../../assets/logos/WHL-white.png">
+      <h1>Wheelhaus</h1>
+      <h2>Bike Store</h2>
+      <i class="icon ion-arrow-down-b"></i>
+    </div>
+  </section>
+
+  <section class="sort">
+      <div class="dropdown">
+        <button class="dropbtn">SORT BY</button>
+        <div class="dropdown-content">
+          <button (click)="getAllBikes()" class="sort_unique">Featured</button>
+          <button (click)="getExpensive()">Highest $</button>
+          <button (click)="getCheapest()">Lowest $</button>
+          <button (click)="mostPopular()">Most Popular</button>
+          <button (click)="getLimited()">Limited Edition</button>
+        </div>
+      </div>
+  </section>
+
+  <section class="wrapper">
+    <div class="bikes" >
+      <div class="item" *ngFor="let bike of all_bikes">
+        <a [routerLink]="['show', bike._id ]"><img src="{{ bike.image }}"></a>
+        <h3>{{ bike.name }}</h3>
+        <h4>${{ bike.price }}</h4>
+      </div>
+    </div>
+  </section>
+  
+  <app-footer></app-footer>
+</div> -->
+
+<header class="intro">
+  <div class="content">
+    <img src="../../assets/landing/wheelhaus_logo.png" alt="logo">
+    <h1>lifestyle design</h1>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed esse fugiat facere dignissimos quis, nobis iste debitis
+      delectus possimus alias error deleniti velit impedit vel voluptates maiores, quae quia sapiente eos! Numquam, sequi
+      corrupti earum sunt sapiente velit fuga cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+      eaque, ab nulla fuga eos deserunt.</p>
+
+  </div>
+</header>
+
+<section id="bike_p">
+  <h2>bicyles</h2>
+  <hr>
+  <div class="grid">
+    <div class="item" *ngFor="let bike of all_bikes">
+      <img src="{{bike.image}}" alt="bike">
+
+      <h3>{{bike.name}}</h3>
+      <h4 class="price">{{bike.price}}</h4>
+      <button class="button" (click)="addItem(bike._id)">Add</button>
+    </div>
+  </div>
+</section>
+
+<section id="bike_p">
+  <h2>essentials</h2>
+  <hr>
+  <div class="grid">
+    <div class="item" *ngFor="let apparel of apparels">
+      <img src="{{apparel.image}}" alt="apparel">
+
+      <h3>{{apparel.name}}</h3>
+      <h4 class="price">{{apparel.price}}</h4>
+      <button class="button" (click)="addItem2(apparel._id)">Add</button>
+
+    </div>
+  </div>
+</section>

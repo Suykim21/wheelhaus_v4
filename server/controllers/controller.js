@@ -1,123 +1,330 @@
 let mongoose = require('mongoose');
-// var User = mongoose.model('User');
-// var Product = mongoose.model('Product');
-// var Order = mongoose.model('Order');
+var Info = mongoose.model('Info');
+var Bike = mongoose.model('Bike');
+var Apparel = mongoose.model('Apparel');
+// var MongoClient = require('mongodb').MongoClient;
+// FOR FILE UPLOADS
+var multer = require("multer");
+// DECLARING APPAREL FILE UPLOAD VARIABLE
+var apparelStorage = multer.diskStorage({ //multers disk storage settings
+  destination: function (req, file, cb) {
+    cb(null, './public/src/assets/apparel_images');
+  },
+  filename: function (req, file, cb) {
+    var datetimestamp = Date.now();
+    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1]);
+  }
+});
+var apparelUpload = multer({ //multer settings
+  storage: apparelStorage
+}).single('file');
+
+// DECLARING BIKE-STORE FILE UPLOAD VARIABLE
+var bikeStorage = multer.diskStorage({ //multers disk storage settings
+  destination: function (req, file, cb) {
+    cb(null, './public/src/assets/bikes_images');
+  },
+  filename: function (req, file, cb) {
+    var datetimestamp = Date.now();
+    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1]);
+  }
+});
+var bikeUpload = multer({ //multer settings
+  storage: bikeStorage
+}).single('file');
 
 module.exports = {
-  // newCustomer: (req,res)=>{
-  //   let newUser = new User({name:req.body.name});
-  //   newUser.save((err,savedUser)=>{
+  addInfo: (req, res) =>{
+    var info = new Info(req.body);
+    // the save function takes a callback which has two arguments
+    // Argument #1 -> Errors that the db is ending back if it has a problem saving
+    // Argument#2 => the instance of the object we just saved
+    info.save((err, savedInfo) =>{
+      if(err){
+        console.log(err);
+        return res.status(500).send("Error saving info");
+      } else{
+        return res.json(savedInfo);
+      }
+    })
+  },
+  addAccessoryImage: (req, res) => {
+    accessoryUpload(req, res, function (err) {
+      if (err) {
+        res.json({
+          error_code: 1,
+          err_desc: err
+        });
+        return;
+      } else {
+        res.json(req.file.filename);
+      }
+    })
+  },
+  addAccessory: (req, res) => {
+    var accessory = new Accessory(req.body);
+    accessory.save((err, accessory) => {
+      if (err) {} else {
+        return;
+      }
+    })
+  },
+  getAllAccessories: (req, res) => {
+    Accessory.find({}, (err, accessories) => {
+      if (err) {} else {
+        return res.json(accessories);
+      }
+    })
+  },
+  getAccessory: (req, res) => {
+    Accessory.findOne({
+      _id: req.params.id
+    }, (err, current_accessory) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        return res.json(current_accessory);
+      }
+    })
+  },
+  // get3Accessories: (req, res) => {
+  //   Accessory.find({}).limit(3).exec((err, accessories) => {
   //     if(err){
-  //       console.log("Error saving user")
-  //     } else {
-  //       req.session.user = savedUser;
-  //       res.json(savedUser);
-  //     }
-  //   })
-  // },
-
-  // getUsers:(req,res)=>{
-  //   User.find({},(err,users)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(users);
-  //     }
-  //   })
-  // },
-
-  // addProduct:(req,res)=>{
-  //   let newProd = new Product(req.body);
-  //   newProd.save((err,savedProd)=>{
-  //     if(err){
-  //       console.log("Error saving product");
-  //     } else {
-  //       res.json(savedProd);
-  //     }
-  //   })
-  // },
-
-  // getProds:(req,res)=>{
-  //   Product.find({},(err,products)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(products);
-  //     }
-  //   })
-  // },
-
-  // placeOrder:(req,res)=>{
-  //   User.findOne({name:req.body.name},(err,user)=>{
-  //     if(err){
-  //       console.log(err)
-  //     } else {
-  //       let customer_id = user._id;
-  //       Product.findOne({name:req.body.product},(err,product)=>{
-  //         if(err){
-  //           console.log(err);
-  //         } else {
-  //           let product_id = product._id;
-  //           if(product.quantity>req.body.quantity){
-  //             product.quantity = product.quantity-req.body.quantity;
-  //             product.save((err,updatedProduct)=>{
-  //               console.log(updatedProduct)
-  //               let newOrder = new Order({_user:customer_id, _product:product_id, quantity:req.body.quantity});
-  //               newOrder.save((err,savedOrder)=>{
-  //                 if(err){
-  //                   console.log(err);
-  //                 } else {
-  //                   res.json(savedOrder)
-  //                 }
-  //               })
-  //             })
-  //           } else {
-  //             res.json("Not enough product")
-  //           }            
-  //         }
-  //       })
-  //     }
-  //   })
-  // },
-
-  // getOrders:(req,res)=>{
-  //   Order.find({}).populate('_user','name').populate('_product','name').exec((err,orders)=>{
-  //     if(err){
-  //       res.sendStatus(500);
   //     }else{
-  //       res.json(orders);
+  //       return res.json(accessories);
   //     }
   //   })
   // },
 
-  // removeUser:(req,res)=>{  
-  //   User.remove({_id:req.params.id},(err,data)=>{
+  // BIKES *****************************
+  // UPLOAD \/ \/\ \/ \/ \/ \/ \/ \/ \/
+  addBikeImage: (req, res) => {
+    bikeUpload(req, res, function (err) {
+      if (err) {
+        res.json({
+          error_code: 1,
+          err_desc: err
+        });
+        return;
+      } else {
+        res.json(req.file.filename);
+      }
+    })
+  },
+  addBike: (req, res) => {
+    var bike = new Bike(req.body);
+    bike.save((err, bike) => {
+      if (err) {} else {
+        return;
+      }
+    })
+  },
+  getAllBikes: (req, res) => {
+    Bike.find({}, (err, bikes) => {
+      if (err) {} else {
+        return res.json(bikes);
+      }
+    })
+  },
+  getBike: (req, res) => {
+    Bike.findOne({
+      _id: req.params.id
+    }, (err, current_bike) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        return res.json(current_bike);
+      }
+    })
+  },
+  // get3Bikes: (req, res) => {
+  //   Bike.find({}).limit(3).exec((err, bike) => {
   //     if(err){
-  //       res.sendStatus(400);
-  //     } else {
-  //       return res.json(data)
+  //     }else{
+  //       return res.json(bike);
   //     }
   //   })
   // },
 
-  // getRecentOrders:(req,res)=>{
-  //   Order.find({}).populate('_user','name').populate('_product','name').sort('-createdAt').limit(3).exec((err,orders)=>{
+
+  // CART ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // METHODS \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
+  getCart: (req, res) => {
+    if (!req.session.cart) {
+      req.session.cart = [];
+    }
+    return res.json(req.session.cart);
+  },
+  addItem: (req, res) => {
+    if (req.params.type == 'apparel') {
+      Apparel.find({
+        _id: req.body.id
+      }, (err, apparel) => {
+        if (err) {} else {
+          if (req.session.cart.length > 0) {
+            for (var i = 0; i < req.session.cart.length; i++) {
+              if (req.session.cart[i]._id == req.body.id) {
+                req.session.cart[i].quantity++;
+                req.session.save();
+                var added = true;
+                return res.json({
+                  success: true
+                });
+              }
+            }
+            if (!added) {
+              apparel[0].quantity = 1;
+              req.session.cart.push(apparel[0]);
+              req.session.save();
+              return res.json({
+                success: true
+              });
+            }
+          } else {
+            apparel[0].quantity = 1;
+            req.session.cart.push(apparel[0]);
+            req.session.save();
+            return res.json({
+              success: true
+            });
+          }
+        }
+      })
+    } else if (req.params.type == 'bike') {
+      Bike.find({
+        _id: req.body.id
+      }, (err, bike) => {
+        if (err) {} else {
+          if (req.session.cart.length > 0) {
+            for (var i = 0; i < req.session.cart.length; i++) {
+              if (req.session.cart[i]._id == req.body.id) {
+                req.session.cart[i].quantity++;
+                req.session.save();
+                var added = true;
+                return res.json({
+                  success: true
+                });
+              }
+            }
+            if (!added) {
+              bike[0].quantity = 1;
+              req.session.cart.push(bike[0]);
+              req.session.save();
+              return res.json({
+                success: true
+              });
+            }
+          } else {
+            bike[0].quantity = 1;
+            req.session.cart.push(bike[0]);
+            req.session.save();
+            return res.json({
+              success: true
+            });
+          }
+        }
+      })
+    }
+  },
+  removeItem: (req, res) => {
+    for (var i = 0; i < req.session.cart.length; i++) {
+      if (req.session.cart[i]._id == req.params.id) {
+        req.session.cart.splice(i, 1);
+      }
+    }
+    req.session.save();
+    return res.json(req.session.cart);
+  },
+
+  plusItem:(req, res) => {
+    for(var i = 0; i< req.session.cart.length; i++){
+      if(req.session.cart[i]._id == req.params.id){
+        req.session.cart[i].quantity++;
+      }
+    }
+    req.session.save();
+    return res.json(req.session.cart)
+  },
+
+  minusItem:(req,res) => {
+    for(var i = 0; i<req.session.cart.length; i++){
+      if(req.session.cart[i]._id == req.params.id){
+        req.session.cart[i].quantity--;
+      }
+    }
+    req.session.save();
+    return res.json(req.session.cart)
+  },
+
+  getEachCost:(req,res) =>{
+    for(var i = 0; i<req.session.cart.length; i++){
+      if(req.session.cart[i]._id == req.params.id){
+        return res.json(item);
+      }
+      else{
+        console.log("error at controller.js getEachCost");
+      }
+    }
+  },
+
+  clearCart: (req, res) => {
+    req.session.cart = [];
+    req.session.save();
+    return res.json(req.session.cart);
+  },
+  addApparelImg: (req, res) => {
+    apparelUpload(req, res, function (err) {
+      if (err) {
+        res.json({
+          error_code: 1,
+          err_desc: err
+        });
+        return;
+      }
+      res.json(req.file.filename);
+    });
+  },
+  addApparel: (req, res) => {
+    let newApparel = new Apparel(req.body);
+    newApparel.image = req.body.path;
+    console.log(req.body);
+    newApparel.save((err, savedAppar) => {
+      if (err) {
+        console.log("Error saving apparel");
+      } else {
+        res.json(savedAppar);
+      }
+    })
+  },
+  getAllApparel: (req, res) => {
+    Apparel.find({}, (err, apparels) => {
+      if (err) {
+        return res.sendStatus(500);
+      } else {
+        return res.json(apparels);
+      }
+    })
+  },
+  getApparel: (req, res) => {
+    Apparel.findOne({
+      _id: req.params.id
+    }, (err, current_apparel) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        return res.json(current_apparel);
+      }
+    })
+  },
+  // get3Apparel: (req, res) => {
+  //   Apparel.find({}).limit(3).exec((err, apparel) => {
   //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(orders)
+  //     }else{
+  //       return res.json(apparel);
   //     }
   //   })
   // },
-
-  // getrecentUsers:(req,res)=>{
-  //   User.find({}).sort('-createdAt').limit(3).exec((err,users)=>{
-  //     if(err){
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(users);
-  //     }
-  //   })
-  // },
-
-} 
+}
