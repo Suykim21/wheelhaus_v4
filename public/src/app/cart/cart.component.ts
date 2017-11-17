@@ -13,8 +13,8 @@ export class CartComponent implements OnInit {
   handler: any;
   amount: number;
 
-  private shoppingCart: any;
-  
+  public shoppingCart: any;
+
   constructor(
     private _cartService: CartService,
     private _router: Router
@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
   getCart(){
     this._cartService.getCart()
     .then(cart_items => {
+      console.log(cart_items);
       if(cart_items.length == 0){
         cart_items["totalcost"] = 0;
       }else{
@@ -47,6 +48,7 @@ export class CartComponent implements OnInit {
         cart_items["totalcost"] = total_price;
       }
       this.shoppingCart = cart_items;
+      // console.log(this.shoppingCart);
     })
     .catch()
   }
@@ -78,14 +80,14 @@ export class CartComponent implements OnInit {
   }
 
   plusItem(item){
-    this._cartService.minusItem(item)
-    .then(()=>{this.getCart(); this.updateCartCount();})
+    this._cartService.plusItem(item)
+    .then(()=>{this.getCart(); this.updateCartCount(); console.log(this.shoppingCart)})
     .catch()
   }
 
   minusItem(item){
     this._cartService.minusItem(item)
-    .then(()=>{this.getCart(); this.updateCartCount();})
+    .then(()=>{this.getCart(); this.updateCartCount(); console.log(this.shoppingCart)})
     .catch()
   }
 

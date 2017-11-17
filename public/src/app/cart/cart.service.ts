@@ -36,13 +36,13 @@ export class CartService {
   }
 
   plusItem(item){
-    return this._http.get("/api/plusItem" + item)
+    return this._http.get("/api/plusItem/" + item)
     .map(data => data.json() )
     .toPromise()
   }
 
   minusItem(item){
-    return this._http.get("/api/minusItem" + item)
+    return this._http.get("/api/minusItem/" + item)
     .map(data => data.json())
     .toPromise()
   }
