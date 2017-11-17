@@ -14,13 +14,12 @@ var sessionInfomation = {
   maxAge: 36000000
   }
 }
+
 app.use(session(sessionInfomation));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public', "dist")));
 app.use(express.static(path.join(__dirname, 'public', "src", "assets", "apparel_images")));
-app.use(express.static(path.join(__dirname, 'public', "src", 'assets', 'accessories_images')));
-app.use(express.static(path.join(__dirname, 'public', "src", 'assets', 'events_images')));
 app.use(express.static(path.join(__dirname, 'public', "src", 'assets', 'bikes_images')));
 require('./server/config/mongoose.js');
 

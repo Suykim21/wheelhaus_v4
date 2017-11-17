@@ -48,15 +48,15 @@ export class NavbarComponent implements OnDestroy {
 	  });
   }
 
-  openSideMenu() {
-    document.getElementById('side-menu').style.width = '250px';
-    document.getElementById('icon-one').style.opacity = '0';
-  }
+  // openSideMenu() {
+  //   document.getElementById('side-menu').style.width = '250px';
+  //   document.getElementById('icon-one').style.opacity = '0';
+  // }
 
-  closeSideMenu() {
-    document.getElementById('side-menu').style.width = '0';
-    document.getElementById('icon-one').style.opacity = '1';
-  }
+  // closeSideMenu() {
+  //   document.getElementById('side-menu').style.width = '0';
+  //   document.getElementById('icon-one').style.opacity = '1';
+  // }
 
   @HostListener('window:popstate')
     onPopstate(){

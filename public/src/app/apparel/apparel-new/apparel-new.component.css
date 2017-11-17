@@ -1,4 +1,4 @@
-@media only screen and (min-width: 481px) {
+/* @media only screen and (min-width: 481px) {
 
 
   .container {
@@ -48,13 +48,13 @@
     color: white;
     position: fixed;
     padding-top: 50vh;
-  }
+  } */
 
   /* ------------------------------------------ */
   /* Section - Featured Items */
   /* ------------------------------------------ */
 
-  .wrapper {
+  /* .wrapper {
     padding: 1%;
     background: #1B1D1E;
     border-color: #1B1D1E;
@@ -67,8 +67,6 @@
     height: 95%;
     margin: auto;
     text-align: justify;
-    /* color: white; */
-    /* padding-top: 5%; */
     color: black;
     padding: 5%;
   }
@@ -104,4 +102,4 @@
     text-align: center;
     margin: 0;
   }
-}
+} */

@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all ease-in-out 250ms;
+    font-family: 'Alegreya Sans';
+    /* background-color: #e9ece5 */
+}
+
+
+/* ----- BUTTONS ----- */
+
+.btn:link,
+.btn:visited {
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #00ffff;
+    background: #00ffff;
+    color: white;
+}
+
+.landing_cover {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('../../assets/landing/bike_landcover.png');
+    height: 100vh;
+    width: 100vw;
+    background-attachment:fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    font-size: 25px;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+}
+
+.content p {
+    font-size: 16px;
+}
+
+.content h2 {
+    color: #00ffff;
+}
+
+.content h1 {
+    margin-bottom: .5em;
+    font-size: 6vw;
+}
+
+hr {
+    margin: 10px auto;
+    width: 40%;
+}
+
+.btn {
+    font-size: 15px;
+}
+
+
+/* ------------------------- */
+/*      Content One           */
+/* --------------------------*/
+
+.grid>* {
+    padding: 30px;
+}
+
+.grid {
+    display: grid;
+    margin: 0 auto;
+    /* same as 1fr 1fr 1fr 1fr */
+    grid-template-columns: repeat(4, 1fr);
+    /* minimum row height is 100px, and resize depending on content inside the grid - auto */
+    grid-auto-rows: minmax(200px, auto);
+}
+
+.content_main {
+    background: #5634D1;
+    color: white;
+    line-height: 1em;
+    text-align: left;
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+.content_main h2,
+#content_essential h2 {
+    text-transform: uppercase;
+    margin: 1em 0;
+    letter-spacing: .3em;
+    font-size: 1.4em;
+}
+
+.content_main p,
+#content_essential p {
+    margin: 3em 0;
+    font-weight: lighter;
+    font-size: 0.9em;
+}
+
+#content_essential p{
+    margin: 2em 0;
+}
+
+.content_main a,
+#content_essential a,
+#end_text a {
+    padding: .5em 1em;
+    border: 1px solid #00ffff;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: .2em;
+}
+
+.content_main a:hover,
+#content_essential a:hover,
+#end_text a:hover {
+    background: #00ffff;
+}
+
+.content_pic1 {
+    background: url('../../assets/landing/main_one.png');
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+.content_pic2 {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    background: url('../../assets/landing/main_two.png');
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+.content_ad {
+    grid-row: 1/3;
+    height: 400px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+}
+
+.content_ad img {
+    width: 80%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#ad_text {
+    margin-top: 16em;
+}
+
+#ad_text h3 {
+    letter-spacing: .3em;
+    font-weight: 300;
+    margin-bottom: .2em;
+}
+
+#ad_text p {
+    font-weight: lighter;
+    color: #00ffff;
+    font-size: .8em;
+    margin-bottom: 2em;
+}
+
+#ad_text a {
+    border: 1px solid #00ffff;
+    padding: 0.3em .64em;
+    font-size: 83%;
+    color: black;
+}
+
+#ad_text a:hover {
+    background: #00ffff;
+    color: white;
+}
+
+/* -- Content Two --  */
+
+.content_pic3 {
+    grid-column: 1/3;
+    background:url('../../assets/landing/essential_seven.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.content_pic5 {
+    grid-column: 3/5;
+    grid-row: 1/3;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('../../assets/landing/essential_five.png');
+    /* make sure height and width are same to ensure consistency */
+    background-position: center;
+    background-size: cover;
+    position:relative;
+}
+
+.content_pic5 img{
+    height: 100px;
+    width:auto;
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+.content_pic5 h2{
+    letter-spacing: .3em;
+    margin-top: 8em;
+    color: #fff;
+    font-weight:lighter;
+    text-align:center;
+}
+
+.content_pic6 {
+    grid-column: 1/2;
+    grid-row: 2/4;
+}
+
+.content_pic4 {
+    grid-column: 2/3;
+    grid-row: 2/4;
+    background:url('../../assets/landing/essential_three.png');
+    background-position: center;
+    background-size:cover;
+}
+
+#content_essential {
+    grid-column: 3/5;
+    background: #5634D1;
+    color: white;
+    line-height: 1em;
+    text-align: left;
+}
+
+
+/* Content Ending */
+#content_end{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../../assets/landing/land-back.png");
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+    height: 50vh;
+}
+
+#end_text{
+    position:relative;
+    top:50%;
+    transform: translate(0, -50%);
+    text-align:center;
+    color:white;
+    text-transform: uppercase;
+}
+
+#end_text img{
+    width:60px;
+}
+
+#end_text p{
+    font-weight:lighter;
+    font-size:1em;
+}
+
+#end_text h2{
+    font-size:2em;
+    margin: .5em 0 1em 0;
+    letter-spacing: .2em;
+}
+
+
+/* Small phones to small tablets: from 481px to 767px */
+
+@media only screen and (max-width:414px) {
+    .landing_cover {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/landing/bike_landing2.png');
+        height: 100vh;
+        width: 100vw;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #content_end{
+        background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../../assets/landing/mobile-land.png");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        height: 70vh;
+    }
+
+    #end_text h2{
+        font-size:1.6em;
+        letter-spacing:.1em;
+        margin-bottom:3em;
+    }
+    .content {
+        top: 35%;
+        transform: translate(-50%, -15%);
+    }
+    .content h1 {
+        font-size: 25px;
+        margin-bottom: 2.5em;
+    }
+
+    .content_pic5 h2{
+        margin-top:9em;
+        font-size:1.4em;
+    }
+}
+
+@media(max-width:600px) {
+    /* -- Main Content -- */
+    .grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .content_main,
+    .content_pic5 {
+        grid-column: 1/3;
+        grid-row: 1/3;
+    }
+
+    .content_pic1,
+    .content_pic2 {
+        grid-row: 3/4
+    }
+    .content_pic1 {
+        grid-column: 1/2;
+    }
+    .content_pic2 {
+        grid-column: 2/3;
+    }
+    .content_ad {
+        grid-row: 4/6;
+        grid-column: 1/3;
+        margin: 2em 0;
+    }
+
+    #content_essential{
+        grid-row: 3/4;
+        grid-column:1/3;
+    }
+
+    .content_pic3{
+        grid-row: 4/5;
+        grid-column: 1/2;
+    }
+
+    .content_pic4{
+        grid-row:4/5;
+        grid-column:2/3;
+    }
+
+    .content_pic6{
+        grid-row:5/7;
+        grid-column:1/3;
+    }
+
+    #ad_text{
+        margin-top:17em;
+    }
+}
+
+@media(max-width:375px){
+    .btn{
+        font-size:13px;
+    }
+}

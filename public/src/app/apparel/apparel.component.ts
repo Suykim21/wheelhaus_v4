@@ -6,9 +6,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
 @Component({
   selector: 'app-apparel',
   templateUrl: './apparel.component.html',
-  styleUrls: ['./apparel.component.mobile.css',
-              './apparel.component.tablet.css',
-              './apparel.component.desktop.css']
+  styleUrls: ['./apparel.component.css']
 })
 export class ApparelComponent implements OnInit {
   public _router: Router;
@@ -43,30 +41,5 @@ export class ApparelComponent implements OnInit {
 
   updateCartCount(){
     this._cartService.updateCartCount("Updating Cart Count");
-  }
-
-// FILTERS
-  getExpensive(){
-    this._apparelService.getExpensiveApparel()
-    .then(all_apparel => {this.apparels = all_apparel; console.log(all_apparel);})
-    .catch()
-  }
-
-  getCheapest(){
-    this._apparelService.getCheapestApparel()
-    .then(all_apparel => this.apparels = all_apparel)
-    .catch()
-  }
-
-  mostPopular(){
-    this._apparelService.getPopular()
-    .then(all_apparel => this.apparels = all_apparel)
-    .catch()
-  }
-
-  getLimited(){
-    this._apparelService.getLimited()
-    .then(all_apparel => this.apparel = all_apparel)
-    .catch()
   }
 }

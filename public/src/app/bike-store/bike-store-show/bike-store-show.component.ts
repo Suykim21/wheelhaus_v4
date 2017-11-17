@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-bike-store-show',
   templateUrl: './bike-store-show.component.html',
-  styleUrls: [
-    './bike-store-show.component.desktop.css',
-    './bike-store-show.component.mobile.css',
-    './bike-store-show.component.tablet.css',
-  ]
+  styleUrls: ['./bike-store-show.component.css']
 })
 export class BikeStoreShowComponent implements OnInit {
   bike_id: String;
@@ -26,17 +22,17 @@ export class BikeStoreShowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._route.params.subscribe((param) => {
-      this.bike_id = param.id;
-    })
-    this.showBike(this.bike_id);
+    // this._route.params.subscribe((param) => {
+    //   this.bike_id = param.id;
+    // })
+    // this.showBike(this.bike_id);
   }
 
-  showBike(id){
-    this._bikeService.showBike(id)
-    .then(current_bike => this.bike = current_bike)
-    .catch()
-  }
+  // showBike(id){
+  //   this._bikeService.showBike(id)
+  //   .then(current_bike => this.bike = current_bike)
+  //   .catch()
+  // }
 
 // CART FUNCTIONALITY
   addItem(id, type){

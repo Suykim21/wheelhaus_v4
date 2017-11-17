@@ -1,75 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeStoreService } from './bike-store.service';
 import { CartService } from './../cart/cart.service';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bike-store',
   templateUrl: './bike-store.component.html',
-  styleUrls: ['./bike-store.component.mobile.css',
-              './bike-store.component.tablet.css',
-              './bike-store.component.desktop.css']
+  styleUrls: ['./bike-store.component.css']
 })
 export class BikeStoreComponent implements OnInit {
-  public all_bikes:Array<any>;
+  apparel_id: String;
+  apparel = {};
+  bike_id: String;
+  bike = {};
+  
+  message: String = 'Added item to cart';
+  showMessage: Boolean = false;
+
   public _router: Router;
+  public all_bikes: Array<any>;
   public item_type: String = 'bike';
+  public apparels: Array<any>;
+  public item_type2: String = 'apparel';
 
   constructor(
+    private _route: ActivatedRoute,
     public _bikeService: BikeStoreService,
     public _cartService: CartService
   ) { }
 
   ngOnInit() {
     this.getAllBikes();
+    this.getAllApparel();
+
   }
 
   // For for-looping bike in DB on accessory page
 
-    getAllBikes(){
-      this._bikeService.getAllBikes()
-      .then(bikes => { this.all_bikes = bikes;
+  getAllBikes() {
+    this._bikeService.getAllBikes()
+      .then(bikes => {
+      this.all_bikes = bikes;
       })
       .catch()
-    }
+  }
+
+  getAllApparel() {
+    this._bikeService.getAllApparel()
+      .then(apparel => { this.apparels = apparel; })
+      .catch()
+  }
 
   // CART FUNCTIONALITY
 
-    addItem(id, type){
-      this._cartService.addItem(id, this.item_type)
+  addItem(id, type) {
+    this._cartService.addItem(id, this.item_type)
       .then((success) => {
         this.updateCartCount();
-    })
+        this.showMessage = true;
+        setTimeout(() => this.showMessage = false, 4000);
+      })
       .catch()
-    }
+  }
 
-    updateCartCount(){
-      this._cartService.updateCartCount("Updating Cart Count");
-    }
-
-  // FILTERS
-
-    getExpensive(){
-      this._bikeService.getExpensiveBikes()
-      .then(bike => this.all_bikes = bike)
+  addItem2(id, type) {
+    this._cartService.addItem(id, this.item_type2)
+      .then((success) => {
+        this.updateCartCount();
+        this.showMessage = true;
+        setTimeout(() => this.showMessage = false, 4000);
+      })
       .catch()
-    }
+  }
 
-    getCheapest(){
-      this._bikeService.getCheapestBikes()
-      .then(bike => this.all_bikes = bike)
-      .catch()
-    }
-
-    mostPopular(){
-      this._bikeService.getPopular()
-      .then(bike => this.all_bikes = bike)
-      .catch()
-    }
-
-    getLimited(){
-      this._bikeService.getLimited()
-      .then(bike => this.all_bikes = bike)
-      .catch()
-    }
+  updateCartCount() {
+    this._cartService.updateCartCount("Updating Cart Count");
+  }
 }

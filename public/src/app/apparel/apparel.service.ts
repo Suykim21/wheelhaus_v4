@@ -19,45 +19,9 @@ export class ApparelService {
     .map(data => data.json()).toPromise();
   }
 
-  get3Apparel(){
-    return this._http.get('/api/get3Apparel')
-    .map(data => data.json())
-    .toPromise()
-  }
-
   showApparel(id){
     return this._http.get('/api/apparel/show/' + id)
     .map( (current_apparel: Response) => current_apparel.json())
-    .toPromise()
-  }
-
-  get3Apparels(){
-    return this._http.get('/api/get3Apparels')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getExpensiveApparel(){
-    return this._http.get('/api/getExpensiveApparel')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getCheapestApparel(){
-    return this._http.get('/api/getCheapestApparel')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getPopular(){
-    return this._http.get('/api/getPopularApparel')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getLimited(){
-    return this._http.get('/api/getLimitedApparel')
-    .map(data => data.json())
     .toPromise()
   }
 

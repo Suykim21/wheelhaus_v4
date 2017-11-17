@@ -11,19 +11,19 @@ declare var $:any;
 })
 export class AppComponent{
 
-  ToggleMenu(){
-    $(".close_menu").click(function () {
-      $(".sidebar_menu").addClass("hide_menu");
-      $(".toggle_menu").addClass("opacity_one");
-      $(".title").addClass("opacity_one");
-    });
-  }
+  // ToggleMenu(){
+  //   $(".close_menu").click(function () {
+  //     $(".sidebar_menu").addClass("hide_menu");
+  //     $(".toggle_menu").addClass("opacity_one");
+  //     $(".title").addClass("opacity_one");
+  //   });
+  // }
 
-  openMenu(){
-    $(".toggle_menu").click(function () {
-      $(".sidebar_menu").removeClass("hide_menu");
-      $(".toggle_menu").removeClass("opacity_one");
-      $(".title").removeClass("opacity_one")
-    });
-  }
+  // openMenu(){
+  //   $(".toggle_menu").click(function () {
+  //     $(".sidebar_menu").removeClass("hide_menu");
+  //     $(".toggle_menu").removeClass("opacity_one");
+  //     $(".title").removeClass("opacity_one")
+  //   });
+  // }
 }

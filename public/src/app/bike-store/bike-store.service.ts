@@ -23,46 +23,38 @@ export class BikeStoreService {
     .toPromise();
   }
 
-  showBike(id){
-    return this._http.get('/api/bikes/show/' + id)
-    .map( (current_bike: Response) => current_bike.json())
-    .toPromise() 
-  }
+  // addInfo(data){
 
-  get3Bikes(){
-    return this._http.get('/api/get3Bikes')
-    .map(data => data.json())
-    .toPromise()
-  }
+  // }
 
-  getExpensiveBikes(){
-    return this._http.get('/api/getExpensiveBikes')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getCheapestBikes(){
-    return this._http.get('/api/getCheapestBikes')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getPopular(){
-    return this._http.get('/api/getPopularBikes')
-    .map(data => data.json())
-    .toPromise()
-  }
-
-  getLimited(){
-    return this._http.get('/api/getLimitedBikes')
-    .map(data => data.json())
-    .toPromise()
-  }
-
+  // showBike(id){
+  //   return this._http.get('/api/bikes/show/' + id)
+  //   .map( (current_bike: Response) => current_bike.json())
+  //   .toPromise() 
+  // }
+  
   getCart(){
     return this._http.get('/api/getCart')
     .map(data => data.json())
     .toPromise()
   }
+
+  addApparel(apparel, path){
+    path = path.substr(1).slice(0, -1);
+    apparel["path"] = path;
+    return this._http.post('/api/addapparel', apparel)
+    .map( (questions: Response) => questions.json()).toPromise()
+  }
+
+  getAllApparel(){
+    return this._http.get('/api/allapparel')
+    .map(data => data.json()).toPromise();
+  }
+
+  // showApparel(id){
+  //   return this._http.get('/api/apparel/show/' + id)
+  //   .map( (current_apparel: Response) => current_apparel.json())
+  //   .toPromise()
+  // }
 
 }

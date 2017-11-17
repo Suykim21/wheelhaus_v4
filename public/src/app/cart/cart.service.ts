@@ -35,6 +35,24 @@ export class CartService {
     .toPromise()
   }
 
+  plusItem(item){
+    return this._http.get("/api/plusItem" + item)
+    .map(data => data.json() )
+    .toPromise()
+  }
+
+  minusItem(item){
+    return this._http.get("/api/minusItem" + item)
+    .map(data => data.json())
+    .toPromise()
+  }
+
+  getEachCost(item){
+    return this._http.get("/api/getEachCost" + item)
+    .map(data=> data.json())
+    .toPromise()
+  }
+
   clearCart(){
     return this._http.get("/api/clearCart")
     .map(data => data.json() )

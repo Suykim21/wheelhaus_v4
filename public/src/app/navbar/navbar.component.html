@@ -1,60 +1,33 @@
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<header>
+<!-- Mobile Bar & Menu Icon -->
+<input type="checkbox" class="menu-toggle" id="menu-toggle">
+<div class="mobile-bar">
+  <img src="../../assets/landing/wheelhaus_logo.png" alt="logo" class="logo">
+  <label for="menu-toggle" class="menu-icon">
+    <span></span>
+  </label>
+</div>
 
-  <i id="icon-one" class="ion-navicon toggle_menu" (click)="openSideMenu()"></i>
-
-  <div id="side-menu" class="sidebar_menu">
-    <i class="ion-close-round close_menu" (click)="closeSideMenu()"></i>
-    <div class="center">
-      <!-- <img src="../../assets/logos/WHL-white.png"> -->
-      <h1 class="boxed_logo">wheelhaus</h1>
-      <h2 class="logo_tagline">cycle your way</h2>
-    </div>
-
-    <ul class="nav_selection">
-      <li class="nav_item"><a routerLink="/">Home</a></li>
-      <li class="nav_item"><a routerLink="/bikes">Bikes</a></li>
-      <li class="nav_item"><a routerLink="/accessories">Accessories</a></li>
-      <li class="nav_item"><a routerLink="/apparel">Apparel</a></li>
-      <li class="nav_item"><a routerLink="/events">Events</a></li>
-      <li class="nav_item"><a routerLink="/about">About us</a></li>
-      <li class="nav_item"><a class="icon ion-ios-cart" routerLink="/cart"> {{ cart }}</a></li>
+<!-- Header -->
+<header class="header">
+  <img src="../../assets/landing/wheelhaus_logo.png" alt="logo" class="logo">
+  <nav>
+    <ul>
+      <li id="title">
+        <h1 class="boxed_logo">wheelhaus</h1>
+        <h2 class="logo_tagline">cycle your way</h2>
+      </li>
+      <li>
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a routerLink="/about">About</a>
+      </li>
+      <li>
+        <a routerLink="/bikes">Products</a>
+      </li>
+      <li>
+        <a class="icon ion-ios-cart" routerLink="/cart">{{ cart }}</a>
+      </li>
     </ul>
-  </div>
-
-   <div class="main_nav">
-
-
-    <nav>
-      <ul class="main_nav_selection">
-        <img src="../../assets/logos/WHL-white.png" class="logo">
-        <li><a routerLink="/" class="nav-home" >Home</a></li>
-        <li><a routerLink="/bikes">Bikes</a></li>
-        <li><a routerLink="/accessories">Accessories</a></li>
-        <li><a routerLink="/apparel">Apparel</a></li>
-        <li><a routerLink="/events">Events</a></li>
-        <li><a routerLink="/about">About Us</a></li>
-        <li><a class="icon ion-ios-cart" routerLink="/cart"> {{ cart }}</a></li>
-      </ul>
-    </nav>
-
-  </div>
-
-  <!-- <nav> -->
-  <!-- <i class="icon ion-navicon" (click)="openSideMenu()"></i> -->
-  <!-- <i class="icon ion-ios-cart" (click)="handlePayment()"></i> -->
-  <!-- <a class="icon ion-ios-cart" routerLink="/cart">{{ cart }}</a> -->
-  <!-- <i class="icon ion-ios-cart"><a routerLink="/bikes"></a></i> -->
-
-  <!-- </nav> -->
-  <!-- 
-  <div id="side-menu" class="side-nav">
-    <a class="btn-close" (click)="closeSideMenu()">&times;</a>
-    <a routerLink="/bikes" (click)="closeSideMenu()">Bikes</a>
-    <a routerLink="/accessories" (click)="closeSideMenu()">Accessories</a>
-    <a routerLink="/apparel" (click)="closeSideMenu()">Apparel</a>
-    <a routerLink="/events" (click)="closeSideMenu()">Events</a>
-    <a routerLink="/about" (click)="closeSideMenu()">About Us</a>
-  </div> -->
-
+  </nav>
 </header>

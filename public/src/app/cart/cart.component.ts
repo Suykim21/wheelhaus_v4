@@ -6,9 +6,7 @@ import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.mobile.css',
-              './cart.component.tablet.css',
-              './cart.component.desktop.css']
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
 
@@ -16,7 +14,7 @@ export class CartComponent implements OnInit {
   amount: number;
 
   private shoppingCart: any;
-
+  
   constructor(
     private _cartService: CartService,
     private _router: Router
@@ -24,6 +22,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.getCart();
+    // this.getEachCost(item);
     this.handler = StripeCheckout.configure({
 		  key: environment.stripeKey,
 		  image: "https://stripe.com/img/documentation/checkout/marketplace.png",
@@ -52,9 +51,39 @@ export class CartComponent implements OnInit {
     .catch()
   }
 
+  // getEachCost(item){
+  //   this._cartService.getEachCost(item)
+  //   .then(each_item => {
+  //     if(each_item.length == 1){
+  //       each_item["eachcost"] = item.price;
+  //     }
+  //     else{
+  //       var each_price = item.price;
+  //       for(var i=0; i<each_item.length; i++){
+  //         each_price += each_item[i].price*each_item[i].quantity;
+  //       }
+  //       this.individual_amt = each_price;
+  //       each_item["eachcost"] = each_price;
+  //     }
+  //     this.individualCart = each_item;
+  //   })
+  //   .catch()
+
+  // }
+
   removeItem(item){
     this._cartService.removeItem(item)
     .then(()=> {this.getCart(); this.updateCartCount();})
+    .catch()
+  }
+
+  // plusItem(number){
+  //   this.quantity = quantity.number;
+  // }
+
+  minusItem(item){
+    this._cartService.minusItem(item)
+    .then(()=>{this.getCart(); this.updateCartCount();})
     .catch()
   }
 
@@ -72,7 +101,7 @@ export class CartComponent implements OnInit {
 	  this.handler.open({
 		  name: "Wheelhaus",
 		  description: "Deposit Funds to Account",
-		  amount: this.amount
+		  amount: this.amount*100
 	  });
   }
 
