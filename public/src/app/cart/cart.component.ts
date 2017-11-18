@@ -36,16 +36,22 @@ export class CartComponent implements OnInit {
   getCart(){
     this._cartService.getCart()
     .then(cart_items => {
-      console.log(cart_items);
+      // console.log(cart_items);
       if(cart_items.length == 0){
         cart_items["totalcost"] = 0;
+        cart_items["totalqty"] = 0;
+        // console.log()
       }else{
         var total_price = 0;
+        var total_qty = 0
         for(var i = 0; i < cart_items.length; i++){
           total_price += cart_items[i].price*cart_items[i].quantity;
+          // this will add all qty of items so that you can use it as a total in the front
+          total_qty += cart_items[i].quantity;
         }
         this.amount = total_price;
         cart_items["totalcost"] = total_price;
+        cart_items["totalqty"] = total_qty;
       }
       this.shoppingCart = cart_items;
       // console.log(this.shoppingCart);

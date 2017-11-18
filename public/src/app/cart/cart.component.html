@@ -48,7 +48,8 @@
       </div>
       <div class="checkout">
         <div class="checkout_text">
-          <p>Total Item(s): {{shoppingCart.length}}</p>
+          <!-- <p>Total Item(s): {{shoppingCart.length}}</p> -->
+          <p>Total Item(s): {{shoppingCart.totalqty}}</p>
           <p>Total Amount: ${{ shoppingCart.totalcost | number : '1.2-2' }}</p>
           <button id="clear_cart" (click)="clearCart()">clear cart</button>
           <button (click)='handlePayment()' class="checkout_btn">checkout</button>
