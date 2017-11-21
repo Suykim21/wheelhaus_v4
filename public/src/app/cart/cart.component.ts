@@ -59,26 +59,6 @@ export class CartComponent implements OnInit {
     .catch()
   }
 
-  // getEachCost(item){
-  //   this._cartService.getEachCost(item)
-  //   .then(each_item => {
-  //     if(each_item.length == 1){
-  //       each_item["eachcost"] = item.price;
-  //     }
-  //     else{
-  //       var each_price = item.price;
-  //       for(var i=0; i<each_item.length; i++){
-  //         each_price += each_item[i].price*each_item[i].quantity;
-  //       }
-  //       this.individual_amt = each_price;
-  //       each_item["eachcost"] = each_price;
-  //     }
-  //     this.individualCart = each_item;
-  //   })
-  //   .catch()
-
-  // }
-
   removeItem(item){
     this._cartService.removeItem(item)
     .then(()=> {this.getCart(); this.updateCartCount();})

@@ -22,7 +22,7 @@
       </div>
 
 
-      <!-- WORKING ON THIS! -->
+     
       <div class="quantity">
         <button id="minus-btn" type="button" name="button" (click)='minusItem(item._id)'>
           <i class="ion-ios-minus-outline"></i>
@@ -32,10 +32,10 @@
           <i class="ion-ios-plus-outline"></i>
         </button>
       </div>
-      <!-- WORKING ON THIS! -->
+     
 
       <div class="total-price">
-        <p>${{ item.price | number : '1.2-2' }}</p>
+        <p>${{ item.price * item.quantity | number : '1.2-2' }}</p>
       </div>
     </div>
     <div class="grid2">
