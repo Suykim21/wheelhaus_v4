@@ -14,11 +14,6 @@ Home |  About | Products | Shopping Cart | Empty Cart|
 :-----:|:-------:|:---------:|:--------------:|:------------:
 <img src="https://user-images.githubusercontent.com/25072657/33100328-d1155d36-cec8-11e7-818d-ab218aa6f2c9.png" width="150"> | <img src="https://user-images.githubusercontent.com/25072657/33100358-f32525fa-cec8-11e7-9b29-7851fae19d50.png" width="150"> |<img src="https://user-images.githubusercontent.com/25072657/33100424-2427388c-cec9-11e7-9160-3ae30bd15cdd.png" width="150">|<img src="https://user-images.githubusercontent.com/25072657/33100448-45d5b738-cec9-11e7-9307-fbb6acf05a87.png" width="150"> | <img src="https://user-images.githubusercontent.com/25072657/33100502-785db606-cec9-11e7-8d9b-d10434af4c4f.png" width="150"> 
 
-
-## Tech Used
-MongoDB, Express.js, Node.js, Angular, AWS (Deployment), Stripe Payment System, Custom Css, Google Api integration, File-Uploads Feature, Github, Responsive Mobile/Tablet/Desktop Design
-
-
 ## Prerequisites/Installing
 
 ### NodeJS/ExpressJS Installation
