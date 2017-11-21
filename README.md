@@ -123,4 +123,4 @@ Once all are activated, go to localhost:6789.
 </br>
 [Kevin Ma](https://github.com/KMA91)
 </br>
-//Please feel free to leave feedback. We are open to constructive criticsm!
+//Please feel free to leave feedback. We are open to constructive criticism!
