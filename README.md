@@ -105,7 +105,7 @@ Once all are activated, go to localhost:6789.
 
 ## Live Demo
 
-* [Live Demo](http://54.146.235.215/) - Deployed through [AWS](https://aws.amazon.com/)
+* [Live Demo](http://54.237.165.244/) - Deployed through [AWS](https://aws.amazon.com/)
 
 
 ## Additional Information
