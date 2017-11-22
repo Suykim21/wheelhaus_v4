@@ -27,7 +27,8 @@ Here are the following technologies you need to start MEAN project:
 
 ### Mongodb/Mongoose Installation
 
-Plese go to the following site to download the necessary files: [HERE](https://www.mongodb.com/download-center#community)
+Plese go to the following site to download the necessary files: [HERE](https://www.mongodb.com/download-center#community).
+
 **Windows**
 ```
 cd C:/     // go to the root directory('/')
