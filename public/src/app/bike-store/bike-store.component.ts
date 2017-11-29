@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeStoreService } from './bike-store.service';
 import { CartService } from './../cart/cart.service';
-import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
+import { RouterModule, Routes, Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-bike-store',
@@ -26,12 +26,20 @@ export class BikeStoreComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     public _bikeService: BikeStoreService,
-    public _cartService: CartService
+    public _cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.getAllBikes();
     this.getAllApparel();
+
+    this.router.events.subscribe((evt) => {
+      if(!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0,0)
+    });
 
   }
 

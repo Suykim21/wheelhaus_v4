@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 import{ BikeStoreService } from './../bike-store/bike-store.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -16,15 +17,22 @@ import{ BikeStoreService } from './../bike-store/bike-store.service';
     ])
   ]
 })
+
 export class AboutComponent implements OnInit {
   showMessage: Boolean = false;
   message: String ="Successfully Sent"
   showMessage2: Boolean = false;
   error: String ="One or more information need to be filled out completely"
 
-  constructor(private _bikeStoreService: BikeStoreService) { }
+  constructor(private _bikeStoreService: BikeStoreService, private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if(!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0,0)
+    });
   }
 
   addInfo(formData){
