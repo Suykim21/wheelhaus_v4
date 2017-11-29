@@ -1,7 +1,7 @@
 import { ApparelService } from './apparel.service';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './../cart/cart.service';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-apparel',
@@ -17,11 +17,19 @@ export class ApparelComponent implements OnInit {
 
   constructor(
     public _apparelService: ApparelService,
-    public _cartService: CartService
+    public _cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.getAllApparel();
+
+    this.router.events.subscribe((evt) => {
+      if(!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0,0)
+    });
   }
 
   getAllApparel(){
