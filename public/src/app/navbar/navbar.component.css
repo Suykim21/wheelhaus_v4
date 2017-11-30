@@ -195,7 +195,7 @@ a {
     width: 70%;
     height: 100%;
     background-color: #262626;
-    overflow-y: scroll;
+    overflow-y: hidden;
     text-align: center;
     color: #eee;
     -webkit-transition: opacity 300ms ease-in, visibility 0s ease-in 300ms;

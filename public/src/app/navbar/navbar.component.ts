@@ -8,8 +8,9 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
+
 export class NavbarComponent implements OnDestroy {
 
   cart: number;
@@ -48,14 +49,14 @@ export class NavbarComponent implements OnDestroy {
 	  });
   }
 
+  // closeSideMenu(){
+  //   document.getElementById('menu-icon>span:before').style.transform = 'translateY(0.6em)';
+  //   document.getElementById('menu-icon>span:after').style.transform = 'translateY(0.6em)';
+  // }
+
   // openSideMenu() {
   //   document.getElementById('side-menu').style.width = '250px';
   //   document.getElementById('icon-one').style.opacity = '0';
-  // }
-
-  // closeSideMenu() {
-  //   document.getElementById('side-menu').style.width = '0';
-  //   document.getElementById('icon-one').style.opacity = '1';
   // }
 
   @HostListener('window:popstate')
