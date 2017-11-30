@@ -1,6 +1,7 @@
 import { Component, OnInit, Directive, Renderer, HostListener, HostBinding, ElementRef, NgModule, Input, Output, EventEmitter } from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserModule} from '@angular/platform-browser';
+import { Router, NavigationEnd } from '@angular/router';
 // import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -25,10 +26,16 @@ import {BrowserModule} from '@angular/platform-browser';
 export class LandComponent implements OnInit {
 
   constructor(
-
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if(!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0,0)
+    });
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event){

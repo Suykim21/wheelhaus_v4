@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+
 @Injectable()
 export class CartService {
 
@@ -10,7 +11,7 @@ export class CartService {
   currentMessage = this.message.asObservable();
 
   constructor(
-    private _http: Http
+    private _http: Http,
   ) { }
 
   updateCartCount(message: string){

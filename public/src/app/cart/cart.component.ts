@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -30,7 +30,13 @@ export class CartComponent implements OnInit {
       token: token => {
         // this.paymentSvc.processPayment(token, this.amount)
       }
-	  });
+    });
+    this._router.events.subscribe((evt) => {
+      if(!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0,0)
+    });
   }
 
   getCart(){
