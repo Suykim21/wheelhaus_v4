@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this);
     this.getCart();
     // this.getEachCost(item);
     this.handler = StripeCheckout.configure({
