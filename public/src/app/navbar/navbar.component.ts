@@ -27,47 +27,44 @@ export class NavbarComponent implements OnDestroy {
 
   ngOnInit() {
     this._cartService.currentMessage.subscribe(success => this.getCartLength());
-	  // this.handler = StripeCheckout.configure({
-		//   key: environment.stripeKey,
-		//   image: "https://stripe.com/img/documentation/checkout/marketplace.png",
-		//   locale: "auto",
+    // this.handler = StripeCheckout.configure({
+    //   key: environment.stripeKey,
+    //   image: "https://stripe.com/img/documentation/checkout/marketplace.png",
+    //   locale: "auto",
     //   token: token => {
     //     this.paymentSvc.processPayment(token, this.amount)
     //   }
-	  // });
+    // });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    }
-
-  handlePayment(){
-	  this.handler.open({
-		  name: "Wheelhaus",
-		  description: "Deposit Funds to Account",
-		  amount: this.amount
-	  });
   }
 
-  // closeSideMenu(){
-  //   document.getElementById('menu-icon>span:before').style.transform = 'translateY(0.6em)';
-  //   document.getElementById('menu-icon>span:after').style.transform = 'translateY(0.6em)';
-  // }
-
-  // openSideMenu() {
-  //   document.getElementById('side-menu').style.width = '250px';
-  //   document.getElementById('icon-one').style.opacity = '0';
-  // }
+  handlePayment() {
+    this.handler.open({
+      name: "Wheelhaus",
+      description: "Deposit Funds to Account",
+      amount: this.amount
+    });
+  }
 
   @HostListener('window:popstate')
-    onPopstate(){
-      this.handler.close()
-    }
+  onPopstate() {
+    this.handler.close()
+  }
 
-  getCartLength(){
+  getCartLength() {
     this._cartService.getCart()
-    .then((cart)=> this.cart = cart.length )
-    .catch()
+      .then((cart) => this.cart = cart.length)
+      .catch()
+  }
+
+  uncheckMe(){
+    (<HTMLInputElement>document.getElementById("menu-toggle")).checked = false;
+    // document.getElementById("menu-toggle").checked = false;
+   
+
   }
 
 }
